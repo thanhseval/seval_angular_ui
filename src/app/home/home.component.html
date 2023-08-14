@@ -1,0 +1,189 @@
+<div class="card">
+    <h2>MÀN HÌNH GIÁM SÁT</h2>
+    <!-- <h5>Title description, Dec 7, 2017</h5> -->
+    <div class="Controller" style="height:300px;">
+        <!-- GIAO DIEN SCADA -->
+        <div class="image_Bom1">
+            <img id="Bom1_OFF" src="assets/img/BOM_OFF1.png" alt="Hình ảnh 1">
+            <img id="Bom1_ON" src="assets/img/BOM_ON1.png" alt="Hình ảnh 2">
+            <button style="width: 40px;height: 20px; font-size:10px; position:absolute; left:0px; top: 220px;"
+                onclick="Bom_ON()"> <b>BẬT </b></button>
+            <button style="width: 40px;height: 20px;font-size:10px;  position:absolute; left:50px; top: 220px;"
+                onclick="Bom_OFF()"> <b> TẮT</b></button>
+        </div>
+
+        <div class="image_Van_buom_dien1">
+            <img id="Van_buom_dien1_OFF" src="assets/img/Van_buom_dien_OFF.png" alt="Hình ảnh 5">
+            <img id="Van_buom_dien1_ON" src="assets/img/Van_buom_dien_ON.png" alt="Hình ảnh 6">
+            <button style="width: 40px;height: 20px; font-size:10px; position:absolute; left:210px; top: 145px;"
+                onclick="Van_buom_dien_ON()"><b>BẬT </b></button>
+            <button style="width: 40px;height: 20px; font-size:10px; position:absolute; left:260px; top: 145px;"
+                onclick="Van_buom_dien_OFF()"><b> TẮT</b></button>
+        </div>
+
+        <div class="image_Ong_L_traiduoi1">
+            <img id="Ong_L_traiduoi1_OFF" src="assets/img/Ong L trai duoi_OFF.png" alt="Ong L trai duoi OFF">
+            <img id="Ong_L_traiduoi1_ON" src="assets/img/Ong L trai duoi_ON.png" alt="Ong L trai duoi ON">
+        </div>
+
+        <div class="image_Buong_nuoc">
+            <img id="BUONG_NUOC" src="assets/img/BUONG_NUOC.png" alt="Buồng nước">
+        </div>
+
+        <div class="image_Ong_thang_doc1">
+            <img id="Ong_thang_doc1_OFF" src="assets/img/Ong thang doc_OFF.png" alt="Ong L trai duoi OFF">
+            <img id="Ong_thang_doc1_ON" src="assets/img/Ong thang doc_ON.png" alt="Ong L trai duoi ON">
+        </div>
+
+        <div class="image_Ong_thang_ngang1">
+            <img id="Ong_thang_ngang1_OFF" src="assets/img/Ong thang ngang_OFF.png" alt="Hình ảnh 3">
+            <img id="Ong_thang_ngang1_ON" src="assets/img/Ong thang ngang_ON.png" alt="Hình ảnh 4">
+        </div>
+
+        <div class="image_Ong_L_phaiduoi1">
+            <img id="Ong_L_phaiduoi1_OFF" src="assets/img/Ong L phai duoi_OFF.png" alt="Ong L trai duoi OFF">
+            <img id="Ong_L_phaiduoi1_ON" src="assets/img/Ong L phai duoi_ON.png" alt="Ong L trai duoi ON">
+        </div>
+
+        <div class="image_Ong_thang_ngang2">
+            <img id="Ong_thang_ngang2_OFF" src="assets/img/Ong thang ngang_OFF.png" alt="Ong L trai duoi OFF">
+            <img id="Ong_thang_ngang2_ON" src="assets/img/Ong thang ngang_ON.png" alt="Ong L trai duoi ON">
+        </div>
+
+        <div class="image_Ong_L_traiduoi2">
+            <img id="Ong_L_traiduoi2_OFF" src="assets/img/Ong L trai duoi_OFF.png" alt="Ong L trai duoi OFF">
+            <img id="Ong_L_traiduoi2_ON" src="assets/img/Ong L trai duoi_ON.png" alt="Ong L trai duoi ON">
+        </div>
+
+        <div class="image_Ong_thang_doc2">
+            <img id="Ong_thang_doc2_OFF" src="assets/img/Ong thang doc_OFF.png" alt="Ong L trai duoi OFF">
+            <img id="Ong_thang_doc2_ON" src="assets/img/Ong thang doc_ON.png" alt="Ong L trai duoi ON">
+        </div>
+
+        <div class="image_Ong_thang_ngang6">
+            <img id="Ong_thang_ngang6_OFF" src="assets/img/Ong thang ngang_OFF.png" alt="Ong L trai duoi OFF">
+            <img id="Ong_thang_ngang6_ON" src="assets/img/Ong thang ngang_ON.png" alt="Ong L trai duoi ON">
+        </div>
+
+        <div class="image_Ong_thang_doc5">
+            <img id="Ong_thang_doc5_OFF" src="assets/img/Ong thang doc_OFF.png" alt="Ong L trai duoi OFF">
+            <img id="Ong_thang_doc5_ON" src="assets/img/Ong thang doc_ON.png" alt="Ong L trai duoi ON">
+        </div>
+
+        <div class="image_Ong_L_phaitren1">
+            <img id="Ong_L_phaitren1_OFF" src="assets/img/Ong L phai tren_OFF.png" alt="Ong L trai duoi OFF">
+            <img id="Ong_L_phaitren1_ON" src="assets/img/Ong L phai tren_ON.png" alt="Ong L trai duoi ON">
+        </div>
+
+        <div class="image_Ong_thang_ngang4">
+            <img id="Ong_thang_ngang4_OFF" src="assets/img/Ong thang ngang_OFF.png" alt="Ong L trai duoi OFF">
+            <img id="Ong_thang_ngang4_ON" src="assets/img/Ong thang ngang_ON.png" alt="Ong L trai duoi ON">
+        </div>
+
+        <div class="image_Van_giam_ap">
+            <img id="Van_giam_ap_OFF" src="assets/img/Van_giam ap_OFF.png" alt="Ong L trai duoi OFF">
+            <img id="Van_giam_ap_ON" src="assets/img/Van_giam ap_ON.png" alt="Ong L trai duoi ON">
+        </div>
+
+        <div class="image_Ong_thang_doc3">
+            <img id="Ong_thang_doc3_OFF" src="assets/img/Ong thang doc_OFF.png" alt="Ong L trai duoi OFF">
+            <img id="Ong_thang_doc3_ON" src="assets/img/Ong thang doc_ON.png" alt="Ong L trai duoi ON">
+        </div>
+
+        <div class="image_Ong_thang_doc4">
+            <img id="Ong_thang_doc4_OFF" src="assets/img/Ong thang doc_OFF.png" alt="Ong L trai duoi OFF">
+            <img id="Ong_thang_doc4_ON" src="assets/img/Ong thang doc_ON.png" alt="Ong L trai duoi ON">
+        </div>
+
+        <div class="image_Ong_thang_ngang5">
+            <img id="Ong_thang_ngang5_OFF" src="assets/img/Ong thang ngang_OFF.png" alt="Ong L trai duoi OFF">
+            <img id="Ong_thang_ngang5_ON" src="assets/img/Ong thang ngang_ON.png" alt="Ong L trai duoi ON">
+        </div>
+
+        <div class="image_Ong_thang_doc6">
+            <img id="Ong_thang_doc6_OFF" src="assets/img/Ong thang doc_OFF.png" alt="Ong L trai duoi OFF">
+            <img id="Ong_thang_doc6_ON" src="assets/img/Ong thang doc_ON.png" alt="Ong L trai duoi ON">
+        </div>
+
+        <div class="image_Ong_L_phaiduoi2">
+            <img id="Ong_L_phaiduoi2_OFF" src="assets/img/Ong L phai duoi_OFF.png" alt="Ong L trai duoi OFF">
+            <img id="Ong_L_phaiduoi2_ON" src="assets/img/Ong L phai duoi_ON.png" alt="Ong L trai duoi ON">
+        </div>
+
+        <div class="image_Ong_thang_doc7">
+            <img id="Ong_thang_doc7_OFF" src="assets/img/Ong thang doc_OFF.png" alt="Ong L trai duoi OFF">
+            <img id="Ong_thang_doc7_ON" src="assets/img/Ong thang doc_ON.png" alt="Ong L trai duoi ON">
+        </div>
+
+        <div class="image_Ong_L_traiduoi3">
+            <img id="Ong_L_traiduoi3_OFF" src="assets/img/Ong L trai duoi_OFF.png" alt="Ong L trai duoi OFF">
+            <img id="Ong_L_traiduoi3_ON" src="assets/img/Ong L trai duoi_ON.png" alt="Ong L trai duoi ON">
+        </div>
+
+        <div class="image_Hotel">
+            <img id="Hotel1" src="assets/img/Hotel.png" alt="Ong L trai duoi OFF">
+        </div>
+
+        <div class="Tu_quantrac">
+            <p
+                style="color: rgb(194, 9, 9); width: 50px;height: 8px;text-align: center;margin-top: -5px; margin-left: 0px;">
+                Tủ quan trắc CLN</p>
+        </div>
+
+        <div class="Diem_batloi">
+            <p
+                style="color: rgb(0, 0, 0); width: 45px;height: 8px;text-align: center;margin-top: -5px; margin-left: 0px;">
+                Điểm bất lợi</p>
+        </div>
+        <div class="Bo_dieukhien">
+            <p style="text-align: center; color: rgb(255, 255, 255)"> <b> BỘ ĐIỀU KHIỂN VAN GIẢM ÁP </b></p>
+        </div>
+        <div class=" Trangthai_van">
+            <p style=" color: rgb(93, 91, 91)"> <b> Trạng thái: </b></p>
+        </div>
+        <!-- NUT NHAN SWITCH -->
+        <label class="switch1">
+            <input type="checkbox" id="Van_dien1">
+            <span class="slider1"></span>
+        </label>
+        <p
+            style="font-size:10px;color: rgb(0, 0, 0); width: 200px;height: 15px;text-align: center;position:absolute; left: 358px; top: 120px;">
+            <b> ĐÓNG VAN </b>
+        </p>
+        <label class="switch2">
+            <input type="checkbox" id="Van_dien2">
+            <span class="slider2"></span>
+        </label>
+        <p
+            style="font-size:10px;color: rgb(0, 0, 0); width: 200px;height: 15px;text-align: center;position:absolute; left: 450px; top: 120px;">
+            <b> MỞ VAN </b>
+        </p>
+        <label class="switch3">
+            <input type="checkbox" id="Van_dien3">
+            <span class="slider3"></span>
+        </label>
+        <p
+            style="font-size:10px;color: rgb(0, 0, 0); width: 200px;height: 15px;text-align: center;position:absolute; left: 358px; top: 165px;">
+            <b> ÁP THẤP</b>
+        </p>
+        <label class="switch4">
+            <input type="checkbox" id="Van_dien4">
+            <span class="slider4"></span>
+        </label>
+        <p
+            style="font-size:10px;color: rgb(0, 0, 0); width: 200px;height: 15px;text-align: center;position:absolute; left: 450px; top: 165px;">
+            <b> ÁP CAO </b>
+        </p>
+
+        <table class="hidden-table4">
+            <tr>
+                <td>Áp suất đầu ra bơm:</td>
+                <td id="myP1B"></td>
+                <td>(bar)</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- <p>Some text..</p>
+    <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p> -->
+</div>
