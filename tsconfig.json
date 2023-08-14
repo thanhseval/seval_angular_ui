@@ -2,6 +2,11 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    // "paths": {
+    //   "plotly.js": [
+    //     "../node_modules/plotly.js/lib/core.js"
+    //   ]
+    // },
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,

@@ -6,6 +6,7 @@ body {
     font-family: Arial;
     padding: 10px;
     background: #f1f1f1;
+    width: 100%;
 }
 
 /* Header/Blog Title */
@@ -20,9 +21,10 @@ body {
 }
 
 .row h2 {
-    
+
     font-size: 20px;
 }
+
 /* Style the top navigation bar */
 .topnav {
     overflow: hidden;
@@ -50,23 +52,23 @@ body {
 .leftcolumn {
     float: left;
     width: 50%;
+    margin-left: 5px;
 }
 
 /* Right column */
 .rightcolumn {
     position: absolute;
-    top: 234px;
-    right: 15px;
+    right: 2px;
     float: right;
     width: 50%;
- 
+
 }
 
 .img {
     max-width: 100%;
     max-height: 100%;
     display: block;
-  }
+}
 
 /* Fake image */
 .Controller {
@@ -80,876 +82,876 @@ body {
 
 }
 
-  
-    /* GIAO DIEN SCADA  START*/
-    /* Thiết lập giao dien SCADA */
-
-   .Controller .image_Buong_nuoc img {
-        position: absolute;
-        top: 250px;
-        left: 150px;
-        width: 150px;
-        height: 50px;
-        transition: opacity 0.3s ease;
-    }
-
-    .Controller .image_Bom1 {
-        position: absolute;
-        width: 250px;
-        height: 100px;
-    }
-
-    .Controller  .image_Bom1 img {
-        position: absolute;
-        top: 148px;
-        left: 0px;
-        width: 100px;
-        height: 60px;
-        transition: opacity 0.3s ease;
-    }
-
-    /* Ẩn ảnh thứ hai ban đầu */
-    .Controller  #Bom1_ON {
-        opacity: 0;
-        z-index: 2;
-    }
-
-    /* image_Ong_thang_doc1 */
-    .Controller  .Ong_thang_doc1 {
-        position: absolute;
-        width: 250px;
-        height: 100px;
-    }
-
-    .Controller .image_Ong_thang_doc1 img {
-        position: absolute;
-        top: 223px;
-        left: 210px;
-        width: 40px;
-        height: 36px;
-        transition: opacity 0.3s ease;
-    }
-
-    /* Ẩn ảnh thứ hai ban đầu */
-    .Controller  #Ong_thang_doc1_ON {
-        position: absolute;
-        top: 223px;
-        left: 210px;
-        width: 40px;
-        height: 36px;
-        opacity: 0;
-        z-index: 2;
-    }
-
-    /* image_Ong_L_traiduoi1 */
-    .Controller .Ong_L_traiduoi1 {
-        position: absolute;
-        width: 250px;
-        height: 100px;
-    }
-
-    .Controller  .image_Ong_L_traiduoi1 img {
-        position: absolute;
-        top: 186px;
-        left: 202px;
-        width: 40px;
-        height: 40px;
-        transition: opacity 0.3s ease;
-    }
-
-    /* Ẩn ảnh thứ hai ban đầu */
-    .Controller #Ong_L_traiduoi1_ON {
-        position: absolute;
-        top: 186px;
-        left: 202px;
-        width: 40px;
-        height: 40px;
-        opacity: 0;
-        z-index: 2;
-    }
-
-    /* ONG THANG NGANG1 */
-    .Controller .image_Ong_thang_ngang1 {
-        position: absolute;
-        width: 200px;
-        height: 30px;
-    }
-
-    .Controller  .image_Ong_thang_ngang1 img {
-        position: absolute;
-        top: 167px;
-        left: 99px;
-        width: 88px;
-        height: 25px;
-        transition: opacity 0.3s ease;
-    } 
-
-    /* Ẩn ảnh thứ hai ban đầu */
-    .Controller #Ong_thang_ngang1_ON {
-        opacity: 0;
-        z-index: 2;
-    } 
-
-    /* image_Ong_thang_doc1 */
-    .Controller .Ong_L_phaiduoi1 {
-        position:absolute;
-        width: 250px;
-        height: 100px;
-    }
-
-    .Controller .image_Ong_L_phaiduoi1 img {
-        position: absolute;
-        top: 136px;
-        left: 93px;
-        width: 39px;
-        height: 39px;
-        transition: opacity 0.3s ease;
-    }
-
-    /* Ẩn ảnh thứ hai ban đầu */
-    .Controller  #Ong_L_phaiduoi1_ON {
-        opacity: 0;
-        z-index: 2;
-    }
-
-    /* image_Ong_thang_ngang2 */
-    .Controller  .Ong_thang_ngang2 {
-        position: absolute;
-        width: 250px;
-        height: 100px;
-    }
-
-    .Controller .image_Ong_thang_ngang2 img {
-        position: absolute;
-        top: 136px;
-        left: 127px;
-        width: 140px;
-        height: 23px;
-        transition: opacity 0.3s ease;
-    }
-
-    /* Ẩn ảnh thứ hai ban đầu */
-    .Controller #Ong_thang_ngang2_ON {
-        opacity: 0;
-        z-index: 2;
-    }
-
-    /* Van buom dien */
-    .Controller .image_Van_buom_dien1 {
-        position: absolute;
-        width: 200px;
-        height: 100px;
-    }
-
-    .Controller .image_Van_buom_dien1 img {
-        position: absolute;
-        top: 66px;
-        left: 237px;
-        width: 60px;
-        height: 78px;
-        transition: opacity 0.3s ease;
-    }
-
-    /* Ẩn ảnh thứ hai ban đầu */
-    .Controller  #Van_buom_dien1_ON {
-        position: absolute;
-        top: 66px;
-        left: 237px;
-        width: 60px;
-        height: 78px;
-        opacity: 0;
-        z-index: 2;
-    }
-
-    /* ONG L TRAI DUOI 2 */
-    .Controller .Ong_L_traiduoi2 {
-        position: absolute;
-        width: 250px;
-        height: 100px;
-    }
-
-    .Controller .image_Ong_L_traiduoi2 img {
-        position: absolute;
-        top: 135px;
-        left: 306px;
-        width: 40px;
-        height: 40px;
-        transition: opacity 0.3s ease;
-    }
-
-    /* Ẩn ảnh thứ hai ban đầu */
-    .Controller #Ong_L_traiduoi2_ON {
-        position: absolute;
-        top: 135px;
-        left: 306px;
-        width: 40px;
-        height: 40px;
-        opacity: 0;
-        z-index: 2;
-    }
-
-    /* ONG THANG DOC 2 */
-    .Controller .Ong_thang_doc2 {
-        position: absolute;
-        width: 250px;
-        height: 100px;
-    }
-
-    /* image_Ong_thang_doc1 */
-    .Controller .image_Ong_thang_doc2 img {
-        position: absolute;
-        top: 171px;
-        left: 317px;
-        width: 35px;
-        height: 80px;
-        transition: opacity 0.3s ease;
-    }
-
-    /* Ẩn ảnh thứ hai ban đầu */
-    .Controller #Ong_thang_doc2_ON {
-        position: absolute;
-        top: 171px;
-        left: 317px;
-        width: 35px;
-        height: 80px;
-        opacity: 0;
-        z-index: 2;
-    }
-
-    /* image_Ong_thang_ngang6 - BO QUAN TRAC */
-    .Controller .Ong_thang_ngang6 {
-        position: absolute;
-        width: 250px;
-        height: 100px;
-    }
-
-    .Controller .image_Ong_thang_ngang6 img {
-        position: absolute;
-        top: 235px;
-        left: 340px;
-        width: 15px;
-        height: 10px;
-        transition: opacity 0.3s ease;
-    }
-
-    /* Ẩn ảnh thứ hai ban đầu */
-    .Controller #Ong_thang_ngang6_ON {
-        position: absolute;
-        top: 230px;
-        left: 340px;
-        width: 15px;
-        height: 10px;
-        opacity: 0;
-        z-index: 2;
-    }
-
-    /* image_Ong_thang_doc1 - BO QUAN TRAC */
-    .Controller .Ong_thang_doc5 {
-        position: absolute;
-        width: 250px;
-        height: 100px;
-    }
-
-    .Controller .image_Ong_thang_doc5 img {
-        position: absolute;
-        top: 253px;
-        left: 405px;
-        width: 15px;
-        height: 15px;
-        transition: opacity 0.3s ease;
-    }
-
-    /* Ẩn ảnh thứ hai ban đầu */
-    .Controller #Ong_thang_doc5_ON {
-        opacity: 0;
-        z-index: 2;
-    }
-
-    /* ONG L PHAI TREN1 */
-    .Controller  .Ong_L_phaitren1 {
-        position: absolute;
-        width: 250px;
-        height: 100px;
-    }
-
-    .Controller .image_Ong_L_phaitren1 img {
-        position: absolute;
-        top: 245px;
-        left: 321.3px;
-        width: 40px;
-        height: 40px;
-        transition: opacity 0.3s ease;
-    }
-
-    /* Ẩn ảnh thứ hai ban đầu */
-    .Controller  #Ong_L_phaitren1_ON {
-        position: absolute;
-        top: 245px;
-        left: 321.3px;
-        width: 40px;
-        height: 40px;
-        opacity: 0;
-        z-index: 2;
-    }
-
-    /* ONG THANG NGANG 4 */
-    .Controller .Ong_thang_ngang4 {
-        position: absolute;
-        width: 250px;
-        height: 100px;
-    }
-
-    /* image_Ong_thang_ngang4 */
-    .Controller .image_Ong_thang_ngang4 img {
-        position: absolute;
-        top: 262px;
-        left: 355px;
-        width: 80px;
-        height: 22px;
-        transition: opacity 0.3s ease;
-    }
-
-    /* Ẩn ảnh thứ hai ban đầu */
-    .Controller #Ong_thang_ngang4_ON {
-        position: absolute;
-        top: 262px;
-        left: 355px;
-        width: 80px;
-        height: 22px;
-        opacity: 0;
-        z-index: 2;
-    }
-
-    /* image_Van_ giam_ap */
-    .Controller .Van_giam_ap {
-        position: absolute;
-        width: 250px;
-        height: 100px;
-    }
-
-    .Controller  .image_Van_giam_ap img {
-        position: absolute;
-        top: 242px;
-        left: 428px;
-        width: 50px;
-        height: 45px;
-        transition: opacity 0.3s ease;
-    }
-
-    /* Ẩn ảnh thứ hai ban đầu */
-    .Controller #Van_giam_ap_ON {
-        opacity: 0;
-        z-index: 2;
-    }
-
-    /* image_Ong_thang_doc1 BO DIEU KHIEN*/
-    .Controller .Ong_thang_doc3 {
-        position: absolute;
-        width: 250px;
-        height: 100px;
-    }
-
-    .Controller  .image_Ong_thang_doc3 img {
-        position: absolute;
-        top: 214.6px;
-        left: 432px;
-        width: 10px;
-        height: 50px;
-        transition: opacity 0.3s ease;
-    }
-
-    /* Ẩn ảnh thứ hai ban đầu */
-    .Controller  #Ong_thang_doc3_ON {
-        opacity: 0;
-        z-index: 2;
-    }
-
-    /* image_Ong_thang_doc1  BO DIEU KHIEN*/
-    .Controller .Ong_thang_doc4 {
-        position: absolute;
-        width: 250px;
-        height: 100px;
-    }
-
-    .Controller .image_Ong_thang_doc4 img {
-        position: absolute;
-        top: 214.6px;
-        left: 463.5px;
-        width: 10px;
-        height: 50px;
-        transition: opacity 0.3s ease;
-    }
-
-    /* Ẩn ảnh thứ hai ban đầu */
-    .Controller #Ong_thang_doc4_ON {
-        opacity: 0;
-        z-index: 2;
-    }
-
-    /* image_Ong_thang_ngang4 */
-    .Controller .Ong_thang_ngang5 {
-        position: absolute;
-        width: 250px;
-        height: 100px;
-    }
-
-    .Controller .image_Ong_thang_ngang5 img {
-        position: absolute;
-        top: 263px;
-        left: 471px;
-        width: 220px;
-        height: 21px;
-        transition: opacity 0.3s ease;
-    }
-
-    /* Ẩn ảnh thứ hai ban đầu */
-    .Controller  #Ong_thang_ngang5_ON {
-        position: absolute;
-        top: 263px;
-        left: 471px;
-        width: 220px;
-        height: 21px;
-        opacity: 0;
-        z-index: 2;
-    }
-
-    /* image_Ong_thang_doc6 - BO DIEM BAT LOI*/
-    .Controller .Ong_thang_doc6 {
-        position: absolute;
-        width: 250px;
-        height: 100px;
-    }
-
-    .Controller .image_Ong_thang_doc6 img {
-        position: absolute;
-        top: 255px;
-        left: 580px;
-        width: 10px;
-        height: 15px;
-        transition: opacity 0.3s ease;
-    }
-
-    /* Ẩn ảnh thứ hai ban đầu */
-    .Controller #Ong_thang_doc6_ON {
-        opacity: 0;
-        z-index: 2;
-    }
-
-    /* image_Ong_thang_doc1 */
-    .Controller .Ong_L_phaiduoi2 {
-        position: absolute;
-        width: 250px;
-        height: 100px;
-    }
-
-    .Controller .image_Ong_L_phaiduoi2 img {
-        position: absolute;
-        top: 245px;
-        left: 581px;
-        width: 12px;
-        height: 12px;
-        transition: opacity 0.3s ease;
-    }
-
-    /* Ẩn ảnh thứ hai ban đầu */
-    .Controller #Ong_L_phaiduoi2_ON {
-        opacity: 0;
-        z-index: 2;
-    }
-
-    /* image_Ong_thang_doc7 */
-    .Controller .Ong_thang_doc7 {
-        position: absolute;
-        width: 250px;
-        height: 100px;
-    }
-
-    .Controller .image_Ong_thang_doc7 img {
-        position: absolute;
-        top: 255px;
-        left:650px;
-        width: 10px;
-        height: 15px;
-        transition: opacity 0.3s ease;
-    }
-
-    /* Ẩn ảnh thứ hai ban đầu */
-    .Controller #Ong_thang_doc7_ON {
-        opacity: 0;
-        z-index: 2;
-    }
-
-    /* image_Ong_L_traiduoi4 */
-    .Controller .Ong_L_traiduoi3 {
-        position: absolute;
-        width: 250px;
-        height: 100px;
-    }
-
-    .Controller .image_Ong_L_traiduoi3 img {
-        position: absolute;
-        top: 245px;
-        left: 646.5px;
-        width: 12px;
-        height: 12px;
-        transition: opacity 0.3s ease;
-    }
-
-    /* Ẩn ảnh thứ hai ban đầu */
-    .Controller #Ong_L_traiduoi3_ON {
-        opacity: 0;
-        z-index: 2;
-    }
-
-    .Controller .Tu_quantrac {
-        border-radius: 20px;
-        font-size: 10px;
-        background-color: rgb(32, 203, 10);
-        color: white;
-        position: absolute;
-        top: 225px;
-        left: 354px;
-        width: 70px;
-        height: 30px;
-        border: 0px solid black;
-        padding: 10px
-    }
-
-    .Controller .Diem_batloi {
-        border-radius: 20px;
-        font-size: 10px;
-        background-color: rgb(187, 132, 12);
-        color: white;
-        position: absolute;
-        top: 232px;
-        left: 590px;
-        width: 60px;
-        height: 30px;
-        border: 0px solid black;
-        padding: 10px
-    }
-
-    /* image_Hotel */
-    .Controller .image_Hotel img {
-        position: absolute;
-        top: 88px;
-        left: 675px;
-        width: 130px;
-        height: 200px;
-    }
-
-    .Controller  .Bo_dieukhien {
-        border-radius: 15px;
-        font-size: 10px;
-        background: #4585b3;
-        position: absolute;
-        top: 40px;
-        left: 420px;
-        width: 170px;
-        height: 180px;
-        padding: 2px;
-    }
-
-    .Controller .Trangthai_van {
-        border-radius: 10px;
-        font-size: 10px;
-        background: #d0dbe3;
-        position: absolute;
-        top: 70px;
-        left: 430px;
-        width: 150px;
-        height: 50px;
-        padding: 1px;
-    }
-
-   
-
-    /* NUT NHAN GAT 1 */
-    .switch1 {
-        position: absolute;
-        display: inline-block;
-        top: 145px;
-        left: 435px;
-        width: 40px;
-        height: 20px;
-    }
-
-    .switch1 input {
-        opacity: 0;
-        width: 0;
-        height: 0;
-    }
-
-    .slider1 {
-        position: absolute;
-        cursor: pointer;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: #ccc;
-        transition: .4s;
-        border-radius: 34px;
-    }
-
-    .slider1:before {
-        position: absolute;
-        content: "";
-        height: 15px;
-        width: 15px;
-        left: 4px;
-        bottom: 2.5px;
-        background-color: white;
-        transition: .4s;
-        border-radius: 50%;
-    }
-
-    input:checked+.slider1 {
-        background-color: #29d32f;
-    }
-
-    input:checked+.slider1:before {
-        transform: translateX(15px);
-    }
-
-    /* NUT NHAN GAT 2 */
-    .switch2 {
-        position: absolute;
-        display: inline-block;
-        top: 145px;
-        left: 530px;
-        width: 40px;
-        height: 20px;
-    }
-
-    .switch2 input {
-        opacity: 0;
-        width: 0;
-        height: 0;
-    }
-
-    .slider2 {
-        position: absolute;
-        cursor: pointer;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: #ccc;
-        transition: .4s;
-        border-radius: 34px;
-    }
-
-    .slider2:before {
-        position: absolute;
-        content: "";
-        height: 15px;
-        width: 15px;
-        left: 4px;
-        bottom: 2.5px;
-        background-color: white;
-        transition: .4s;
-        border-radius: 50%;
-    }
-
-    input:checked+.slider2 {
-        background-color: #35c83a;
-    }
-
-    input:checked+.slider2:before {
-        transform: translateX(15px);
-    }
-
-    /* NUT NHAN GAT 3 */
-    .switch3 {
-        position: absolute;
-        display: inline-block;
-        top: 190px;
-        left: 435px;
-        width: 40px;
-        height: 20px;
-    }
-
-    .switch3 input {
-        opacity: 0;
-        width: 0;
-        height: 0;
-    }
-
-    .slider3 {
-        position: absolute;
-        cursor: pointer;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: #ccc;
-        transition: .4s;
-        border-radius: 34px;
-    }
-
-    .slider3:before {
-        position: absolute;
-        content: "";
-        height: 15px;
-        width: 15px;
-        left: 4px;
-        bottom: 2.5px;
-        background-color: white;
-        transition: .4s;
-        border-radius: 50%;
-    }
-
-    input:checked+.slider3 {
-        background-color: #35c83a;
-    }
-
-    input:checked+.slider3:before {
-        transform: translateX(15px);
-    }
-
-    /* NUT NHAN GAT 4 */
-    .switch4 {
-        position: absolute;
-        display: inline-block;
-        top: 190px;
-        left: 528px;
-        width: 40px;
-        height: 20px;
-    }
-
-    .switch4 input {
-        opacity: 0;
-        width: 0;
-        height: 0;
-    }
-
-    .slider4 {
-        position: absolute;
-        cursor: pointer;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: #ccc;
-        transition: .4s;
-        border-radius: 34px;
-    }
-
-    .slider4:before {
-        position: absolute;
-        content: "";
-        height: 15px;
-        width: 15px;
-        left: 4px;
-        bottom: 2.5px;
-        background-color: white;
-        transition: .4s;
-        border-radius: 50%;
-    }
-
-    input:checked+.slider4 {
-        background-color: #35c83a;
-    }
-
-    input:checked+.slider4:before {
-        transform: translateX(15px);
-    }
-
-    /* TABLE 4 */
-    .Controller .hidden-table4 {
-        border-collapse: collapse;
-        width: 200px;
-        position: absolute;
-        top: 90px;
-        left: 10px;
-    }
-
-    .Controller .hidden-table4 th,
-    td {
-        padding: 2px;
-        text-align: left;
-        border-bottom: 1px solid #fcf3f3;
-    }
-
-    tr:hover {
-        background-color: rgb(107, 105, 105);
-    }
+
+/* GIAO DIEN SCADA  START*/
+/* Thiết lập giao dien SCADA */
+
+.Controller .image_Buong_nuoc img {
+    position: absolute;
+    top: 250px;
+    left: 150px;
+    width: 150px;
+    height: 50px;
+    transition: opacity 0.3s ease;
+}
+
+.Controller .image_Bom1 {
+    position: absolute;
+    width: 250px;
+    height: 100px;
+}
+
+.Controller .image_Bom1 img {
+    position: absolute;
+    top: 148px;
+    left: 0px;
+    width: 100px;
+    height: 60px;
+    transition: opacity 0.3s ease;
+}
+
+/* Ẩn ảnh thứ hai ban đầu */
+.Controller #Bom1_ON {
+    opacity: 0;
+    z-index: 2;
+}
+
+/* image_Ong_thang_doc1 */
+.Controller .Ong_thang_doc1 {
+    position: absolute;
+    width: 250px;
+    height: 100px;
+}
+
+.Controller .image_Ong_thang_doc1 img {
+    position: absolute;
+    top: 223px;
+    left: 210px;
+    width: 40px;
+    height: 36px;
+    transition: opacity 0.3s ease;
+}
+
+/* Ẩn ảnh thứ hai ban đầu */
+.Controller #Ong_thang_doc1_ON {
+    position: absolute;
+    top: 223px;
+    left: 210px;
+    width: 40px;
+    height: 36px;
+    opacity: 0;
+    z-index: 2;
+}
+
+/* image_Ong_L_traiduoi1 */
+.Controller .Ong_L_traiduoi1 {
+    position: absolute;
+    width: 250px;
+    height: 100px;
+}
+
+.Controller .image_Ong_L_traiduoi1 img {
+    position: absolute;
+    top: 186px;
+    left: 202px;
+    width: 40px;
+    height: 40px;
+    transition: opacity 0.3s ease;
+}
+
+/* Ẩn ảnh thứ hai ban đầu */
+.Controller #Ong_L_traiduoi1_ON {
+    position: absolute;
+    top: 186px;
+    left: 202px;
+    width: 40px;
+    height: 40px;
+    opacity: 0;
+    z-index: 2;
+}
+
+/* ONG THANG NGANG1 */
+.Controller .image_Ong_thang_ngang1 {
+    position: absolute;
+    width: 200px;
+    height: 30px;
+}
+
+.Controller .image_Ong_thang_ngang1 img {
+    position: absolute;
+    top: 167px;
+    left: 99px;
+    width: 88px;
+    height: 25px;
+    transition: opacity 0.3s ease;
+}
+
+/* Ẩn ảnh thứ hai ban đầu */
+.Controller #Ong_thang_ngang1_ON {
+    opacity: 0;
+    z-index: 2;
+}
+
+/* image_Ong_thang_doc1 */
+.Controller .Ong_L_phaiduoi1 {
+    position: absolute;
+    width: 250px;
+    height: 100px;
+}
+
+.Controller .image_Ong_L_phaiduoi1 img {
+    position: absolute;
+    top: 136px;
+    left: 93px;
+    width: 39px;
+    height: 39px;
+    transition: opacity 0.3s ease;
+}
+
+/* Ẩn ảnh thứ hai ban đầu */
+.Controller #Ong_L_phaiduoi1_ON {
+    opacity: 0;
+    z-index: 2;
+}
+
+/* image_Ong_thang_ngang2 */
+.Controller .Ong_thang_ngang2 {
+    position: absolute;
+    width: 250px;
+    height: 100px;
+}
+
+.Controller .image_Ong_thang_ngang2 img {
+    position: absolute;
+    top: 136px;
+    left: 127px;
+    width: 140px;
+    height: 23px;
+    transition: opacity 0.3s ease;
+}
+
+/* Ẩn ảnh thứ hai ban đầu */
+.Controller #Ong_thang_ngang2_ON {
+    opacity: 0;
+    z-index: 2;
+}
+
+/* Van buom dien */
+.Controller .image_Van_buom_dien1 {
+    position: absolute;
+    width: 200px;
+    height: 100px;
+}
+
+.Controller .image_Van_buom_dien1 img {
+    position: absolute;
+    top: 66px;
+    left: 237px;
+    width: 60px;
+    height: 78px;
+    transition: opacity 0.3s ease;
+}
+
+/* Ẩn ảnh thứ hai ban đầu */
+.Controller #Van_buom_dien1_ON {
+    position: absolute;
+    top: 66px;
+    left: 237px;
+    width: 60px;
+    height: 78px;
+    opacity: 0;
+    z-index: 2;
+}
+
+/* ONG L TRAI DUOI 2 */
+.Controller .Ong_L_traiduoi2 {
+    position: absolute;
+    width: 250px;
+    height: 100px;
+}
+
+.Controller .image_Ong_L_traiduoi2 img {
+    position: absolute;
+    top: 135px;
+    left: 306px;
+    width: 40px;
+    height: 40px;
+    transition: opacity 0.3s ease;
+}
+
+/* Ẩn ảnh thứ hai ban đầu */
+.Controller #Ong_L_traiduoi2_ON {
+    position: absolute;
+    top: 135px;
+    left: 306px;
+    width: 40px;
+    height: 40px;
+    opacity: 0;
+    z-index: 2;
+}
+
+/* ONG THANG DOC 2 */
+.Controller .Ong_thang_doc2 {
+    position: absolute;
+    width: 250px;
+    height: 100px;
+}
+
+/* image_Ong_thang_doc1 */
+.Controller .image_Ong_thang_doc2 img {
+    position: absolute;
+    top: 171px;
+    left: 317px;
+    width: 35px;
+    height: 80px;
+    transition: opacity 0.3s ease;
+}
+
+/* Ẩn ảnh thứ hai ban đầu */
+.Controller #Ong_thang_doc2_ON {
+    position: absolute;
+    top: 171px;
+    left: 317px;
+    width: 35px;
+    height: 80px;
+    opacity: 0;
+    z-index: 2;
+}
+
+/* image_Ong_thang_ngang6 - BO QUAN TRAC */
+.Controller .Ong_thang_ngang6 {
+    position: absolute;
+    width: 250px;
+    height: 100px;
+}
+
+.Controller .image_Ong_thang_ngang6 img {
+    position: absolute;
+    top: 235px;
+    left: 340px;
+    width: 15px;
+    height: 10px;
+    transition: opacity 0.3s ease;
+}
+
+/* Ẩn ảnh thứ hai ban đầu */
+.Controller #Ong_thang_ngang6_ON {
+    position: absolute;
+    top: 230px;
+    left: 340px;
+    width: 15px;
+    height: 10px;
+    opacity: 0;
+    z-index: 2;
+}
+
+/* image_Ong_thang_doc1 - BO QUAN TRAC */
+.Controller .Ong_thang_doc5 {
+    position: absolute;
+    width: 250px;
+    height: 100px;
+}
+
+.Controller .image_Ong_thang_doc5 img {
+    position: absolute;
+    top: 253px;
+    left: 405px;
+    width: 15px;
+    height: 15px;
+    transition: opacity 0.3s ease;
+}
+
+/* Ẩn ảnh thứ hai ban đầu */
+.Controller #Ong_thang_doc5_ON {
+    opacity: 0;
+    z-index: 2;
+}
+
+/* ONG L PHAI TREN1 */
+.Controller .Ong_L_phaitren1 {
+    position: absolute;
+    width: 250px;
+    height: 100px;
+}
+
+.Controller .image_Ong_L_phaitren1 img {
+    position: absolute;
+    top: 245px;
+    left: 321.3px;
+    width: 40px;
+    height: 40px;
+    transition: opacity 0.3s ease;
+}
+
+/* Ẩn ảnh thứ hai ban đầu */
+.Controller #Ong_L_phaitren1_ON {
+    position: absolute;
+    top: 245px;
+    left: 321.3px;
+    width: 40px;
+    height: 40px;
+    opacity: 0;
+    z-index: 2;
+}
+
+/* ONG THANG NGANG 4 */
+.Controller .Ong_thang_ngang4 {
+    position: absolute;
+    width: 250px;
+    height: 100px;
+}
+
+/* image_Ong_thang_ngang4 */
+.Controller .image_Ong_thang_ngang4 img {
+    position: absolute;
+    top: 262px;
+    left: 355px;
+    width: 80px;
+    height: 22px;
+    transition: opacity 0.3s ease;
+}
+
+/* Ẩn ảnh thứ hai ban đầu */
+.Controller #Ong_thang_ngang4_ON {
+    position: absolute;
+    top: 262px;
+    left: 355px;
+    width: 80px;
+    height: 22px;
+    opacity: 0;
+    z-index: 2;
+}
+
+/* image_Van_ giam_ap */
+.Controller .Van_giam_ap {
+    position: absolute;
+    width: 250px;
+    height: 100px;
+}
+
+.Controller .image_Van_giam_ap img {
+    position: absolute;
+    top: 242px;
+    left: 428px;
+    width: 50px;
+    height: 45px;
+    transition: opacity 0.3s ease;
+}
+
+/* Ẩn ảnh thứ hai ban đầu */
+.Controller #Van_giam_ap_ON {
+    opacity: 0;
+    z-index: 2;
+}
+
+/* image_Ong_thang_doc1 BO DIEU KHIEN*/
+.Controller .Ong_thang_doc3 {
+    position: absolute;
+    width: 250px;
+    height: 100px;
+}
+
+.Controller .image_Ong_thang_doc3 img {
+    position: absolute;
+    top: 214.6px;
+    left: 432px;
+    width: 10px;
+    height: 50px;
+    transition: opacity 0.3s ease;
+}
+
+/* Ẩn ảnh thứ hai ban đầu */
+.Controller #Ong_thang_doc3_ON {
+    opacity: 0;
+    z-index: 2;
+}
+
+/* image_Ong_thang_doc1  BO DIEU KHIEN*/
+.Controller .Ong_thang_doc4 {
+    position: absolute;
+    width: 250px;
+    height: 100px;
+}
+
+.Controller .image_Ong_thang_doc4 img {
+    position: absolute;
+    top: 214.6px;
+    left: 463.5px;
+    width: 10px;
+    height: 50px;
+    transition: opacity 0.3s ease;
+}
+
+/* Ẩn ảnh thứ hai ban đầu */
+.Controller #Ong_thang_doc4_ON {
+    opacity: 0;
+    z-index: 2;
+}
+
+/* image_Ong_thang_ngang4 */
+.Controller .Ong_thang_ngang5 {
+    position: absolute;
+    width: 250px;
+    height: 100px;
+}
+
+.Controller .image_Ong_thang_ngang5 img {
+    position: absolute;
+    top: 263px;
+    left: 471px;
+    width: 220px;
+    height: 21px;
+    transition: opacity 0.3s ease;
+}
+
+/* Ẩn ảnh thứ hai ban đầu */
+.Controller #Ong_thang_ngang5_ON {
+    position: absolute;
+    top: 263px;
+    left: 471px;
+    width: 220px;
+    height: 21px;
+    opacity: 0;
+    z-index: 2;
+}
+
+/* image_Ong_thang_doc6 - BO DIEM BAT LOI*/
+.Controller .Ong_thang_doc6 {
+    position: absolute;
+    width: 250px;
+    height: 100px;
+}
+
+.Controller .image_Ong_thang_doc6 img {
+    position: absolute;
+    top: 255px;
+    left: 580px;
+    width: 10px;
+    height: 15px;
+    transition: opacity 0.3s ease;
+}
+
+/* Ẩn ảnh thứ hai ban đầu */
+.Controller #Ong_thang_doc6_ON {
+    opacity: 0;
+    z-index: 2;
+}
+
+/* image_Ong_thang_doc1 */
+.Controller .Ong_L_phaiduoi2 {
+    position: absolute;
+    width: 250px;
+    height: 100px;
+}
+
+.Controller .image_Ong_L_phaiduoi2 img {
+    position: absolute;
+    top: 245px;
+    left: 581px;
+    width: 12px;
+    height: 12px;
+    transition: opacity 0.3s ease;
+}
+
+/* Ẩn ảnh thứ hai ban đầu */
+.Controller #Ong_L_phaiduoi2_ON {
+    opacity: 0;
+    z-index: 2;
+}
+
+/* image_Ong_thang_doc7 */
+.Controller .Ong_thang_doc7 {
+    position: absolute;
+    width: 250px;
+    height: 100px;
+}
+
+.Controller .image_Ong_thang_doc7 img {
+    position: absolute;
+    top: 255px;
+    left: 650px;
+    width: 10px;
+    height: 15px;
+    transition: opacity 0.3s ease;
+}
+
+/* Ẩn ảnh thứ hai ban đầu */
+.Controller #Ong_thang_doc7_ON {
+    opacity: 0;
+    z-index: 2;
+}
+
+/* image_Ong_L_traiduoi4 */
+.Controller .Ong_L_traiduoi3 {
+    position: absolute;
+    width: 250px;
+    height: 100px;
+}
+
+.Controller .image_Ong_L_traiduoi3 img {
+    position: absolute;
+    top: 245px;
+    left: 646.5px;
+    width: 12px;
+    height: 12px;
+    transition: opacity 0.3s ease;
+}
+
+/* Ẩn ảnh thứ hai ban đầu */
+.Controller #Ong_L_traiduoi3_ON {
+    opacity: 0;
+    z-index: 2;
+}
+
+.Controller .Tu_quantrac {
+    border-radius: 20px;
+    font-size: 10px;
+    background-color: rgb(32, 203, 10);
+    color: white;
+    position: absolute;
+    top: 225px;
+    left: 354px;
+    width: 70px;
+    height: 30px;
+    border: 0px solid black;
+    padding: 10px
+}
+
+.Controller .Diem_batloi {
+    border-radius: 20px;
+    font-size: 10px;
+    background-color: rgb(187, 132, 12);
+    color: white;
+    position: absolute;
+    top: 232px;
+    left: 590px;
+    width: 60px;
+    height: 30px;
+    border: 0px solid black;
+    padding: 10px
+}
+
+/* image_Hotel */
+.Controller .image_Hotel img {
+    position: absolute;
+    top: 88px;
+    left: 675px;
+    width: 130px;
+    height: 200px;
+}
+
+.Controller .Bo_dieukhien {
+    border-radius: 15px;
+    font-size: 10px;
+    background: #4585b3;
+    position: absolute;
+    top: 40px;
+    left: 420px;
+    width: 170px;
+    height: 180px;
+    padding: 2px;
+}
+
+.Controller .Trangthai_van {
+    border-radius: 10px;
+    font-size: 10px;
+    background: #d0dbe3;
+    position: absolute;
+    top: 70px;
+    left: 430px;
+    width: 150px;
+    height: 50px;
+    padding: 1px;
+}
+
+
+
+/* NUT NHAN GAT 1 */
+.switch1 {
+    position: absolute;
+    display: inline-block;
+    top: 145px;
+    left: 435px;
+    width: 40px;
+    height: 20px;
+}
+
+.switch1 input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider1 {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider1:before {
+    position: absolute;
+    content: "";
+    height: 15px;
+    width: 15px;
+    left: 4px;
+    bottom: 2.5px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked+.slider1 {
+    background-color: #29d32f;
+}
+
+input:checked+.slider1:before {
+    transform: translateX(15px);
+}
+
+/* NUT NHAN GAT 2 */
+.switch2 {
+    position: absolute;
+    display: inline-block;
+    top: 145px;
+    left: 530px;
+    width: 40px;
+    height: 20px;
+}
+
+.switch2 input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider2 {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider2:before {
+    position: absolute;
+    content: "";
+    height: 15px;
+    width: 15px;
+    left: 4px;
+    bottom: 2.5px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked+.slider2 {
+    background-color: #35c83a;
+}
+
+input:checked+.slider2:before {
+    transform: translateX(15px);
+}
+
+/* NUT NHAN GAT 3 */
+.switch3 {
+    position: absolute;
+    display: inline-block;
+    top: 190px;
+    left: 435px;
+    width: 40px;
+    height: 20px;
+}
+
+.switch3 input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider3 {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider3:before {
+    position: absolute;
+    content: "";
+    height: 15px;
+    width: 15px;
+    left: 4px;
+    bottom: 2.5px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked+.slider3 {
+    background-color: #35c83a;
+}
+
+input:checked+.slider3:before {
+    transform: translateX(15px);
+}
+
+/* NUT NHAN GAT 4 */
+.switch4 {
+    position: absolute;
+    display: inline-block;
+    top: 190px;
+    left: 528px;
+    width: 40px;
+    height: 20px;
+}
+
+.switch4 input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider4 {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider4:before {
+    position: absolute;
+    content: "";
+    height: 15px;
+    width: 15px;
+    left: 4px;
+    bottom: 2.5px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked+.slider4 {
+    background-color: #35c83a;
+}
+
+input:checked+.slider4:before {
+    transform: translateX(15px);
+}
+
+/* TABLE 4 */
+.Controller .hidden-table4 {
+    border-collapse: collapse;
+    width: 200px;
+    position: absolute;
+    top: 90px;
+    left: 10px;
+}
+
+.Controller .hidden-table4 th,
+td {
+    padding: 2px;
+    text-align: left;
+    border-bottom: 1px solid #fcf3f3;
+}
+
+tr:hover {
+    background-color: rgb(107, 105, 105);
+}
 
 /* PHAN THONG TIN HE THONG */
-    .Setup {
-        position: relative;
-        top: 0px;
-        left: 0px;
-        background-color: #fffafa;
-        width: 100%;
-        height: 100%;
-        padding: 20px;
-    
-    }
+.Setup {
+    position: relative;
+    top: 0px;
+    left: 0px;
+    background-color: #fffafa;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
 
-    /* TABLE 1 */
-    .Setup .hidden-table1 {
-        border-collapse: collapse;
-        font-size: 12px;
-        width: 150px;
-        position: absolute;
-        left: 40px;
-        top: 5px;
-    }
+}
 
-    .Setup .hidden-table1 th,
-    td {
-        padding: 2px;
-        text-align: left;
-        border-bottom: 1px solid #575050;
-    }
+/* TABLE 1 */
+.Setup .hidden-table1 {
+    border-collapse: collapse;
+    font-size: 12px;
+    width: 150px;
+    position: absolute;
+    left: 40px;
+    top: 5px;
+}
 
-    tr:hover {
-        background-color: rgb(74, 70, 70);
-    }
+.Setup .hidden-table1 th,
+td {
+    padding: 2px;
+    text-align: left;
+    border-bottom: 1px solid #575050;
+}
 
-    /* TABLE 2 */
-    .Setup .hidden-table2 {
-        border-collapse: collapse;
-        font-size: 12px;
-        width: 250px;
-        position: absolute;
-        left: 270px;
-        top: 5px;
-    }
+tr:hover {
+    background-color: rgb(74, 70, 70);
+}
 
-    .Setup .hidden-table2 th,
-    td {
-        padding: 2px;
-        text-align: left;
-        border-bottom: 1px solid #474040;
-    }
+/* TABLE 2 */
+.Setup .hidden-table2 {
+    border-collapse: collapse;
+    font-size: 12px;
+    width: 250px;
+    position: absolute;
+    left: 270px;
+    top: 5px;
+}
 
-    tr:hover {
-        background-color: rgb(107, 105, 105);
-    }
+.Setup .hidden-table2 th,
+td {
+    padding: 2px;
+    text-align: left;
+    border-bottom: 1px solid #474040;
+}
 
-    /* TABLE 3 */
-    .Setup .hidden-table3 {
-        border-collapse: collapse;
-        font-size: 12px;
-        width: 210px;
-        position: absolute;
-        left: 600px;
-        top: 5px;
-    }
+tr:hover {
+    background-color: rgb(107, 105, 105);
+}
 
-    .Setup .hidden-table3 th,
-    td {
-        padding: 2px;
-        text-align: left;
-        border-bottom: 1px solid #917373;
-    }
+/* TABLE 3 */
+.Setup .hidden-table3 {
+    border-collapse: collapse;
+    font-size: 12px;
+    width: 210px;
+    position: absolute;
+    left: 600px;
+    top: 5px;
+}
 
-    tr:hover {
-        background-color: rgb(107, 105, 105);
-    }
+.Setup .hidden-table3 th,
+td {
+    padding: 2px;
+    text-align: left;
+    border-bottom: 1px solid #917373;
+}
+
+tr:hover {
+    background-color: rgb(107, 105, 105);
+}
 
 
 /* Add a card effect for articles */
@@ -957,11 +959,9 @@ body {
     background-color: white;
     padding: 20px;
     margin-top: 20px;
+    height: 400px;
 }
-.card-chart {
-    /* background-color: white; */
-    margin-top: 20px;
-}
+
 /* Clear floats after the columns */
 .row::after {
     content: "";

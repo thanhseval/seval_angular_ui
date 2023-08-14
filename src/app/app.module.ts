@@ -10,13 +10,17 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { HomeComponent } from './home/home.component';
 import { ResovleProblemComponent } from './resovle-problem/resovle-problem.component';
+import { NgApexchartsModule } from "ng-apexcharts";
+import { FlowChartComponent } from './flow-chart/flow-chart.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     HomeComponent,
-    ResovleProblemComponent
+    ResovleProblemComponent,
+    FlowChartComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -24,7 +28,8 @@ import { ResovleProblemComponent } from './resovle-problem/resovle-problem.compo
     BrowserAnimationsModule,
     MatToolbarModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    NgApexchartsModule 
   ],
   providers: [],
   bootstrap: [AppComponent]
