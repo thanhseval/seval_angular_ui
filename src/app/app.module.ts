@@ -12,6 +12,7 @@ import { HomeComponent } from './home/home.component';
 import { ResovleProblemComponent } from './resovle-problem/resovle-problem.component';
 import { NgApexchartsModule } from "ng-apexcharts";
 import { FlowChartComponent } from './flow-chart/flow-chart.component';
+import { ClockTimerComponent } from './clock-timer/clock-timer.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { FlowChartComponent } from './flow-chart/flow-chart.component';
     HomeComponent,
     ResovleProblemComponent,
     FlowChartComponent,
+    ClockTimerComponent,
 
   ],
   imports: [
