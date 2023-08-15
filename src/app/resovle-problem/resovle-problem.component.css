@@ -35,8 +35,3 @@
     background-color: #87CEFA;
   }
 
-  /* Ban đầu, ẩn hai bảng */
-  .hidden-table1,
-  .hidden-table2 {
-    display: none;
-  }

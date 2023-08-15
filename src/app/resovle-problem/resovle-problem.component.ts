@@ -9,6 +9,8 @@ import { HttpClient } from '@angular/common/http';
 export class ResovleProblemComponent implements OnInit {
   query: string = '';
   showTables: boolean = false;
+  device10Data: any;
+  device20Data: any;
 
   constructor(private http: HttpClient) { }
 
@@ -36,8 +38,6 @@ export class ResovleProblemComponent implements OnInit {
       await this.updateDataOnce(token, requests);
       this.updateDataPeriodically(token, requests);
     }
-    console.log("kl");
-    console.log(this.query);
   }
 
   async loginAndGetToken(username: string, password: string): Promise<string> {
@@ -54,10 +54,13 @@ export class ResovleProblemComponent implements OnInit {
 
   updateTableWithDevice10Data(deviceData: any) {
     // Update the table with device10 data
+   this.device10Data = deviceData;
   }
 
   updateTableWithDevice20Data(deviceData: any) {
     // Update the table with device20 data
+    this.device20Data = deviceData;
+    console.log(this.device20Data);
   }
 
   async updateDataOnce(token: string, requests: any[]) {
