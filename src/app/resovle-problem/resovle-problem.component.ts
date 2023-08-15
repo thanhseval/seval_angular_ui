@@ -54,13 +54,12 @@ export class ResovleProblemComponent implements OnInit {
 
   updateTableWithDevice10Data(deviceData: any) {
     // Update the table with device10 data
-   this.device10Data = deviceData;
+    this.device10Data = deviceData;
   }
 
   updateTableWithDevice20Data(deviceData: any) {
     // Update the table with device20 data
     this.device20Data = deviceData;
-    console.log(this.device20Data);
   }
 
   async updateDataOnce(token: string, requests: any[]) {

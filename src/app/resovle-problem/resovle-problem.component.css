@@ -1,37 +1,36 @@
  /* Định dạng bảng */
  table {
-    border-collapse: collapse;
-    width: 100%;
-  }
+   border-collapse: collapse;
+   width: 100%;
+ }
 
-  th,
-  td {
-    border: 1px solid black;
-    padding: 8px;
-    text-align: left;
-  }
+ th,
+ td {
+   border: 1px solid black;
+   padding: 8px;
+   text-align: left;
+ }
 
-  th {
-    background-color: #f2f2f2;
-  }
+ th {
+   background-color: #f2f2f2;
+ }
 
-  /* Màu nền và màu chữ cho bảng SV2 */
-  .hidden-table2 {
-    color: rgb(255, 255, 255);
-    background-color: #004080;
-  }
+ /* Màu nền và màu chữ cho bảng SV2 */
+ .hidden-table2 {
+   color: rgb(255, 255, 255);
+   background-color: #004080;
+ }
 
-  .hidden-table2 th {
-    background-color: #87CEFA;
-  }
+ .hidden-table2 th {
+   background-color: #87CEFA;
+ }
 
-  /* Màu nền và màu chữ cho bảng SV1 */
-  .hidden-table1 {
-    color: rgb(255, 255, 255);
-    background-color: #004080;
-  }
+ /* Màu nền và màu chữ cho bảng SV1 */
+ .hidden-table1 {
+   color: rgb(255, 255, 255);
+   background-color: #004080;
+ }
 
-  .hidden-table1 th {
-    background-color: #87CEFA;
-  }
-
+ .hidden-table1 th {
+   background-color: #87CEFA;
+ }

@@ -33,7 +33,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatToolbarModule,
     MatButtonModule,
     MatIconModule,
-    NgApexchartsModule ,
+    NgApexchartsModule,
     FormsModule,
     HttpClientModule,
   ],
