@@ -13,6 +13,8 @@ import { ResovleProblemComponent } from './resovle-problem/resovle-problem.compo
 import { NgApexchartsModule } from "ng-apexcharts";
 import { FlowChartComponent } from './flow-chart/flow-chart.component';
 import { ClockTimerComponent } from './clock-timer/clock-timer.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { ClockTimerComponent } from './clock-timer/clock-timer.component';
     MatToolbarModule,
     MatButtonModule,
     MatIconModule,
-    NgApexchartsModule 
+    NgApexchartsModule ,
+    FormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
