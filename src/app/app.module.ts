@@ -15,6 +15,8 @@ import { FlowChartComponent } from './flow-chart/flow-chart.component';
 import { ClockTimerComponent } from './clock-timer/clock-timer.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { PressureChartComponent } from './pressure-chart/pressure-chart.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,8 @@ import { HttpClientModule } from '@angular/common/http';
     ResovleProblemComponent,
     FlowChartComponent,
     ClockTimerComponent,
+    PressureChartComponent,
+    FooterComponent,
 
   ],
   imports: [

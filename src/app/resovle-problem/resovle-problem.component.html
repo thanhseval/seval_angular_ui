@@ -1,58 +1,7 @@
-<div class="container m-5">
-    <input type="text" id="searchInput" [(ngModel)]="query">
-    <button id="searchButton" (click)="search()">Thông tin Trạm</button>
-
-    <table *ngIf="showTables" class="hidden-table1">
-        <!-- Table content here -->
-        <tr>
-            <th colspan="3">SV1: Bộ điểm bất lợi</th>
-        </tr>
-        <tr>
-            <td>Lưu lượng thuận:</td>
-            <td id="luu_luong_thuan_value">{{device10Data?.data.PI_1}}</td>
-            <td>(m³/s)</td>
-        </tr>
-        <tr>
-            <td>Lưu lượng nghịch:</td>
-            <td id="luu_luong_nghich_value">{{device10Data?.data.PI_2}}</td>
-            <td>(m³/s)</td>
-        </tr>
-        <tr>
-            <td>Dung lượng pin:</td>
-            <td id="pin_value">{{device10Data?.data.PI_3}}</td>
-            <td>(%)</td>
-        </tr>
-    </table>
-
-    <!-- Bảng SV2 -->
-    <table *ngIf="showTables" class="hidden-table2">
-        <tr>
-            <th colspan="3">SV2: Bộ quang trắc chất lượng nước</th>
-        </tr>
-        <tr>
-            <td>Độ pH:</td>
-            <td id="pH_value">{{device20Data?.data.AI_4_420}}</td>
-            <td>(ph)</td>
-        </tr>
-        <tr>
-            <td>Độ Clo dư:</td>
-            <td id="clo_value">{{device20Data?.data.AI_5_420}}</td>
-            <td>(ppm)</td>
-        </tr>
-        <tr>
-            <td>Độ đục:</td>
-            <td id="duc_value">{{device20Data?.data.PI_1}}</td>
-            <td>(ntu)</td>
-        </tr>
-        <tr>
-            <td>Độ dẫn điện:</td>
-            <td id="dien_value">{{device20Data?.data.PI_2}}</td>
-            <td>(mS/cm)</td>
-        </tr>
-        <tr>
-            <td>Dung lượng pin:</td>
-            <td id="battery_value">{{device20Data?.data.PI_3}}</td>
-            <td>(%)</td>
-        </tr>
-    </table>
+<div>
+    <label for="deviceId">Device ID:</label>
+    <input type="text" id="deviceId" placeholder="Nhập ID của thiết bị" [(ngModel)]="deviceId"
+        (input)="pollForData()" />
 </div>
+
+<div id="result">{{ resultDisplay }}</div>

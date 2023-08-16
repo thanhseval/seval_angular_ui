@@ -88,6 +88,9 @@ th {
     background-color: #6c757d;
     color: white;
   } */
+.container-flur{
+    min-height: fit-content;
+}
 
 .container {
     position: relative;
@@ -209,7 +212,6 @@ th {
 /* Right column */
 .rightcolumn {
     background-color: #f1f1f1;
-    position: relative;
     top: 180px;
     left: 5px;
     float: left;
@@ -220,7 +222,6 @@ th {
 .card {
     background-color: white;
     padding: 20px;
-    margin-top: 10px;
 }
 
 /* Thêm phần tử bọc bảng */

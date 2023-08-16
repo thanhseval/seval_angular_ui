@@ -7,77 +7,48 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./resovle-problem.component.css']
 })
 export class ResovleProblemComponent implements OnInit {
-  query: string = '';
-  showTables: boolean = false;
-  device10Data: any;
-  device20Data: any;
+  deviceId: string = '';
+  resultDisplay: string = '';
 
   constructor(private http: HttpClient) { }
 
-  ngOnInit() { }
-
-  async search() {
-    if (this.query === "Long Trường 1") {
-      this.showTables = true;
-
-      const token = await this.loginAndGetToken('dat', 'test');
-      const requests = [
-        {
-          deviceId: 'device10',
-          keys: 'PI_1,PI_2,PI_3',
-          startTime: '2023-07-03 12:30:45',
-          endTime: '2023-09-10 09:02:00'
-        },
-        {
-          deviceId: 'device20',
-          keys: 'PI_1,PI_2,PI_3,AI_4_420,AI_5_420',
-          startTime: '2023-07-03 12:30:45',
-          endTime: '2023-09-10 09:02:00'
-        },
-      ];
-      await this.updateDataOnce(token, requests);
-      this.updateDataPeriodically(token, requests);
-    }
+  async ngOnInit() {
+    this.pollForData();
   }
 
   async loginAndGetToken(username: string, password: string): Promise<string> {
-    const response = await this.http.post<any>('http://localhost:3000/proxy/login', { username, password }).toPromise();
+    const response: any = await this.http.post('http://localhost:3001/users/login', { username, password }).toPromise();
     return response.token;
   }
 
-  async getDeviceData(token: string, deviceId: string, keys: string, startTime: string, endTime: string) {
-    const url = `http://localhost:3000/proxy/device/${encodeURIComponent(deviceId)}?keys=${encodeURIComponent(keys)}&startTime=${encodeURIComponent(startTime)}&endTime=${encodeURIComponent(endTime)}`;
+  async getDeviceData(deviceId: string, token: string) {
+    const url = `http://localhost:3001/device/${deviceId}`;
     const headers = { 'Authorization': token };
-    const data = await this.http.get<any>(url, { headers }).toPromise();
-    return data;
+    const response: any = await this.http.get(url, { headers }).toPromise();
+    return response;
   }
 
-  updateTableWithDevice10Data(deviceData: any) {
-    // Update the table with device10 data
-    this.device10Data = deviceData;
+  displayResult(data: any) {
+    if (data && data.data && data.data.PI_1 && data.data.PI_2) {
+      this.resultDisplay = `PI_1=${data.data.PI_1}  PI_2=${data.data.PI_2}   AI_1_420=${data.data.AI_1_420}  AI_2_420=${data.data.AI_2_420}  AI_3_420=${data.data.AI_3_420}   AI_4_420=${data.data.AI_4_420}`;
+    } else {
+      this.resultDisplay = 'Không có dữ liệu hoặc dữ liệu không hợp lệ.';
+    }
   }
 
-  updateTableWithDevice20Data(deviceData: any) {
-    // Update the table with device20 data
-    this.device20Data = deviceData;
-  }
+  async pollForData() {
+    try {
+      const username = 'your_username';
+      const password = 'test';
+      const token = await this.loginAndGetToken(username, password);
 
-  async updateDataOnce(token: string, requests: any[]) {
-    const responses = await Promise.all(requests.map(request =>
-      this.getDeviceData(token, request.deviceId, request.keys, request.startTime, request.endTime)
-    ));
-    responses.forEach((response, index) => {
-      if (requests[index].deviceId === 'device10') {
-        this.updateTableWithDevice10Data(response);
-      } else if (requests[index].deviceId === 'device20') {
-        this.updateTableWithDevice20Data(response);
-      }
-    });
-  }
+      const data = await this.getDeviceData(this.deviceId, token);
+      this.displayResult(data);
 
-  updateDataPeriodically(token: string, requests: any[]) {
-    setInterval(async () => {
-      await this.updateDataOnce(token, requests);
-    }, 15000);  // This updates every 15 seconds.
+      setTimeout(() => this.pollForData(), 5000); // Poll every 5 seconds
+    } catch (error) {
+      console.error('Error:', error);
+      setTimeout(() => this.pollForData(), 5000); // Poll every 5 seconds
+    }
   }
 }
