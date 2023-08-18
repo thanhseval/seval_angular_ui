@@ -90,6 +90,7 @@ th {
   } */
 .container-flur{
     min-height: fit-content;
+    width: 100%;
 }
 
 .container {
@@ -212,11 +213,9 @@ th {
 /* Right column */
 .rightcolumn {
     background-color: #f1f1f1;
-    top: 180px;
-    left: 5px;
+    top: 180px;    
+    width: 100%;    
     float: left;
-    width: 100%;
-
 }
 
 .card {

@@ -17,6 +17,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { PressureChartComponent } from './pressure-chart/pressure-chart.component';
 import { FooterComponent } from './footer/footer.component';
+import { MapComponent } from './map/map.component';
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,7 @@ import { FooterComponent } from './footer/footer.component';
     ClockTimerComponent,
     PressureChartComponent,
     FooterComponent,
-
+    MapComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,6 +42,7 @@ import { FooterComponent } from './footer/footer.component';
     NgApexchartsModule,
     FormsModule,
     HttpClientModule,
+    LeafletModule
   ],
   providers: [],
   bootstrap: [AppComponent]

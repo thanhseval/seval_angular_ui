@@ -19,34 +19,34 @@ export class ClockTimerComponent {
     this.settingsFormVisible = true;
     console.log("sdf");
   }
-  showCustomSettings_CloseVal(string="") {
+  showCustomSettings_CloseVal(string = "") {
     this.customSettingsFormVisible = true;
   }
-  show_timer_LowPressure(string="") {
+  show_timer_LowPressure(string = "") {
     this.settingsFormVisible = true;
   }
-  showCustomSettings_LowPressre(string="") {
+  showCustomSettings_LowPressre(string = "") {
     this.customSettingsFormVisible = true;
   }
-  show_timer_HightPressure(string="") {
+  show_timer_HightPressure(string = "") {
     this.settingsFormVisible = true;
   }
-  showCustomSettings_HightPressure(string="") {
+  showCustomSettings_HightPressure(string = "") {
     this.customSettingsFormVisible = true;
   }
-  show_timer_OpenVal(string="") {
+  show_timer_OpenVal(string = "") {
     this.settingsFormVisible = true;
   }
-  showCustomSettings_OpenVal(string="") {
+  showCustomSettings_OpenVal(string = "") {
     this.customSettingsFormVisible = true;
   }
-  closeCustomForm(){
+  closeCustomForm() {
     this.customSettingsFormVisible = false;
   }
-  updateCustomSetting(){
+  updateCustomSetting() {
 
   }
-  deleteCustomSetting(){
+  deleteCustomSetting() {
 
   }
   closeForm() {

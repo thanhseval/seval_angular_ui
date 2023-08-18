@@ -8,6 +8,9 @@ body {
     background: #f1f1f1;
     width: 100%;
 }
+ .row{
+    width: 100%;
+ }
 
 /* Header/Blog Title */
 .header {
