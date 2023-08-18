@@ -1,16 +1,28 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import {
   ApexAxisChartSeries,
   ApexChart,
-  ApexTitleSubtitle,
+  ApexXAxis,
   ApexDataLabels,
-  ApexFill,
+  ApexStroke,
   ApexMarkers,
   ApexYAxis,
-  ApexXAxis,
-  ApexTooltip
+  ApexGrid,
+  ApexTitleSubtitle,
+  ApexLegend
 } from "ng-apexcharts";
-import { dataSeries } from "./data-series";
+export type ChartOptions = {
+  series: ApexAxisChartSeries;
+  chart: ApexChart;
+  dataLabels: ApexDataLabels;
+  yaxis: ApexYAxis;
+  xaxis: ApexXAxis;
+  title: ApexTitleSubtitle;
+  stroke: ApexStroke;
+  markers: ApexMarkers;
+  grid: ApexGrid;
+  legend: ApexLegend;
+};
 
 @Component({
   selector: 'app-pressure-chart',
@@ -18,86 +30,58 @@ import { dataSeries } from "./data-series";
   styleUrls: ['./pressure-chart.component.css']
 })
 export class PressureChartComponent {
-  public series!: ApexAxisChartSeries;
-  public chart!: ApexChart;
-  public dataLabels!: ApexDataLabels;
-  public markers!: ApexMarkers;
-  public title!: ApexTitleSubtitle;
-  public fill!: ApexFill;
-  public yaxis!: ApexYAxis;
-  public xaxis!: ApexXAxis;
-  public tooltip!: ApexTooltip;
+  public chartOptions: Partial<any>;
 
   constructor() {
-    this.initChartData();
-  }
-
-  public initChartData(): void {
-    let ts2 = 1484418600000;
-    let dates = [];
-    for (let i = 0; i < 120; i++) {
-      ts2 = ts2 + 86400000;
-      dates.push([ts2, dataSeries[1][i].value]);
-    }
-
-    this.series = [
-      {
-        name: "XYZ MOTORS",
-        data: dates
-      }
-    ];
-    this.chart = {
-      type: "area",
-      stacked: false,
-      height: 350,
-      zoom: {
-        type: "x",
-        enabled: true,
-        autoScaleYaxis: true
+    this.chartOptions = {
+      series: [
+        {
+          name: "Series 1",
+          data: [30, 40, 35, 50, 49, 60, 70, 91, 125]
+        },
+        {
+          name: "Series 2",
+          data: [23, 31, 35, 40, 45, 55, 60, 75, 85]
+        },
+        {
+          name: "Series 3",
+          data: [20, 29, 32, 45, 50, 60, 70, 88, 110]
+        }
+      ],
+      chart: {
+        height: 350,
+        type: "line",
+        fontFamily: "Roboto, sans-serif"
       },
-      toolbar: {
-        autoSelected: "zoom"
-      }
-    };
-    this.dataLabels = {
-      enabled: false
-    };
-    this.markers = {
-      size: 0
-    };
-    this.title = {
-      text: "GIÁ TRỊ ÁP SUẤT NƯỚC",
-      align: "left"
-    };
-    this.fill = {
-      type: "gradient",
-      gradient: {
-        shadeIntensity: 1,
-        inverseColors: false,
-        opacityFrom: 0.5,
-        opacityTo: 0,
-        stops: [0, 90, 100]
-      }
-    };
-    this.yaxis = {
-      labels: {
-        formatter: function (val) {
-          return (val / 1000000).toFixed(0);
+      dataLabels: {
+        enabled: false
+      },
+      stroke: {
+        width: 2,
+        curve: "smooth"
+      },
+      xaxis: {
+        categories: [2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009]
+      },
+      markers: {
+        size: 4,
+        hover: {
+          size: 6
         }
       },
       title: {
-        text: "Price"
-      }
-    };
-    this.xaxis = {
-      type: "datetime"
-    };
-    this.tooltip = {
-      shared: false,
-      y: {
-        formatter: function (val) {
-          return (val / 1000000).toFixed(0);
+        text: "Áp lực nước",
+        align: "left"
+      },
+      yaxis: {
+        title: {
+          text: "Values"
         }
+      },
+      legend: {
+        position: "top",
+        horizontalAlign: "right",
+        offsetY: -20
       }
     };
   }

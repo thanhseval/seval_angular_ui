@@ -8,9 +8,10 @@ body {
     background: #f1f1f1;
     width: 100%;
 }
- .row{
+
+.row {
     width: 100%;
- }
+}
 
 /* Header/Blog Title */
 .header {
@@ -897,9 +898,9 @@ tr:hover {
 .Setup .hidden-table1 {
     border-collapse: collapse;
     font-size: 12px;
-    width: 150px;
+    width: 25%;
     position: absolute;
-    left: 40px;
+    left: 3%;
     top: 5px;
 }
 
@@ -918,9 +919,9 @@ tr:hover {
 .Setup .hidden-table2 {
     border-collapse: collapse;
     font-size: 12px;
-    width: 250px;
+    width: 25%;
     position: absolute;
-    left: 270px;
+    left: 36%;
     top: 5px;
 }
 
@@ -939,9 +940,9 @@ tr:hover {
 .Setup .hidden-table3 {
     border-collapse: collapse;
     font-size: 12px;
-    width: 210px;
+    width: 25%;
     position: absolute;
-    left: 600px;
+    left: 69%;
     top: 5px;
 }
 

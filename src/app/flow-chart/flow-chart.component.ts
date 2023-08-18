@@ -57,7 +57,8 @@ export class FlowChartComponent {
       },
       toolbar: {
         autoSelected: "zoom"
-      }
+      },
+      fontFamily: "Roboto, sans-serif"
     };
     this.dataLabels = {
       enabled: false
@@ -66,7 +67,7 @@ export class FlowChartComponent {
       size: 0
     };
     this.title = {
-      text: "Stock Price Movement",
+      text: "Lưu lượng",
       align: "left"
     };
     this.fill = {
@@ -86,7 +87,7 @@ export class FlowChartComponent {
         }
       },
       title: {
-        text: "Price"
+        text: "Values"
       }
     };
     this.xaxis = {

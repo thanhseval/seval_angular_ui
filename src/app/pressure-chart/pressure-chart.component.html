@@ -1,2 +1,6 @@
-<apx-chart [series]="series"[chart]="chart"[dataLabels]="dataLabels"[markers]="markers"[title]="title"[fill]="fill"
-[yaxis]="yaxis"[xaxis]="xaxis"[tooltip]="tooltip"[autoUpdateSeries]="true"></apx-chart>
+<div id="chart">
+  <apx-chart [series]="chartOptions.series" [chart]="chartOptions.chart" [xaxis]="chartOptions.xaxis"
+    [stroke]="chartOptions.stroke" [dataLabels]="chartOptions.dataLabels" [markers]="chartOptions.markers"
+    [yaxis]="chartOptions.yaxis" [grid]="chartOptions.grid" [legend]="chartOptions.legend"
+    [title]="chartOptions.title"></apx-chart>
+</div>

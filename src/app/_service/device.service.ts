@@ -5,7 +5,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class DeviceService {
-  PATH_OF_API = 'http://localhost:9090';
+  PATH_OF_API = 'http://localhost:3000';
 
   constructor( private httpclient: HttpClient,) { }
 
