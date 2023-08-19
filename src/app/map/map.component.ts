@@ -18,7 +18,7 @@ export class MapComponent {
       })
     ],
     zoom: 16,
-    minZoom:10,
+    minZoom: 10,
     maxBounds: Leaflet.latLngBounds(
       Leaflet.latLng(12.062244, 109.152574),
       Leaflet.latLng(8.384617, 103.712340)
@@ -30,7 +30,7 @@ export class MapComponent {
     const initialMarkers = [
       {
         position: { lat: 10.818873, lng: 106.804130 },
-        draggable: true
+        info: "Marker 1 Info"
       },
       // {
       //   position: { lat: 28.625293, lng: 79.817926 },
@@ -44,7 +44,7 @@ export class MapComponent {
     for (let index = 0; index < initialMarkers.length; index++) {
       const data = initialMarkers[index];
       const marker = this.generateMarker(data, index);
-      marker.addTo(this.map).bindPopup(`<b>${data.position.lat},  ${data.position.lng}</b>`);
+      marker.addTo(this.map).bindPopup(`<b>${data.position.lat},  ${data.position.lng}</b><br>${data.info}<br><a href="https://www.google.com/" target="_blank">Link</a>`);
       this.map.panTo(data.position);
       this.markers.push(marker)
     }

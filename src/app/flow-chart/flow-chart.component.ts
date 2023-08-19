@@ -58,7 +58,8 @@ export class FlowChartComponent {
       toolbar: {
         autoSelected: "zoom"
       },
-      fontFamily: "Roboto, sans-serif"
+      fontFamily: "Roboto, sans-serif",
+      
     };
     this.dataLabels = {
       enabled: false
