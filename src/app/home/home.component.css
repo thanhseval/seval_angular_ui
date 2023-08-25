@@ -898,9 +898,9 @@ tr:hover {
 .Setup .hidden-table1 {
     border-collapse: collapse;
     font-size: 12px;
-    width: 25%;
+    width: 30%;
     position: absolute;
-    left: 3%;
+    left: 2%;
     top: 5px;
 }
 
@@ -919,9 +919,9 @@ tr:hover {
 .Setup .hidden-table2 {
     border-collapse: collapse;
     font-size: 12px;
-    width: 25%;
+    width: 30%;
     position: absolute;
-    left: 36%;
+    left: 35%;
     top: 5px;
 }
 
@@ -940,9 +940,9 @@ tr:hover {
 .Setup .hidden-table3 {
     border-collapse: collapse;
     font-size: 12px;
-    width: 25%;
+    width: 30%;
     position: absolute;
-    left: 69%;
+    left: 68%;
     top: 5px;
 }
 

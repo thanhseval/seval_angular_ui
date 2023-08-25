@@ -44,6 +44,7 @@ export class HomeComponent implements OnInit {
 
   async loginAndGetToken(username: string, password: string): Promise<string> {
     const response = await this.http.post<any>('http://localhost:3000/proxy/login', { username, password }).toPromise();
+    
     return response.token;
   }
 
