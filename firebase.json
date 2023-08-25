@@ -1,0 +1,16 @@
+{
+  "hosting": {
+    "public": "dist/seval_angular_ui",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}
