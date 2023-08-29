@@ -11,19 +11,22 @@
 }
 
 /* Style the top navigation bar */
-.topnav {
-    overflow: hidden;
+.topnav {        
+    width: 100%;
+    /* overflow: hidden; */
     background-color: #309ee2;
 }
 
 /* Style the topnav links */
 .topnav a {
+    width: 100%;
     float: left;
     display: block;
     color: #f2f2f2;
     text-align: center;
     padding: 18px 30px;
     text-decoration: none;
+    font-size: 16px;
 }
 
 /* Change color on hover */
@@ -31,3 +34,18 @@
     background-color: #ddd;
     color: black;
 }
+
+/* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+/* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other and zoom out */
+/*@media screen and (max-width: 800) {
+    .topnav {
+        transform: scale(0.8); 
+        transform-origin: top center;
+    }
+    .topnav a {
+        float: none;
+        width: 100%;
+        text-align: center;
+    }
+}
+*/

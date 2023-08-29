@@ -28,18 +28,18 @@ body {
   } */
 
 
-.button {
+/* .button {
     padding: 8px 16px;
     margin: 5px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-}
+} */
 
-.button-primary {
+/* .button-primary {
     background-color: #007bff;
     color: white;
-}
+} */
 
 table {
     width: 100%;
@@ -59,24 +59,24 @@ th {
 
 
 /* Biểu tượng đồng hồ */
-.clock-icon {
+/* .clock-icon {
     font-size: 15px;
     color: #27282a;
     position: absolute;
     top: 115px;
     left: 45px;
     width: 95px;
-}
+} */
 
 /* Biểu tượng bánh răng (cài đặt) */
-.gear-icon {
+/* .gear-icon {
     position: absolute;
     top: 150px;
     left: 45px;
     font-size: 15px;
     width: 95px;
     color: #6c757d;
-}
+} */
 
 #light_van1 {
     position: absolute;
@@ -88,7 +88,7 @@ th {
     background-color: #6c757d;
     color: white;
   } */
-.container-flur{
+.container-flur {
     min-height: fit-content;
     width: 100%;
 }
@@ -99,12 +99,16 @@ th {
     left: 0px;
     background-color: white;
     width: 100%;
-    height: 250px;
+    height: 30%;
     padding: 20px;
+    display: flex;
+    flex-wrap: nowrap;
+    /* Prevent wrapping to next line */
+    overflow-x: auto; 
 }
 
 .container1 {
-    position: absolute;
+    /* position: absolute;
     top: 10px;
     left: 20px;
     width: 200px;
@@ -112,24 +116,63 @@ th {
     padding: 15px;
     background-color: white;
     border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); */
+    width: calc(25% - 20px);
+    /* Adjust the width as needed (25% minus some spacing) */
+    height: 100%;
+    margin-right: 15px;
+    padding: 20px;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+
 }
 
 .container1 h2 {
-    font-size: 18px;
+    /* font-size: 18px;
     text-align: center;
     position: absolute;
-    top: 5px;
-
+    top: 5px; */
+    font-size: 20px;
+    margin-bottom: 10px;
 }
 
 .container1 p {
-    position: absolute;
+    /* position: absolute;
     top: 70px;
-    left: 20px;
+    left: 20px; */
+    font-size: 14px;
+    margin-bottom: 15px;
 }
 
-.container2 {
+/* Style for buttons */
+.container1 button {
+    background-color: #309ee2;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.container1 button.clock-icon {
+    font-size: 14px;
+    color: #27282a;
+    background-color: #f1f1f1;
+    width: 55%;
+}
+
+.container1 button.gear-icon {
+    font-size: 14px;
+    color: #27282a;
+    background-color: #f1f1f1;
+    width: 55%;
+    margin-top: 15px;
+}
+
+/* Add more styles as needed */
+/* .container2 {
     position: absolute;
     top: 10px;
     left: 250px;
@@ -208,13 +251,13 @@ th {
     position: absolute;
     top: 70px;
     left: 20px;
-}
+} */
 
 /* Right column */
 .rightcolumn {
     background-color: #f1f1f1;
-    top: 180px;    
-    width: 100%;    
+    top: 180px;
+    width: 100%;
     float: left;
 }
 
@@ -234,12 +277,10 @@ th {
 
 
 /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 800px) {
+@media  (max-width: 1000px) {
 
-    .leftcolumn,
-    .rightcolumn {
-        width: 100%;
-        padding: 0;
+    .container1 {
+        flex: 0 0 100%;
     }
 }
 

@@ -4,11 +4,56 @@
   <p>Địa chỉ: Võ Văn Hát - Long Trường - QUẬN 9</p>
 </div>
 
-<div class="topnav">
+<!-- <div class="topnav">
   <a routerLink="">Trang chủ</a>
   <a routerLink="map">Map</a>
   <a routerLink="clock-timer">Hẹn giờ</a>
   <a href="https://id.seval.com.vn/scriptentry?script=43&deploy=59" target="_blank">Lịch sử vận hành</a>
   <a routerLink="resovle-problem">Xử lý sự cố</a>
   <a href="#" style="float:right">Thông tin</a>
-</div>
+  <mat-toolbar>
+    <span>My Application</span>
+  </mat-toolbar>
+</div> -->
+
+<nav class="navbar navbar-expand-lg topnav">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a routerLink="">
+            <span>Trang chủ</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="map">
+            <span>Map</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="clock-timer">
+            <span>Hẹn giờ</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="https://id.seval.com.vn/scriptentry?script=43&deploy=59">
+            <span>Lịch sử vận hành</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="resovle-problem">
+            <span>Xử lý sự cố</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="resovle-problem" style="float:right">
+            <span>Thông tin</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
