@@ -14,8 +14,8 @@ export class AddNewProblemComponent {
   dateControl = new FormControl();
   minDate: Date | undefined; // Set your min date value
   maxDate: Date | undefined; // Set your max date value
-  disabled = true;
-
+  disabled = false;
+    
   showSpinners = true;
   showSeconds = true;
   stepHour = 1;

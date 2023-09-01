@@ -31,7 +31,6 @@ interface RemediationInformation {
 export class ReportProblemComponent {
   constructor(public dialogRef: MatDialogRef<ReportProblemComponent>,
   ) { }
-  
   incidentTypes: IncidentType[] = [
     { value: 'type-0', viewValue: 'Loại 1' },
     { value: 'type-1', viewValue: 'Loại 2' },

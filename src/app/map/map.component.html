@@ -1,26 +1,5 @@
 <div class="container-fluid">
     <div class="left-conlumn">
-        <div class="button-control">
-            <mat-button-toggle-group name="controlMap" aria-label="Control map">
-                <mat-button-toggle value="addNewProblem" (click)="openDialogAddNewProblem()">Thêm điểm sự cố</mat-button-toggle>
-                <mat-button-toggle value="search">Tìm kiếm</mat-button-toggle>
-                <mat-button-toggle value="reportProblem" (click)="openDialogReportProblem()">Báo cáo sự cố</mat-button-toggle>
-                <mat-button-toggle value="">Chi tiết vật tư</mat-button-toggle>
-            </mat-button-toggle-group>
-        </div>
-        <div class="map-title">
-            <div class="circle normal"></div>
-            <span class="circle-label">Bình thường</span>
-            <div class="circle warning"></div>
-            <span class="circle-label">Cảnh báo</span>
-            <div class="circle error"></div>
-            <span class="circle-label">Lỗi</span>
-        </div>
-        <div class="map-container" leaflet [leafletOptions]="options" (leafletMapReady)="onMapReady($event)"
-            (leafletClick)="mapClicked($event)">
-        </div>
-    </div>
-    <div class="right-column">
         <table class="table1">
             <thead>
                 <th>Tổng sự cố trong ngày</th>
@@ -58,5 +37,25 @@
                 <tr>2: Điểm trở ngại: 0</tr>
             </tbody>
         </table>
+    </div>
+    <div class="right-column">
+        <div class="button-control">
+            <button mat-stroked-button (click)="openDialogAddNewProblem()">Thêm điểm sự cố</button>
+            <button mat-stroked-button (click)="openDialogSearchProblem()">Tìm kiếm</button>
+            <button mat-stroked-button (click)="openDialogReportProblem()">Báo cáo sự cố</button>
+            <button mat-stroked-button>Chi tiết vật tư</button>
+        </div>
+        <div class="map-title">
+            <div class="circle normal" style="margin-left: 5%;"></div>
+            <span class="circle-label">Bình thường</span>
+            <div class="circle warning"></div>
+            <span class="circle-label">Cảnh báo</span>
+            <div class="circle error"></div>
+            <span class="circle-label">Lỗi</span>
+        </div>
+        <div class="map-container" leaflet [leafletOptions]="options" (leafletMapReady)="onMapReady($event)"
+            (leafletClick)="mapClicked($event)">
+        </div>
+
     </div>
 </div>

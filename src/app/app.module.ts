@@ -30,6 +30,7 @@ import { NgxMatDatetimePickerModule, NgxMatTimepickerModule } from '@angular-mat
 import { NgxMatNativeDateModule } from '@angular-material-components/datetime-picker';
 import { ReportProblemComponent } from './report-problem/report-problem.component';
 import { MatSelectModule } from '@angular/material/select';
+import { SearchProplemComponent } from './search-proplem/search-proplem.component';
 
 
 
@@ -46,6 +47,7 @@ import { MatSelectModule } from '@angular/material/select';
     MapComponent,
     AddNewProblemComponent,
     ReportProblemComponent,
+    SearchProplemComponent,
   ],
   imports: [
     BrowserModule,

@@ -4,6 +4,7 @@ import * as Leaflet from 'leaflet';
 import 'leaflet.awesome-markers';
 import { AddNewProblemComponent } from '../add-new-problem/add-new-problem.component';
 import { ReportProblemComponent } from '../report-problem/report-problem.component';
+import { SearchProplemComponent } from '../search-proplem/search-proplem.component';
 
 Leaflet.Icon.Default.imagePath = 'assets/';
 
@@ -180,8 +181,18 @@ export class MapComponent implements OnInit {
 
   openDialogAddNewProblem(): void {
     const dialogRef = this.dialog.open(AddNewProblemComponent, {
-      height: '50%',
-      width: '50%',
+      height: 'fit-content',
+      width: '90%',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
+  openDialogSearchProblem(): void {
+    const dialogRef = this.dialog.open(SearchProplemComponent, {
+      height: 'fit-content',
+      width: '95%',
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -190,8 +201,8 @@ export class MapComponent implements OnInit {
   }
   openDialogReportProblem(): void {
     const dialogRef = this.dialog.open(ReportProblemComponent, {
-      height: '50%',
-      width: '50%',
+      height: 'fit-content',
+      width: '95%',
     });
 
     dialogRef.afterClosed().subscribe(result => {
