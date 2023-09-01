@@ -1,0 +1,44 @@
+<div class="container-fluid">
+    <h1>Thêm điểm sự cố</h1>
+    <form>
+        <mat-form-field appearance="outline">
+            <mat-label>Địa chỉ</mat-label>
+            <input matInput placeholder="Nhập địa chỉ">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Loại sự cố</mat-label>
+            <input matInput placeholder="Nhập loại sự cố">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Tên khách hàng</mat-label>
+            <input matInput placeholder="Nhập tên khách hàng">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Số điện thoại</mat-label>
+            <input matInput placeholder="Nhập số điện thoại">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Nguyên nhân</mat-label>
+            <input matInput placeholder="Nhập nguyên nhân">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Thời gian</mat-label>
+            <input matInput [ngxMatDatetimePicker]="pickerCustomIcon" placeholder="Thời gian"
+                [formControl]="dateControl" [min]="minDate" [max]="maxDate" [attr.disabled]="disabled">
+            <ngx-mat-datepicker-toggle matSuffix [for]="pickerCustomIcon"></ngx-mat-datepicker-toggle>
+            <ngx-mat-datetime-picker #pickerCustomIcon [showSpinners]="showSpinners" [showSeconds]="showSeconds"
+                [stepHour]="stepHour" [stepMinute]="stepMinute" [stepSecond]="stepSecond" [touchUi]="touchUi"
+                [enableMeridian]="enableMeridian" [disableMinute]="disableMinute" [hideTime]="hideTime">
+                <ngx-mat-datepicker-actions>
+                    <button mat-button ngxMatDatepickerCancel>Cancel</button>
+                    <button mat-raised-button color="primary" ngxMatDatepickerApply>Apply</button>
+                </ngx-mat-datepicker-actions>
+            </ngx-mat-datetime-picker>
+        </mat-form-field>
+        <div align="end">
+            <button mat-stroked-button color="primary" style="margin-right: 3px;" (click)="clickCancel()">Hủy</button>
+            <button type="submit" mat-stroked-button color="primary">Thêm điểm sự cố</button>
+            <!-- <button type="submit"  mat-stroked-button color="primary">Sửa </button> -->
+        </div>
+    </form>
+</div>

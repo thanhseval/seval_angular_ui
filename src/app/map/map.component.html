@@ -1,3 +1,62 @@
-<div class="map-container" leaflet [leafletOptions]="options" (leafletMapReady)="onMapReady($event)"
-    (leafletClick)="mapClicked($event)">
+<div class="container-fluid">
+    <div class="left-conlumn">
+        <div class="button-control">
+            <mat-button-toggle-group name="controlMap" aria-label="Control map">
+                <mat-button-toggle value="addNewProblem" (click)="openDialogAddNewProblem()">Thêm điểm sự cố</mat-button-toggle>
+                <mat-button-toggle value="search">Tìm kiếm</mat-button-toggle>
+                <mat-button-toggle value="reportProblem" (click)="openDialogReportProblem()">Báo cáo sự cố</mat-button-toggle>
+                <mat-button-toggle value="">Chi tiết vật tư</mat-button-toggle>
+            </mat-button-toggle-group>
+        </div>
+        <div class="map-title">
+            <div class="circle normal"></div>
+            <span class="circle-label">Bình thường</span>
+            <div class="circle warning"></div>
+            <span class="circle-label">Cảnh báo</span>
+            <div class="circle error"></div>
+            <span class="circle-label">Lỗi</span>
+        </div>
+        <div class="map-container" leaflet [leafletOptions]="options" (leafletMapReady)="onMapReady($event)"
+            (leafletClick)="mapClicked($event)">
+        </div>
+    </div>
+    <div class="right-column">
+        <table class="table1">
+            <thead>
+                <th>Tổng sự cố trong ngày</th>
+            </thead>
+            <tbody>
+                <tr>1: Điểm chưa xử lý: 0</tr>
+                <tr>2: Điểm đã xử lý: 0</tr>
+            </tbody>
+        </table>
+        <table class="table2">
+            <thead>
+                <th>Tổng sự cố trong tháng</th>
+            </thead>
+            <tbody>
+                <tr>1: Điểm chưa xử lý: 0</tr>
+                <tr>2: Điểm đã xử lý: 0</tr>
+            </tbody>
+        </table>
+        <table class="table3">
+            <thead>
+                <th>Xuất sự cố theo thời gian</th>
+            </thead>
+            <tbody>
+                <tr>1: Điểm chưa xử lý: 0</tr>
+                <tr>2: Điểm đã xử lý: 0</tr>
+                <tr>3: Vật tư sử dụng: 0</tr>
+            </tbody>
+        </table>
+        <table class="table4">
+            <thead>
+                <th>Cảnh báo điểm sự cố</th>
+            </thead>
+            <tbody>
+                <tr>1: Điểm vượt thời gian xử lý: 0</tr>
+                <tr>2: Điểm trở ngại: 0</tr>
+            </tbody>
+        </table>
+    </div>
 </div>

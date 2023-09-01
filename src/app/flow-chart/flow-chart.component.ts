@@ -13,6 +13,7 @@ import {
 } from "ng-apexcharts";
 import { dataSeries } from "./data-series";
 import { ApiService } from '../_service/api.service';
+import { DeviceService } from '../_service/device.service';
 
 @Component({
   selector: 'app-flow-chart',
@@ -31,7 +32,8 @@ export class FlowChartComponent implements OnInit {
   public tooltip!: ApexTooltip;
 
   constructor(private http: HttpClient,
-    private apoService: ApiService) {
+    private apiService: ApiService,
+    private deviceService: DeviceService) {
     this.initChartData();
   }
 
@@ -40,37 +42,40 @@ export class FlowChartComponent implements OnInit {
     setInterval(() => this.updateDataAndChart(), 300000); // Update every 5 seconds
   }
 
-  async loginAndGetToken(username: string, password: string): Promise<string> {
-    const response = await this.http.post<any>('http://localhost:3000/proxy/login', { username, password }).toPromise();
-    return response.token;
-    // const credentials = { username: 'dat', password: 'test' };
-    // const response = await this.apoService.login(credentials).toPromise();
+  async loginAndGetToken(): Promise<string> {
+    // const response = await this.http.post<any>('http://localhost:3000/proxy/login', { username, password }).toPromise();
     // return response.token;
+    const credentials = { username: 'dat', password: 'test' };
+    const response = await this.apiService.login(credentials).toPromise();
+    console.log(response);
+    await this.apiService.saveToken(response.token);
+    return response.token;
   }
 
-  async fetchData(token: string, deviceId: string, attribute: string): Promise<any> {
-    const url = `http://localhost:3000/proxy/device/alldata/${encodeURIComponent(deviceId)}?attribute=${encodeURIComponent(attribute)}`;
-    const headers = { 'Authorization': token };
-    const response = await this.http.get<any>(url, { headers }).toPromise();
-    console.log(response);
-    return response.data;
-  }
+  // async fetchData(token: string, deviceId: string, attribute: string): Promise<any> {
+  //   const url = `http://localhost:3000/proxy/device/alldata/${encodeURIComponent(deviceId)}?attribute=${encodeURIComponent(attribute)}`;
+  //   const headers = { 'Authorization': token };
+  //   const response = await this.http.get<any>(url, { headers }).toPromise();
+  //   console.log(response);
+  //   return response.data;
+  // }
 
   async updateDataAndChart() {
     try {
 
-      const token = await this.loginAndGetToken('dat', 'test');
+      const token = await this.loginAndGetToken();
       const deviceId = 'device1';
       const attributePressure = 'AI_1,AI_2';
       const attributeFlow = 'PI_1,PI_2';
 
-      const pressureData = await this.fetchData(token, deviceId, attributePressure);
-      const flowData = await this.fetchData(token, deviceId, attributeFlow);
-
+      // const pressureData = await this.fetchData(token, deviceId, attributePressure);
+      // const flowData = await this.fetchData(token, deviceId, attributeFlow);
+      const flowData = await this.deviceService.getAllDeviceData(deviceId, attributeFlow).toPromise();
+      console.log(flowData);
       // Assuming the chart library uses updateSeries() method, adjust it as per your library
       this.series = [
-        { name: "PI_1", data: flowData.PI_1.map((entry: { updated_at: string | number | Date; value: any; }) => ({ x: new Date(entry.updated_at).getTime(), y: entry.value })) },
-        // { name: "PI_2", data: flowData.PI_2.map((entry: { updated_at: string | number | Date; value: any; }) => ({ x: new Date(entry.updated_at).getTime(), y: entry.value })) }
+        { name: "PI_1", data: flowData.data.PI_1.map((entry: { updated_at: string | number | Date; value: any; }) => ({ x: new Date(entry.updated_at).getTime(), y: entry.value })) },
+        { name: "PI_2", data: flowData.data.PI_2.map((entry: { updated_at: string | number | Date; value: any; }) => ({ x: new Date(entry.updated_at).getTime(), y: entry.value })) }
       ];
 
       // Update the pressureChart series similarly

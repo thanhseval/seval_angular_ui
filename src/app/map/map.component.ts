@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import * as Leaflet from 'leaflet';
 import 'leaflet.awesome-markers';
+import { AddNewProblemComponent } from '../add-new-problem/add-new-problem.component';
+import { ReportProblemComponent } from '../report-problem/report-problem.component';
 
 Leaflet.Icon.Default.imagePath = 'assets/';
 
@@ -14,10 +17,10 @@ export class MapComponent implements OnInit {
   markers: Leaflet.Marker[] = [];
   options = {
     layers: [
-      Leaflet.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', 
-      // {
-      //   attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-      // }
+      Leaflet.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+        // {
+        //   attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        // }
       )
     ],
     zoom: 16,
@@ -28,6 +31,8 @@ export class MapComponent implements OnInit {
     ),
     center: { lat: 10.818873, lng: 106.804130 }
   }
+
+  constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.initMap();
@@ -40,25 +45,25 @@ export class MapComponent implements OnInit {
   }
 
   initMarkers() {
-    const markerIcon = Leaflet.AwesomeMarkers.icon({
+    const markerIconError = Leaflet.AwesomeMarkers.icon({
       icon: 'bolt', // Biểu tượng sấm sét
       markerColor: 'red', // Màu sắc của ô tròn
       prefix: 'fa' // Sử dụng font-awesome icons
     });
     // Tạo biểu tượng màu đỏ 
-    const markerIcon1 = Leaflet.AwesomeMarkers.icon({
+    const markerIconNormal = Leaflet.AwesomeMarkers.icon({
       icon: 'bolt', // Biểu tượng sấm sét
       markerColor: 'green', // Màu sắc của ô tròn
       prefix: 'fa' // Sử dụng font-awesome icons
     });
     // Tạo biểu tượng màu vàng 
-    const markerIcon2 = Leaflet.AwesomeMarkers.icon({
+    const markerIconWarning = Leaflet.AwesomeMarkers.icon({
       icon: 'bolt', // Biểu tượng sấm sét
       markerColor: 'orange', // Màu sắc của ô tròn
       prefix: 'fa' // Sử dụng font-awesome icons
     });
     // Tạo biểu tượng màu vàng 
-    const markerIcon3 = Leaflet.AwesomeMarkers.icon({
+    const markerIconBalck = Leaflet.AwesomeMarkers.icon({
       icon: 'bolt', // Biểu tượng sấm sét
       markerColor: 'black', // Màu sắc của ô tròn
       prefix: 'fa' // Sử dụng font-awesome icons
@@ -67,32 +72,32 @@ export class MapComponent implements OnInit {
     const initialMarkers = [
       {
         position: { lat: 10.7743, lng: 106.6669 },
-        icon: markerIcon,
+        icon: markerIconError,
         info: "Marker 1 Info"
       },
       {
         position: { lat: 10.81906, lng: 106.80420 },
-        icon: markerIcon1,
+        icon: markerIconNormal,
         info: "Marker 2 Info"
       },
       {
         position: { lat: 10.820135904591176, lng: 106.80583252267942 },
-        icon: markerIcon2,
+        icon: markerIconNormal,
         info: "Marker 3 Info"
       },
       {
         position: { lat: 10.817925, lng: 106.805001 },
-        icon: markerIcon3,
+        icon: markerIconNormal,
         info: "Marker 4 Info"
       },
       {
         position: { lat: 10.823538171781397, lng: 106.80824158858708 },
-        icon: markerIcon,
+        icon: markerIconWarning,
         info: "Marker 5 Info"
       },
       {
         position: { lat: 10.821857975530754, lng: 106.80387798475797 },
-        icon: markerIcon,
+        icon: markerIconError,
         info: "Marker 6 Info"
       }
     ];
@@ -171,5 +176,26 @@ export class MapComponent implements OnInit {
 
   markerDragEnd($event: any, index: number) {
     console.log($event.target.getLatLng());
+  }
+
+  openDialogAddNewProblem(): void {
+    const dialogRef = this.dialog.open(AddNewProblemComponent, {
+      height: '50%',
+      width: '50%',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
+  openDialogReportProblem(): void {
+    const dialogRef = this.dialog.open(ReportProblemComponent, {
+      height: '50%',
+      width: '50%',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
   }
 }

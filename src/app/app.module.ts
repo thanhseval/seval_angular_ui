@@ -13,12 +13,25 @@ import { ResovleProblemComponent } from './resovle-problem/resovle-problem.compo
 import { NgApexchartsModule } from "ng-apexcharts";
 import { FlowChartComponent } from './flow-chart/flow-chart.component';
 import { ClockTimerComponent } from './clock-timer/clock-timer.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { PressureChartComponent } from './pressure-chart/pressure-chart.component';
 import { FooterComponent } from './footer/footer.component';
 import { MapComponent } from './map/map.component';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatDialogModule } from '@angular/material/dialog';
+import { AddNewProblemComponent } from './add-new-problem/add-new-problem.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { NgxMatDatetimePickerModule, NgxMatTimepickerModule } from '@angular-material-components/datetime-picker';
+import { NgxMatNativeDateModule } from '@angular-material-components/datetime-picker';
+import { ReportProblemComponent } from './report-problem/report-problem.component';
+import { MatSelectModule } from '@angular/material/select';
+
+
 
 @NgModule({
   declarations: [
@@ -31,6 +44,8 @@ import { LeafletModule } from '@asymmetrik/ngx-leaflet';
     PressureChartComponent,
     FooterComponent,
     MapComponent,
+    AddNewProblemComponent,
+    ReportProblemComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,8 +56,19 @@ import { LeafletModule } from '@asymmetrik/ngx-leaflet';
     MatIconModule,
     NgApexchartsModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
-    LeafletModule
+    LeafletModule,
+    MatButtonToggleModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDatepickerModule,
+    NgxMatDatetimePickerModule,
+    NgxMatTimepickerModule,
+    NgxMatNativeDateModule,
+    MatSelectModule,
+    MatNativeDateModule
   ],
   providers: [],
   bootstrap: [AppComponent]

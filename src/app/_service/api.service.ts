@@ -8,6 +8,8 @@ import { Observable } from 'rxjs';
 export class ApiService {
   private apiUrl = 'http://seval.ddns.net:80';
 
+  private tokenKey = 'authToken';
+
   constructor(private http: HttpClient) { }
 
   login(credentials: { username: string, password: string }): Observable<any> {
@@ -15,15 +17,11 @@ export class ApiService {
     return this.http.post(url, credentials);
   }
 
-  getDeviceData(deviceId: string, keys: string, startTime: string, endTime: string, token: string): Observable<any> {
-    const url = `${this.apiUrl}/device/getdevicedata/${encodeURIComponent(deviceId)}?keys=${encodeURIComponent(keys)}&startTime=${encodeURIComponent(startTime)}&endTime=${encodeURIComponent(endTime)}`;
-    const headers = new HttpHeaders({ 'Authorization': token });
-    return this.http.get(url, { headers });
+  saveToken(token: string): void {
+    localStorage.setItem(this.tokenKey, token);
   }
 
-  getAllDeviceData(deviceId: string, attribute: string, token: string): Observable<any> {
-    const url = `${this.apiUrl}/device/getdataall/${encodeURIComponent(deviceId)}?attribute=${encodeURIComponent(attribute)}`;
-    const headers = new HttpHeaders({ 'Authorization': token });
-    return this.http.get(url, { headers });
+  getToken(): string | null {
+    return localStorage.getItem(this.tokenKey);
   }
 }
