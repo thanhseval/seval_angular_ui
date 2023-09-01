@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import * as Leaflet from 'leaflet';
 import 'leaflet.awesome-markers';
@@ -39,10 +39,16 @@ export class MapComponent implements OnInit {
     this.initMap();
     this.initMarkers();
     this.drawPolyline();
+    this.refreshMap();
   }
 
   initMap() {
     this.map = Leaflet.map('map', this.options);
+  }
+
+  refreshMap(){    
+    this.map.off();
+    this.map.remove();
   }
 
   initMarkers() {

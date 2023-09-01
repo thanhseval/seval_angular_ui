@@ -53,7 +53,7 @@
             <div class="circle error"></div>
             <span class="circle-label">Lỗi</span>
         </div>
-        <div class="map-container" leaflet [leafletOptions]="options" (leafletMapReady)="onMapReady($event)"
+        <div id="map" class="map-container" leaflet [leafletOptions]="options" (leafletMapReady)="onMapReady($event)"
             (leafletClick)="mapClicked($event)">
         </div>
 
