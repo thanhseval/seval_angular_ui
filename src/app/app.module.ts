@@ -14,7 +14,7 @@ import { NgApexchartsModule } from "ng-apexcharts";
 import { FlowChartComponent } from './flow-chart/flow-chart.component';
 import { ClockTimerComponent } from './clock-timer/clock-timer.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { PressureChartComponent } from './pressure-chart/pressure-chart.component';
 import { FooterComponent } from './footer/footer.component';
 import { MapComponent } from './map/map.component';
@@ -31,7 +31,13 @@ import { NgxMatNativeDateModule } from '@angular-material-components/datetime-pi
 import { ReportProblemComponent } from './report-problem/report-problem.component';
 import { MatSelectModule } from '@angular/material/select';
 import { SearchProplemComponent } from './search-proplem/search-proplem.component';
-
+import { LoginComponent } from './login/login.component';
+import { SettingComponent } from './setting/setting.component';
+import { ControllerPumpComponent } from './controller-pump/controller-pump.component';
+import { RouterModule } from '@angular/router';
+// import { AuthGuard } from './_auth/auth.guard';
+// import { AuthInterceptor } from './_auth/auth.interceptor';
+// import { UserService } from './_service/user.service';
 
 
 @NgModule({
@@ -48,6 +54,9 @@ import { SearchProplemComponent } from './search-proplem/search-proplem.componen
     AddNewProblemComponent,
     ReportProblemComponent,
     SearchProplemComponent,
+    LoginComponent,
+    SettingComponent,
+    ControllerPumpComponent,
   ],
   imports: [
     BrowserModule,
@@ -70,9 +79,19 @@ import { SearchProplemComponent } from './search-proplem/search-proplem.componen
     NgxMatTimepickerModule,
     NgxMatNativeDateModule,
     MatSelectModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    RouterModule
   ],
-  providers: [],
+  providers: [
+    // AuthGuard,
+    // {
+    //   provide: HTTP_INTERCEPTORS,
+    //   useClass: AuthInterceptor,
+    //   multi: true
+    // },
+    // UserService
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

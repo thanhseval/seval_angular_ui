@@ -1,0 +1,572 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial;
+    padding: 10px;
+    background: #f1f1f1;
+    width: 100%;
+}
+
+.container-fluid{
+    height: fit-content;
+}
+/* Header/Blog Title */
+.header {
+    padding: 10px;
+    text-align: center;
+    background: white;
+}
+
+.header h1 {
+    font-size: 30px;
+}
+.row{
+    height: fit-content;
+}
+.row h2 {
+
+    font-size: 20px;
+}
+
+/* Style the top navigation bar */
+.topnav {
+    overflow: hidden;
+    background-color: #309ee2;
+}
+
+/* Style the topnav links */
+.topnav a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 18px 30px;
+    text-decoration: none;
+}
+
+/* Change color on hover */
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+/* Create two unequal columns that floats next to each other */
+/* Left column */
+.leftcolumn {
+    float: left;
+    width: 100%;
+    /* margin-left: 5px; */
+}
+
+.img {
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+}
+
+/* GIAO DIEN SCADA  START*/
+/* Thiết lập giao dien SCADA */
+.Controller {
+    position: relative;
+    top: 5%;
+    left: 0%;
+    background-color: #f3f3f3;
+    width: 100%;
+    height: 95%;
+    padding: 1%;
+
+}
+/* NUT NHAN GAT 1 */
+.switch1 {
+    position: absolute;
+    display: inline-block;
+    top: 11%;
+    left: 4%;
+    width: 10%;
+    height: 6.5%;
+}
+
+.switch1 input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider1 {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 10px;
+}
+
+.slider1:before {
+    position: absolute;
+    content: "";
+    height: 75%;
+    width: 35%;
+    left: 11%;
+    bottom: 5px;
+    background-color: white;
+    transition: .3s;
+    border-radius: 10%;
+}
+
+input:checked+.slider1 {
+    background-color: #29d32f;
+}
+
+input:checked+.slider1:before {
+    transform: translateX(85px);
+}
+
+/* PHAN TRAM BOM 1 */
+.Controller .image_Buong_nuoc1 img {
+    position: absolute;
+    top: 90.5%;
+    left: 16%;
+    width: 12%;
+    height: 9%;
+    transition: opacity 0.3s ease;
+}
+
+.Controller .image_Ong_thang_doc1 img {
+    position: absolute;
+    top: 82.3%;
+    left: 21.8%;
+    width: 2%;
+    height: 10%;
+    transition: opacity 0.3s ease;
+}
+
+/* Ẩn ảnh thứ hai ban đầu */
+.Controller #Ong_thang_doc1_ON {
+    position: absolute;
+    top: 82.3%;
+    left: 21.8%;
+    width: 2%;
+    height: 10%;
+    opacity: 0;
+    z-index: 2;
+}
+
+.Controller .image_Ong_L_traiduoi1 img {
+    position: absolute;
+    top: 76%;
+    left: 21.4%;
+    width: 2%;
+    height: 7%;
+    transition: opacity 0.3s ease;
+}
+
+/* Ẩn ảnh thứ hai ban đầu */
+.Controller #Ong_L_traiduoi1_ON {
+    position: absolute;
+    top: 76%;
+    left: 21.4%;
+    width: 2%;
+    height: 7%;
+    opacity: 0;
+    z-index: 2;
+}
+
+.Controller .image_Ong_thang_ngang1 img {
+    position: absolute;
+    top: 76.1%;
+    left: 13.8%;
+    width: 8%;
+    height: 4.5%;
+    transition: opacity 0.3s ease;
+}
+
+/* Ẩn ảnh thứ hai ban đầu */
+.Controller #Ong_thang_ngang1_ON {
+    opacity: 0;
+    z-index: 2;
+}
+
+.Controller .image_Bom1 img {
+    position: absolute;
+    top: 70%;
+    left: 4%;
+    width: 10%;
+    height: 16%;
+    transition: opacity 0.3s ease;
+}
+
+/* Ẩn ảnh thứ hai ban đầu */
+.Controller #Bom1_ON {
+    opacity: 0;
+    z-index: 2;
+}
+
+
+.Controller .image_Ong_thang_doc1_2 img {
+    position: absolute;
+    top: 62.5%;
+    left: 11.6%;
+    width: 2.2%;
+    height: 8%;
+    transition: opacity 0.3s ease;
+}
+
+/* Ẩn ảnh thứ hai ban đầu */
+.Controller #Ong_thang_doc1_2_ON {
+    position: absolute;
+    top: 62.5%;
+    left: 11.6%;
+    width: 2.2%;
+    height: 8%;
+    opacity: 0;
+    z-index: 2;
+}
+
+/* KET THUC PHAN TRAM BOM 1 */
+
+/* PHẦN TRẠM BƠM 2 */
+.Controller .image_Buong_nuoc2 img {
+    position: absolute;
+    top: 90.5%;
+    left: 50%;
+    width: 12%;
+    height: 9%;
+    transition: opacity 0.3s ease;
+}
+
+.Controller .image_Ong_thang_doc2 img {
+    position: absolute;
+    top: 82%;
+    left: 55.7%;
+    width: 2%;
+    height: 10%;
+    transition: opacity 0.3s ease;
+}
+
+/* Ẩn ảnh thứ hai ban đầu */
+.Controller #Ong_thang_doc2_ON {
+    position: absolute;
+    top: 82.3%;
+    left: 62.8%;
+    width: 2%;
+    height: 10%;
+    opacity: 0;
+    z-index: 2;
+}
+
+.Controller .image_Ong_L_traiduoi2 img {
+    position: absolute;
+    top: 76%;
+    left: 55.3%;
+    width: 2%;
+    height: 7%;
+    transition: opacity 0.3s ease;
+}
+
+/* Ẩn ảnh thứ hai ban đầu */
+.Controller #Ong_L_traiduoi2_ON {
+    position: absolute;
+    top: 76%;
+    left: 55.3%;
+    width: 2%;
+    height: 7%;
+    opacity: 0;
+    z-index: 2;
+}
+
+.Controller .image_Ong_thang_ngang2 img {
+    position: absolute;
+    top: 76.1%;
+    left: 47.8%;
+    width: 8%;
+    height: 4.5%;
+    transition: opacity 0.3s ease;
+}
+
+/* Ẩn ảnh thứ hai ban đầu */
+.Controller #Ong_thang_ngang2_ON {
+    opacity: 0;
+    z-index: 2;
+}
+
+/* 50-38=12 */
+.Controller .image_Bom2 img {
+    position: absolute;
+    top: 70%;
+    left: 38%; 
+    width: 10%;
+    height: 16%;
+    transition: opacity 0.3s ease;
+}
+
+/* Ẩn ảnh thứ hai ban đầu */
+.Controller #Bom2_ON {
+    opacity: 0;
+    z-index: 2;
+}
+
+
+.Controller .image_Ong_thang_doc2_2 img {
+    position: absolute;
+    top: 62.5%;
+    left: 45.6%;
+    width: 2.2%;
+    height: 8%;
+    transition: opacity 0.3s ease;
+}
+
+/* Ẩn ảnh thứ hai ban đầu */
+.Controller #Ong_thang_doc2_2_ON {
+    position: absolute;
+    top: 62.5%;
+    left: 49.4%;
+    width: 2.2%;
+    height: 8%;
+    opacity: 0;
+    z-index: 2;
+}
+/* KET THUC TRAM BOM 2 */
+
+/* ONG GOP */
+.Controller .image_Van_1chieu1 img {
+    position: absolute;
+    top: 55.8%;
+    left: 11.65%;
+    width: 2.3%;
+    height: 8%;
+    transition: opacity 0.3s ease;
+}
+
+.Controller .image_Ong_T_duoi1 img {
+    position: absolute;
+    top: 43.2%;
+    left: 11.3%;
+    width: 3%;
+    height: 15%;
+    transition: opacity 0.3s ease;
+}
+
+/* Ẩn ảnh thứ hai ban đầu */
+.Controller #Ong_T_duoi1_ON {
+    opacity: 0;
+    z-index: 2;
+}
+
+.Controller .image_Van_1chieu2 img {
+    position: absolute;
+    top: 55.8%;
+    left: 45.65%;
+    width: 2.3%;
+    height: 8%;
+    transition: opacity 0.3s ease;
+}
+
+.Controller .image_Ong_T_duoi2 img {
+    position: absolute;
+    top: 43.2%;
+    left: 45.35%;
+    width: 3%;
+    height: 15%;
+    transition: opacity 0.3s ease;
+}
+
+/* Ẩn ảnh thứ hai ban đầu */
+.Controller #Ong_T_duoi2_ON {
+    opacity: 0;
+    z-index: 2;
+}
+
+.Controller .image_Mat_pic_trai img {
+    position: absolute;
+    top: 41%;
+    left: 2%;
+    width: 1%;
+    height: 16%;
+    transition: opacity 0.3s ease;
+}
+
+.Controller .image_Ong_thang_ngang3 img {
+    position: absolute;
+    top: 41%;
+    left: 2.35%;
+    width: 30%;
+    height: 15%;
+    transition: opacity 0.3s ease;
+}
+
+/* Ẩn ảnh thứ hai ban đầu */
+.Controller #Ong_thang_ngang3_ON {
+    opacity: 0;
+    z-index: 2;
+}
+
+.Controller .image_Ong_thang_ngang4 img {
+    position: absolute;
+    top: 41%;
+    left: 31.5%;
+    width: 30%;
+    height: 15%;
+    transition: opacity 0.3s ease;
+}
+
+/* Ẩn ảnh thứ hai ban đầu */
+.Controller #Ong_thang_ngang4_ON {
+    opacity: 0;
+    z-index: 2;
+}
+
+.Controller .image_Van_buom_dien img {
+    position: absolute;
+    top: 32%;
+    left: 59.3%;
+    width: 5.8%;
+    height: 25%;
+    transition: opacity 0.3s ease;
+}
+/* Ẩn ảnh thứ hai ban đầu */
+.Controller #Van_buom_dien_ON {
+    opacity: 0;
+    z-index: 2;
+}
+
+
+.Controller .image_Ong_thang_ngang5 img {
+    position: absolute;
+    top: 41%;
+    left: 62.65%;
+    width: 38%;
+    height: 15%;
+    transition: opacity 0.3s ease;
+}
+
+/* Ẩn ảnh thứ hai ban đầu */
+.Controller #Ong_thang_ngang5_ON {
+    opacity: 0;
+    z-index: 2;
+}
+
+/* KET THUC ONG GOP */
+
+/* TABLE 2 */
+.Controller .hidden-table2 {
+    border-collapse: collapse;
+    font-size: 130%;
+    width: 20%;
+    height: 40%;
+    position: absolute;
+    left: 75%;
+    top: 2%;
+}
+
+.Controller .hidden-table2 th,
+td {
+    padding: 2px;
+    text-align: left;
+    border-bottom: 1px solid #474040;
+}
+
+tr:hover {
+    background-color: rgb(107, 105, 105);
+}
+
+/* Add a card effect for articles */
+
+ .lable_Status_Bom{
+    font-size: 10px;
+    background-color: rgb(166, 180, 164);
+    color: white;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 45px;
+    border: 0px solid black;
+    padding: 5px;
+}
+
+.card {
+    background-color: white;
+    padding: 20px;
+    margin-top: 20px;
+    height: 500%;
+    font-family: Arial;
+}
+
+.lable_Warning{
+    font-size: 150%;
+    background-color: rgb(215, 215, 215);
+    color: rgb(247, 3, 3);
+    position: relative;
+    top: 1%;
+    left: 0%;
+    width: 100%;
+    height: 50px;
+    border: 0px solid black;
+    padding: 15px;
+}
+
+.card .container_Station_active {
+    border-radius: 15px;
+    font-size: 120%;
+    background: #c9c9c9;
+    position: absolute;
+    top: 14%;
+    left: 1%;
+    width: 15%;
+    height: 80%;
+    padding: 15px;
+}
+
+.card .container_resovle_prolem {
+    border-radius: 15px;
+    font-size: 120%;
+    background: #bfc0c2;
+    position: absolute;
+    top: 14%;
+    left: 18%;
+    width: 15%;
+    height: 80%;
+    padding: 15px;
+}
+
+.card .container_Point_bad {
+    border-radius: 15px;
+    font-size: 120%;
+    background: #d4d5d5;
+    position: absolute;
+    top: 14%;
+    left: 35%;
+    width: 15%;
+    height: 80%;
+    padding: 15px;
+}
+
+/* Clear floats after the columns */
+.row::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 800px) {
+    .leftcolumn,
+    .rightcolumn {
+        width: 100%;
+        padding: 0;
+    }
+}
+
+/* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+@media screen and (max-width: 400px) {
+    .topnav a {
+        float: none;
+        width: 100%;
+    }
+}

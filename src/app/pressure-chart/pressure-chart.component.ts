@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import {
   ApexAxisChartSeries,
   ApexChart,
@@ -9,80 +9,160 @@ import {
   ApexYAxis,
   ApexGrid,
   ApexTitleSubtitle,
-  ApexLegend
+  ApexLegend,
+  ApexTooltip
 } from "ng-apexcharts";
-export type ChartOptions = {
-  series: ApexAxisChartSeries;
-  chart: ApexChart;
-  dataLabels: ApexDataLabels;
-  yaxis: ApexYAxis;
-  xaxis: ApexXAxis;
-  title: ApexTitleSubtitle;
-  stroke: ApexStroke;
-  markers: ApexMarkers;
-  grid: ApexGrid;
-  legend: ApexLegend;
-};
+import { DeviceService } from '../_service/device.service';
+// export type ChartOptions = {
+//   series: ApexAxisChartSeries;
+//   chart: ApexChart;
+//   dataLabels: ApexDataLabels;
+//   yaxis: ApexYAxis;
+//   xaxis: ApexXAxis;
+//   title: ApexTitleSubtitle;
+//   stroke: ApexStroke;
+//   markers: ApexMarkers;
+//   grid: ApexGrid;
+//   legend: ApexLegend;
+// };
 
 @Component({
   selector: 'app-pressure-chart',
   templateUrl: './pressure-chart.component.html',
   styleUrls: ['./pressure-chart.component.css']
 })
-export class PressureChartComponent {
-  public chartOptions: Partial<any>;
+export class PressureChartComponent implements OnInit {
+  public series!: ApexAxisChartSeries;
+  public chart!: ApexChart;
+  public dataLabels!: ApexDataLabels;
+  public markers!: ApexMarkers;
+  public title!: ApexTitleSubtitle;
+  public stroke!: ApexStroke;
+  public yaxis!: ApexYAxis;
+  public xaxis!: ApexXAxis;
+  public grid!: ApexGrid;
+  public tooltip!: ApexTooltip;
+  public legend!: ApexLegend;
 
-  constructor() {
-    this.chartOptions = {
-      series: [
-        {
-          name: "Series 1",
-          data: [30, 40, 35, 50, 49, 60, 70, 91, 125]
-        },
-        {
-          name: "Series 2",
-          data: [23, 31, 35, 40, 45, 55, 60, 75, 85]
-        },
-        {
-          name: "Series 3",
-          data: [20, 29, 32, 45, 50, 60, 70, 88, 110]
-        }
-      ],
-      chart: {
+  constructor(
+    private deviceService: DeviceService) {
+    this.initChartData()
+
+  }
+  ngOnInit() {
+    this.updateDataAndChart(); // Call the updateDataAndChart() method when the component initializes
+    setInterval(() => this.updateDataAndChart(), 300000); // Update every 5 seconds
+  }
+  async updateDataAndChart() {
+    try {
+
+      // const token = await this.loginAndGetToken();
+      // const token = await this.userAuthService.getToken;
+      // console.log(token);
+      const deviceId = 'Device001';
+      const attributePressure = 'AI_1,AI_2';
+      const attributeFlow = 'PI_1,PI_2,PI_3,PI_4';
+
+      // const pressureData = await this.fetchData(token, deviceId, attributePressure);
+      // const flowData = await this.fetchData(token, deviceId, attributeFlow);
+      const flowData = await this.deviceService.getAllDeviceData(deviceId, attributeFlow).toPromise();
+      console.log(flowData);
+      // Assuming the chart library uses updateSeries() method, adjust it as per your library
+      this.series = [
+        // { name: "Bat", data: flowData.data?.Bat.map((entry: { updated_at: string | number | Date; value: any; }) => ({ x: new Date(entry.updated_at).getTime(), y: entry.value })) },
+        { name: "PI_1", data: flowData.data?.PI_1.map((entry: { updated_at: string | number | Date; value: any; }) => ({ x: new Date(entry.updated_at).getTime(), y: entry.value })) },
+        { name: "PI_2", data: flowData.data?.PI_2.map((entry: { updated_at: string | number | Date; value: any; }) => ({ x: new Date(entry.updated_at).getTime(), y: entry.value })) },
+        { name: "PI_3", data: flowData.data?.PI_3.map((entry: { updated_at: string | number | Date; value: any; }) => ({ x: new Date(entry.updated_at).getTime(), y: entry.value })) },
+        { name: "PI_4", data: flowData.data?.PI_4.map((entry: { updated_at: string | number | Date; value: any; }) => ({ x: new Date(entry.updated_at).getTime(), y: entry.value })) }
+      ];
+
+      // Update the pressureChart series similarly
+
+    } catch (error) {
+      console.error('Data Error:', error);
+    }
+  }
+
+  public initChartData(): void {
+    this.series = [
+      {
+        name: "Series 1",
+        data: [30, 40, 35, 50, 49, 60, 70, 91, 125]
+      },
+      {
+        name: "Series 2",
+        data: [23, 31, 35, 40, 45, 55, 60, 75, 85]
+      },
+      {
+        name: "Series 3",
+        data: [20, 29, 32, 45, 50, 60, 70, 88, 110]
+      }
+    ],
+      this.chart = {
         height: 350,
         type: "line",
-        fontFamily: "Roboto, sans-serif"
+        stacked: false,
+        zoom: {
+          type: "x",
+          enabled: true,
+          autoScaleYaxis: true
+        },
+        toolbar: {
+          autoSelected: "zoom"
+        },
+        fontFamily: "Roboto, sans-serif",
       },
-      dataLabels: {
+      this.dataLabels = {
         enabled: false
       },
-      stroke: {
+      this.stroke = {
         width: 2,
         curve: "smooth"
       },
-      xaxis: {
-        categories: [2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009]
+      this.xaxis = {
+        // categories: [2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009]
+        type: 'datetime',
+        labels: {
+          datetimeUTC: false,
+          format: 'dd/MM/yyyy HH:mm:ss'
+        }
       },
-      markers: {
+      this.markers = {
         size: 4,
         hover: {
           size: 6
         }
       },
-      title: {
+      this.title = {
         text: "Áp lực nước",
         align: "left"
       },
-      yaxis: {
+      this.yaxis = {
         title: {
-          text: "Values"
+          text: "Giá trị"
         }
       },
-      legend: {
-        position: "top",
-        horizontalAlign: "right",
-        offsetY: -20
-      }
-    };
+      this.legend = {
+        position: "bottom",
+        horizontalAlign: "center",
+        offsetY: 7
+      },
+      this.tooltip = {
+        shared: false,
+        // y: {
+        //   formatter: function (val) {
+        //     return (val / 1000000).toFixed(0);
+        //   }
+        // }
+        x: {
+          format: 'dd/MM/yyyy HH:mm:ss', // Định dạng thời gian
+        },
+        y: {
+          formatter: function (val) {
+            return val.toFixed(2);
+          }
+        }
+      };
+
   }
 }

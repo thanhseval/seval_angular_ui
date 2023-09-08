@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import {
   ApexAxisChartSeries,
   ApexChart,
@@ -9,10 +8,10 @@ import {
   ApexMarkers,
   ApexYAxis,
   ApexXAxis,
-  ApexTooltip
+  ApexTooltip,
+  ApexLegend
 } from "ng-apexcharts";
 import { dataSeries } from "./data-series";
-import { ApiService } from '../_service/api.service';
 import { DeviceService } from '../_service/device.service';
 
 @Component({
@@ -30,9 +29,9 @@ export class FlowChartComponent implements OnInit {
   public yaxis!: ApexYAxis;
   public xaxis!: ApexXAxis;
   public tooltip!: ApexTooltip;
+  public legend!: ApexLegend;
 
-  constructor(private http: HttpClient,
-    private apiService: ApiService,
+  constructor(
     private deviceService: DeviceService) {
     this.initChartData();
   }
@@ -42,15 +41,15 @@ export class FlowChartComponent implements OnInit {
     setInterval(() => this.updateDataAndChart(), 300000); // Update every 5 seconds
   }
 
-  async loginAndGetToken(): Promise<string> {
-    // const response = await this.http.post<any>('http://localhost:3000/proxy/login', { username, password }).toPromise();
-    // return response.token;
-    const credentials = { username: 'dat', password: 'test' };
-    const response = await this.apiService.login(credentials).toPromise();
-    console.log(response);
-    await this.apiService.saveToken(response.token);
-    return response.token;
-  }
+  // async loginAndGetToken(): Promise<string> {
+  //   // const response = await this.http.post<any>('http://localhost:3000/proxy/login', { username, password }).toPromise();
+  //   // return response.token;
+  //   const credentials = { username: 'dat', password: 'test' };
+  //   const response = await this.apiService.login(credentials).toPromise();
+  //   console.log(response);
+  //   await this.apiService.saveToken(response.token);
+  //   return response.token;
+  // }
 
   // async fetchData(token: string, deviceId: string, attribute: string): Promise<any> {
   //   const url = `http://localhost:3000/proxy/device/alldata/${encodeURIComponent(deviceId)}?attribute=${encodeURIComponent(attribute)}`;
@@ -63,8 +62,10 @@ export class FlowChartComponent implements OnInit {
   async updateDataAndChart() {
     try {
 
-      const token = await this.loginAndGetToken();
-      const deviceId = 'device1';
+      // const token = await this.loginAndGetToken();
+      // const token = await this.userAuthService.getToken;
+      // console.log(token);
+      const deviceId = 'Device001';
       const attributePressure = 'AI_1,AI_2';
       const attributeFlow = 'PI_1,PI_2';
 
@@ -74,8 +75,8 @@ export class FlowChartComponent implements OnInit {
       console.log(flowData);
       // Assuming the chart library uses updateSeries() method, adjust it as per your library
       this.series = [
-        { name: "PI_1", data: flowData.data.PI_1.map((entry: { updated_at: string | number | Date; value: any; }) => ({ x: new Date(entry.updated_at).getTime(), y: entry.value })) },
-        { name: "PI_2", data: flowData.data.PI_2.map((entry: { updated_at: string | number | Date; value: any; }) => ({ x: new Date(entry.updated_at).getTime(), y: entry.value })) }
+        { name: "PI_1", data: flowData.data?.PI_1.map((entry: { updated_at: string | number | Date; value: any; }) => ({ x: new Date(entry.updated_at).getTime(), y: entry.value })) },
+        { name: "PI_2", data: flowData.data?.PI_2.map((entry: { updated_at: string | number | Date; value: any; }) => ({ x: new Date(entry.updated_at).getTime(), y: entry.value })) }
       ];
 
       // Update the pressureChart series similarly
@@ -117,7 +118,10 @@ export class FlowChartComponent implements OnInit {
       enabled: false
     };
     this.markers = {
-      size: 0
+      size: 4,
+        hover: {
+          size: 6
+        }
     };
     this.title = {
       text: "Lưu lượng",
@@ -161,6 +165,11 @@ export class FlowChartComponent implements OnInit {
         datetimeUTC: false,
         format: 'dd/MM/yyyy HH:mm:ss'
       }
+    };
+    this.legend = {
+      position: "bottom",
+      horizontalAlign: "center",
+      offsetY: 7
     };
     this.tooltip = {
       shared: false,

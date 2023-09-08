@@ -1,9 +1,17 @@
-<div class="header">
+<!-- <div class="header">
   <h1>CÔNG TY TNHH SEVAL</h1>
   <p>SDT: 0973510465</p>
   <p>Địa chỉ: Võ Văn Hát - Long Trường - QUẬN 9</p>
-</div>
+</div> -->
+<!-- <div class ="logo_seval">
+  <a href="https://saigonvalve.com/"><img src="assets/img/LOGO_SEVAL.png"></a>
+</div> -->
 
+<div class="header">
+  <img src="assets/img/LOGO SG-VAL.png" alt="Angular Logo" onclick="window.location.href='/';">
+  <h1 class="title1">CÔNG TY TNHH SÀI GÒN VALVE</h1>
+  <p class="title2">FLOW CONTROL SOLUTION</p>
+</div>
 <!-- <div class="topnav">
   <a routerLink="">Trang chủ</a>
   <a routerLink="map">Map</a>
@@ -24,17 +32,22 @@
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a routerLink="">
+          <a routerLink="/home" target="_parent">
             <span>Trang chủ</span>
           </a>
         </li>
         <li class="nav-item">
-          <a routerLink="map">
+          <a routerLink="controller-pump" target="_parent">
+            <span>Trung tâm điều khiển trạm bơm</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="map" target="_parent">
             <span>Map</span>
           </a>
         </li>
         <li class="nav-item">
-          <a routerLink="clock-timer">
+          <a routerLink="clock-timer" target="_parent">
             <span>Hẹn giờ</span>
           </a>
         </li>
@@ -44,13 +57,23 @@
           </a>
         </li>
         <li class="nav-item">
-          <a routerLink="resovle-problem">
+          <a routerLink="resovle-problem"  target="_parent">
             <span>Xử lý sự cố</span>
           </a>
         </li>
         <li class="nav-item">
-          <a routerLink="resovle-problem" style="float:right">
+          <a routerLink="setting" target="_parent">
+            <span>Cài đặt</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="resovle-problem" target="_parent">
             <span>Thông tin</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="" target="_parent">
+            <span>Đăng nhập</span>
           </a>
         </li>
       </ul>

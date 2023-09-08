@@ -6,6 +6,7 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
+
 export class HomeComponent implements OnInit {
   query: string = 'Long Trường 1';
   showTables: boolean = false;
@@ -44,7 +45,7 @@ export class HomeComponent implements OnInit {
 
   async loginAndGetToken(username: string, password: string): Promise<string> {
     const response = await this.http.post<any>('http://localhost:3000/proxy/login', { username, password }).toPromise();
-    
+
     return response.token;
   }
 
