@@ -48,6 +48,57 @@ export class SettingComponent implements OnInit {
         var deviceDataPI_4: DeviceData[] = data.data.PI_4;
         var deviceDataBat: DeviceData[] = data.data.Bat;
         // console.log(deviceData);
+
+        //sort data
+        deviceDataPI_1.sort((a, b) => {
+          const dateA = new Date(a.updated_at);
+          const dateB = new Date(b.updated_at);
+
+          if (!isNaN(dateA.getTime()) && !isNaN(dateB.getTime())) {
+            return dateA.getTime() - dateB.getTime();
+          } else {
+            // Handle cases where the date strings are invalid
+            return 0; // You can choose to handle this differently
+          }
+
+        });
+        deviceDataPI_2.sort((a, b) => {
+          const dateA = new Date(a.updated_at);
+          const dateB = new Date(b.updated_at);
+
+          if (!isNaN(dateA.getTime()) && !isNaN(dateB.getTime())) {
+            return dateA.getTime() - dateB.getTime();
+          } else {
+            // Handle cases where the date strings are invalid
+            return 0; // You can choose to handle this differently
+          }
+
+        });
+        deviceDataPI_3.sort((a, b) => {
+          const dateA = new Date(a.updated_at);
+          const dateB = new Date(b.updated_at);
+
+          if (!isNaN(dateA.getTime()) && !isNaN(dateB.getTime())) {
+            return dateA.getTime() - dateB.getTime();
+          } else {
+            // Handle cases where the date strings are invalid
+            return 0; // You can choose to handle this differently
+          }
+
+        });
+        deviceDataPI_4.sort((a, b) => {
+          const dateA = new Date(a.updated_at);
+          const dateB = new Date(b.updated_at);
+
+          if (!isNaN(dateA.getTime()) && !isNaN(dateB.getTime())) {
+            return dateA.getTime() - dateB.getTime();
+          } else {
+            // Handle cases where the date strings are invalid
+            return 0; // You can choose to handle this differently
+          }
+
+        });
+
         if (deviceDataPI_1 && deviceDataPI_1.length > 0) {
           this.lastDataPI_1 = deviceDataPI_1[deviceDataPI_1.length - 1];
           console.log(this.lastDataPI_1);

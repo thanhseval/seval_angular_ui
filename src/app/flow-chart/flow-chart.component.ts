@@ -13,6 +13,7 @@ import {
 } from "ng-apexcharts";
 import { dataSeries } from "./data-series";
 import { DeviceService } from '../_service/device.service';
+import { DeviceData } from '../_model/device_data.model';
 
 @Component({
   selector: 'app-flow-chart',
@@ -30,6 +31,11 @@ export class FlowChartComponent implements OnInit {
   public xaxis!: ApexXAxis;
   public tooltip!: ApexTooltip;
   public legend!: ApexLegend;
+  dataPI_1: any;
+  dataPI_2: any;
+  dataPI_3: any;
+  dataPI_4: any;
+  dataBat: any;
 
   constructor(
     private deviceService: DeviceService) {
@@ -59,7 +65,7 @@ export class FlowChartComponent implements OnInit {
   //   return response.data;
   // }
 
-  async updateDataAndChart() {
+  updateDataAndChart() {
     try {
 
       // const token = await this.loginAndGetToken();
@@ -71,13 +77,62 @@ export class FlowChartComponent implements OnInit {
 
       // const pressureData = await this.fetchData(token, deviceId, attributePressure);
       // const flowData = await this.fetchData(token, deviceId, attributeFlow);
-      const flowData = await this.deviceService.getAllDeviceData(deviceId, attributeFlow).toPromise();
-      console.log(flowData);
+      this.deviceService.getAllDeviceData(deviceId, attributeFlow).subscribe(
+        (data) => {
+          var deviceDataPI_1: DeviceData[] = data.data.PI_1;
+          var deviceDataPI_2: DeviceData[] = data.data.PI_2;
+          var deviceDataPI_3: DeviceData[] = data.data.PI_3;
+          var deviceDataPI_4: DeviceData[] = data.data.PI_4;
+          var deviceDataBat: DeviceData[] = data.data.Bat;
+
+          //sort data
+          deviceDataPI_1.sort((a, b) => {
+            const dateA = new Date(a.updated_at);
+            const dateB = new Date(b.updated_at);
+
+            if (!isNaN(dateA.getTime()) && !isNaN(dateB.getTime())) {
+              return dateA.getTime() - dateB.getTime();
+            } else {
+              // Handle cases where the date strings are invalid
+              return 0; // You can choose to handle this differently
+            }
+
+          });
+          deviceDataPI_2.sort((a, b) => {
+            const dateA = new Date(a.updated_at);
+            const dateB = new Date(b.updated_at);
+
+            if (!isNaN(dateA.getTime()) && !isNaN(dateB.getTime())) {
+              return dateA.getTime() - dateB.getTime();
+            } else {
+              // Handle cases where the date strings are invalid
+              return 0; // You can choose to handle this differently
+            }
+
+          });
+
+
+
+          this.dataPI_1 = deviceDataPI_1;
+          this.dataPI_2 = deviceDataPI_2;
+          this.dataPI_3 = deviceDataPI_3;
+          this.dataPI_4 = deviceDataPI_4;
+          this.dataBat = deviceDataBat;
+          console.log(this.dataPI_1);
+          this.series = [
+            { name: "PI_1", data: this.dataPI_1.map((entry: { updated_at: string | number | Date; value: any; }) => ({ x: new Date(entry.updated_at).getTime(), y: entry.value })) },
+            { name: "PI_2", data: this.dataPI_2.map((entry: { updated_at: string | number | Date; value: any; }) => ({ x: new Date(entry.updated_at).getTime(), y: entry.value })) }
+          ];
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
       // Assuming the chart library uses updateSeries() method, adjust it as per your library
-      this.series = [
-        { name: "PI_1", data: flowData.data?.PI_1.map((entry: { updated_at: string | number | Date; value: any; }) => ({ x: new Date(entry.updated_at).getTime(), y: entry.value })) },
-        { name: "PI_2", data: flowData.data?.PI_2.map((entry: { updated_at: string | number | Date; value: any; }) => ({ x: new Date(entry.updated_at).getTime(), y: entry.value })) }
-      ];
+      // this.series = [
+      //   { name: "PI_1", data: flowData.data?.PI_1.map((entry: { updated_at: string | number | Date; value: any; }) => ({ x: new Date(entry.updated_at).getTime(), y: entry.value })) },
+      //   { name: "PI_2", data: flowData.data?.PI_2.map((entry: { updated_at: string | number | Date; value: any; }) => ({ x: new Date(entry.updated_at).getTime(), y: entry.value })) }
+      // ];
 
       // Update the pressureChart series similarly
 
@@ -118,10 +173,10 @@ export class FlowChartComponent implements OnInit {
       enabled: false
     };
     this.markers = {
-      size: 4,
-        hover: {
-          size: 6
-        }
+      // size: 2,
+      // hover: {
+      //   size: 6
+      // }
     };
     this.title = {
       text: "Lưu lượng",
@@ -162,7 +217,7 @@ export class FlowChartComponent implements OnInit {
       // type: "datetime"
       type: 'datetime',
       labels: {
-        datetimeUTC: false,
+        datetimeUTC: true,
         format: 'dd/MM/yyyy HH:mm:ss'
       }
     };
