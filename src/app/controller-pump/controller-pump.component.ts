@@ -14,6 +14,9 @@ export class ControllerPumpComponent implements OnInit {
   lastDataPI_3: any;
   lastDataPI_4: any;
   lastDataBat: any;
+  DO_3_Status: any;
+  DO_4_Status: any;
+  DO_5_Status: any;
 
   constructor(private deviceService: DeviceService) { }
 
@@ -21,12 +24,46 @@ export class ControllerPumpComponent implements OnInit {
     // this.search();
     // this.getData();
     this.getLatestData();
-    setInterval(() => this.getLatestData(), 30000);
+    setInterval(() => this.getLatestData(), 300000);
+    this.getStatus();
+    setInterval(() => this.getStatus(), 100);
+  }
+
+  getStatus() {
+    const deviceId = '8C-F3-19-3B-2E-B9';
+    const keys = 'DO_3,DO_4,DO_5';
+    this.deviceService.getDeviceStatus(deviceId, keys).subscribe(
+      (res) => {
+        this.DO_3_Status = res.data.DO_3.status;
+        this.DO_4_Status = res.data.DO_4.status;
+        this.DO_5_Status = res.data.DO_5.status;
+      },
+      (err) => {
+        console.log(err);
+      }
+    )
+  }
+
+  ON(deviceKey: string, action: string) {
+      this.deviceService.sendDataDevicePLC(deviceKey, action).subscribe(
+        (res) => {
+          console.log(res);
+          this.getStatus();
+        },
+        (err) => {
+          console.log(err);
+        }
+      )
+  }
+
+  sendDataDevicePLC() {
+    const deviceKeys = '';
+    const action = '';
+    this.deviceService.sendDataDevicePLC(deviceKeys, action);
   }
 
   getData(attribute: string): Observable<any> {
     const deviceId = 'Device001';
-    // const attribute = 'PI_1,PI_2';
 
     return this.deviceService.getAllDeviceData(deviceId, attribute);
   }

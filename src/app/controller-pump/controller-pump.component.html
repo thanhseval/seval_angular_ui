@@ -15,8 +15,7 @@
                     <!-- NUT NHAN SWITCH -->
                     <label class="switch1">
                         <input type="checkbox" id="Van_dien1">
-                        <span class="slider1">
-                        </span>
+                        <span class="slider1"> </span>
                     </label>
 
                     <div class="Lable_Trangthai">
@@ -40,33 +39,44 @@
                     </div>
 
                     <div class="image_Bom1">
-                        <img id="Bom1_OFF" src="assets/img/BOM_OFF1.png" alt="Hình ảnh 1">
-                        <img id="Bom1_ON" src="assets/img/BOM_ON1.png" alt="Hình ảnh 2">
-                        <button style="width: 3%;height: 5%; font-size:100%; position:absolute; left:5%; top: 90%;"
-                            onclick="Bom1_ON()"> <b>BẬT </b></button>
-                        <button style="width: 3%;height: 5%; font-size:100%;  position:absolute; left:9%; top:90%;"
-                            onclick="Bom1_OFF()"> <b> TẮT</b></button>
+                        <img id="Bom1_OFF" src="assets/img/BOM_OFF1.png" alt="Hình ảnh 1" *ngIf="DO_4_Status === 'OFF'">
+                        <img id="Bom1_ON" src="assets/img/BOM_ON1.png" alt="Hình ảnh 2" *ngIf="DO_4_Status === 'ON'">
+                        <button mat-stroked-button style="width: 3%;height: 5%; font-size:100%; position:absolute; left:5%; top: 90%;"
+                            [style.backgroundColor]="DO_4_Status === 'ON' ? 'green' : 'white'" (click)="ON('DO_4','ON')"
+                            [disabled]="DO_3_Status === 'OFF'"> <b>BẬT
+                            </b></button>
+                        <button mat-stroked-button style="width: 3%;height: 5%; font-size:100%;  position:absolute; left:9%; top:90%;"
+                            [style.backgroundColor]="DO_4_Status === 'OFF' ? 'green' : 'white'" (click)="ON('DO_4','OFF')"
+                            [disabled]="DO_3_Status === 'OFF'"> <b>
+                                TẮT</b></button>
                     </div>
 
                     <div class="image_Ong_thang_doc1">
-                        <img id="Ong_thang_doc1_OFF" src="assets/img/Ong thang doc_OFF.png" alt="Ong L trai duoi OFF">
-                        <img id="Ong_thang_doc1_ON" src="assets/img/Ong thang doc_ON.png" alt="Ong L trai duoi ON">
+                        <img id="Ong_thang_doc1_OFF" src="assets/img/Ong thang doc_OFF.png" alt="Ong L trai duoi OFF"
+                            *ngIf="DO_4_Status === 'OFF' && DO_5_Status === 'OFF'">
+                        <img id="Ong_thang_doc1_ON" src="assets/img/Ong thang doc_ON.png" alt="Ong L trai duoi ON"
+                            *ngIf="DO_4_Status === 'ON' || DO_5_Status === 'ON'">
                     </div>
 
                     <div class="image_Ong_thang_ngang1">
-                        <img id="Ong_thang_ngang1_OFF" src="assets/img/Ong thang ngang_OFF.png" alt="Hình ảnh 3">
-                        <img id="Ong_thang_ngang1_ON" src="assets/img/Ong thang ngang_ON.png" alt="Hình ảnh 4">
+                        <img id="Ong_thang_ngang1_OFF" src="assets/img/Ong thang ngang_OFF.png" alt="Hình ảnh 3"
+                            *ngIf="DO_4_Status === 'OFF' && DO_5_Status === 'OFF'">
+                        <img id="Ong_thang_ngang1_ON" src="assets/img/Ong thang ngang_ON.png" alt="Hình ảnh 4"
+                            *ngIf="DO_4_Status === 'ON' || DO_5_Status === 'ON'">
                     </div>
 
                     <div class="image_Ong_L_traiduoi1">
-                        <img id="Ong_L_traiduoi1_OFF" src="assets/img/Ong L trai duoi_OFF.png"
-                            alt="Ong L trai duoi OFF">
-                        <img id="Ong_L_traiduoi1_ON" src="assets/img/Ong L trai duoi_ON.png" alt="Ong L trai duoi ON">
+                        <img id="Ong_L_traiduoi1_OFF" src="assets/img/Ong L trai duoi_OFF.png" alt="Ong L trai duoi OFF"
+                            *ngIf="DO_4_Status === 'OFF' && DO_5_Status === 'OFF'">
+                        <img id="Ong_L_traiduoi1_ON" src="assets/img/Ong L trai duoi_ON.png" alt="Ong L trai duoi ON"
+                            *ngIf="DO_4_Status === 'ON' || DO_5_Status === 'ON'">
                     </div>
 
                     <div class="image_Ong_thang_doc1_2">
-                        <img id="Ong_thang_doc1_2_OFF" src="assets/img/Ong thang doc_OFF.png" alt="Ong L trai duoi OFF">
-                        <img id="Ong_thang_doc1_2_ON" src="assets/img/Ong thang doc_ON.png" alt="Ong L trai duoi ON">
+                        <img id="Ong_thang_doc1_2_OFF" src="assets/img/Ong thang doc_OFF.png" alt="Ong L trai duoi OFF"
+                            *ngIf="DO_4_Status === 'OFF' && DO_5_Status === 'OFF'">
+                        <img id="Ong_thang_doc1_2_ON" src="assets/img/Ong thang doc_ON.png" alt="Ong L trai duoi ON"
+                            *ngIf="DO_4_Status === 'ON' || DO_5_Status === 'ON'">
                     </div>
                     <!-- KET THUC TRAM BOM 1 -->
 
@@ -76,33 +86,44 @@
                     </div>
 
                     <div class="image_Bom2">
-                        <img id="Bom2_OFF" src="assets/img/BOM_OFF1.png" alt="Hình ảnh 1">
-                        <img id="Bom2_ON" src="assets/img/BOM_ON1.png" alt="Hình ảnh 2">
-                        <button style="width: 3%;height: 5%; font-size:100%;; position:absolute; left:39%; top: 90%;"
-                            onclick="Bom2_ON()"> <b>BẬT </b></button>
-                        <button style="width: 3%;height: 5%; font-size:100%;  position:absolute; left:43%; top:90%;"
-                            onclick="Bom2_OFF()"> <b> TẮT</b></button>
+                        <img id="Bom2_OFF" src="assets/img/BOM_OFF1.png" alt="Hình ảnh 1" *ngIf="DO_5_Status === 'OFF'">
+                        <img id="Bom2_ON" src="assets/img/BOM_ON1.png" alt="Hình ảnh 2" *ngIf="DO_5_Status === 'ON'">
+                        <button mat-stroked-button class="Bom2_ON"
+                            style="width: 3%;height: 5%; font-size:100%;; position:absolute; left:39%; top: 90%;"
+                            [style.backgroundColor]="DO_5_Status === 'ON' ? 'green' : 'white'" (click)="ON('DO_5','ON')"
+                            [disabled]="DO_3_Status === 'OFF'">
+                            <b>BẬT </b></button>
+                        <button mat-stroked-button style="width: 3%;height: 5%; font-size:100%;  position:absolute; left:43%; top:90%;"
+                            [style.backgroundColor]="DO_5_Status === 'OFF' ? 'green' : 'white'" (click)="ON('DO_5','OFF')"
+                            [disabled]="DO_3_Status === 'OFF'"> <b> TẮT</b></button>
                     </div>
 
                     <div class="image_Ong_thang_doc2">
-                        <img id="Ong_thang_doc2_OFF" src="assets/img/Ong thang doc_OFF.png" alt="Ong L trai duoi OFF">
-                        <img id="Ong_thang_doc2_ON" src="assets/img/Ong thang doc_ON.png" alt="Ong L trai duoi ON">
+                        <img id="Ong_thang_doc2_OFF" src="assets/img/Ong thang doc_OFF.png" alt="Ong L trai duoi OFF"
+                            *ngIf="DO_4_Status === 'OFF' && DO_5_Status === 'OFF'">
+                        <img id="Ong_thang_doc2_ON" src="assets/img/Ong thang doc_ON.png" alt="Ong L trai duoi ON"
+                            *ngIf="DO_4_Status === 'ON' || DO_5_Status === 'ON'">
                     </div>
 
                     <div class="image_Ong_thang_ngang2">
-                        <img id="Ong_thang_ngang2_OFF" src="assets/img/Ong thang ngang_OFF.png" alt="Hình ảnh 3">
-                        <img id="Ong_thang_ngang2_ON" src="assets/img/Ong thang ngang_ON.png" alt="Hình ảnh 4">
+                        <img id="Ong_thang_ngang2_OFF" src="assets/img/Ong thang ngang_OFF.png" alt="Hình ảnh 3"
+                            *ngIf="DO_4_Status === 'OFF' && DO_5_Status === 'OFF'">
+                        <img id="Ong_thang_ngang2_ON" src="assets/img/Ong thang ngang_ON.png" alt="Hình ảnh 4"
+                            *ngIf="DO_4_Status === 'ON' || DO_5_Status === 'ON'">
                     </div>
 
                     <div class="image_Ong_L_traiduoi2">
-                        <img id="Ong_L_traiduoi1_OFF" src="assets/img/Ong L trai duoi_OFF.png"
-                            alt="Ong L trai duoi OFF">
-                        <img id="Ong_L_traiduoi1_ON" src="assets/img/Ong L trai duoi_ON.png" alt="Ong L trai duoi ON">
+                        <img id="Ong_L_traiduoi1_OFF" src="assets/img/Ong L trai duoi_OFF.png" alt="Ong L trai duoi OFF"
+                            *ngIf="DO_4_Status === 'OFF' && DO_5_Status === 'OFF'">
+                        <img id="Ong_L_traiduoi1_ON" src="assets/img/Ong L trai duoi_ON.png" alt="Ong L trai duoi ON"
+                            *ngIf="DO_4_Status === 'ON' || DO_5_Status === 'ON'">
                     </div>
 
                     <div class="image_Ong_thang_doc2_2">
-                        <img id="Ong_thang_doc2_2_OFF" src="assets/img/Ong thang doc_OFF.png" alt="Ong L trai duoi OFF">
-                        <img id="Ong_thang_doc2_2_ON" src="assets/img/Ong thang doc_ON.png" alt="Ong L trai duoi ON">
+                        <img id="Ong_thang_doc2_2_OFF" src="assets/img/Ong thang doc_OFF.png" alt="Ong L trai duoi OFF"
+                            *ngIf="DO_4_Status === 'OFF' && DO_5_Status === 'OFF'">
+                        <img id="Ong_thang_doc2_2_ON" src="assets/img/Ong thang doc_ON.png" alt="Ong L trai duoi ON"
+                            *ngIf="DO_4_Status === 'ON' || DO_5_Status === 'ON'">
                     </div>
                     <!-- KET THUC TRAM BOM 2 -->
                     <!-- ONG GOP -->
@@ -115,13 +136,17 @@
                     </div>
 
                     <div class="image_Ong_T_duoi1">
-                        <img id="Ong_T_duoi1_OFF" src="assets/img/Ong T duoi_OFF.png" alt="Ong L trai duoi OFF">
-                        <img id="Ong_T_duoi1_ON" src="assets/img/Ong T duoi_ON.png" alt="Ong L trai duoi ON">
+                        <img id="Ong_T_duoi1_OFF" src="assets/img/Ong T duoi_OFF.png" alt="Ong L trai duoi OFF"
+                            *ngIf="DO_4_Status === 'OFF' && DO_5_Status === 'OFF'">
+                        <img id="Ong_T_duoi1_ON" src="assets/img/Ong T duoi_ON.png" alt="Ong L trai duoi ON"
+                            *ngIf="DO_4_Status === 'ON' || DO_5_Status === 'ON'">
                     </div>
 
                     <div class="image_Ong_T_duoi2">
-                        <img id="Ong_T_duoi2_OFF" src="assets/img/Ong T duoi_OFF.png" alt="Ong L trai duoi OFF">
-                        <img id="Ong_T_duoi2_ON" src="assets/img/Ong T duoi_ON.png" alt="Ong L trai duoi ON">
+                        <img id="Ong_T_duoi2_OFF" src="assets/img/Ong T duoi_OFF.png" alt="Ong L trai duoi OFF"
+                            *ngIf="DO_4_Status === 'OFF' && DO_5_Status === 'OFF'">
+                        <img id="Ong_T_duoi2_ON" src="assets/img/Ong T duoi_ON.png" alt="Ong L trai duoi ON"
+                            *ngIf="DO_4_Status === 'ON' || DO_5_Status === 'ON'">
                     </div>
 
                     <div class="image_Mat_pic_trai">
@@ -129,27 +154,37 @@
                     </div>
 
                     <div class="image_Ong_thang_ngang3">
-                        <img id="Ong_thang_ngang3_OFF" src="assets/img/Ong thang ngang_OFF.png" alt="Hình ảnh 3">
-                        <img id="Ong_thang_ngang3_ON" src="assets/img/Ong thang ngang_ON.png" alt="Hình ảnh 4">
+                        <img id="Ong_thang_ngang3_OFF" src="assets/img/Ong thang ngang_OFF.png" alt="Hình ảnh 3"
+                            *ngIf="DO_4_Status === 'OFF' && DO_5_Status === 'OFF'">
+                        <img id="Ong_thang_ngang3_ON" src="assets/img/Ong thang ngang_ON.png" alt="Hình ảnh 4"
+                            *ngIf="DO_4_Status === 'ON' || DO_5_Status === 'ON'">
                     </div>
 
                     <div class="image_Ong_thang_ngang4">
-                        <img id="Ong_thang_ngang4_OFF" src="assets/img/Ong thang ngang_OFF.png" alt="Hình ảnh 3">
-                        <img id="Ong_thang_ngang4_ON" src="assets/img/Ong thang ngang_ON.png" alt="Hình ảnh 4">
+                        <img id="Ong_thang_ngang4_OFF" src="assets/img/Ong thang ngang_OFF.png" alt="Hình ảnh 3"
+                            *ngIf="DO_4_Status === 'OFF' && DO_5_Status === 'OFF'">
+                        <img id="Ong_thang_ngang4_ON" src="assets/img/Ong thang ngang_ON.png" alt="Hình ảnh 4"
+                            *ngIf="DO_4_Status === 'ON' || DO_5_Status === 'ON'">
                     </div>
 
                     <div class="image_Van_buom_dien">
-                        <img id="Van_buom_dien_OFF" src="assets/img/Van_buom_dien_2_OFF.png" alt="Ong L trai duoi OFF">
-                        <img id="Van_buom_dien_ON" src="assets/img/Ong_buom_dien_2_ON.png" alt="Hình ảnh 4">
-                        <button style="width: 3%;height: 5%; font-size:100%; position:absolute; left:58.5%; top: 58%;"
-                            onclick="Van_buom_dien_ON()"><b>BẬT </b></button>
-                        <button style="width: 3%;height: 5%; font-size:100%; position:absolute; left:63%; top: 58%;"
-                            onclick="Van_buom_dien_OFF()"><b> TẮT</b></button>
+                        <img id="Van_buom_dien_OFF" src="assets/img/Van_buom_dien_2_OFF.png" alt="Ong L trai duoi OFF"
+                            *ngIf="DO_3_Status === 'OFF'">
+                        <img id="Van_buom_dien_ON" src="assets/img/Ong_buom_dien_2_ON.png" alt="Hình ảnh 4"
+                            *ngIf="DO_3_Status === 'OFF'">
+                        <button mat-stroked-button style="width: 3%;height: 5%; font-size:100%; position:absolute; left:58.5%; top: 58%;"
+                            [style.backgroundColor]="DO_3_Status === 'ON' ? 'green' : 'white'"
+                            (click)="ON('DO_3','ON')"><b>BẬT </b></button>
+                        <button mat-stroked-button style="width: 3%;height: 5%; font-size:100%; position:absolute; left:63%; top: 58%;"
+                            [style.backgroundColor]="DO_3_Status === 'OFF' ? 'green' : 'white'" (click)="ON('DO_3','OFF')"
+                            [disabled]="DO_4_Status === 'ON' || DO_5_Status === 'ON'"><b> TẮT</b></button>
                     </div>
 
                     <div class="image_Ong_thang_ngang5">
-                        <img id="Ong_thang_ngang5_OFF" src="assets/img/Ong thang ngang_OFF.png" alt="Hình ảnh 3">
-                        <img id="Ong_thang_ngang5_ON" src="assets/img/Ong thang ngang_ON.png" alt="Hình ảnh 4">
+                        <img id="Ong_thang_ngang5_OFF" src="assets/img/Ong thang ngang_OFF.png" alt="Hình ảnh 3"
+                            *ngIf="DO_4_Status === 'OFF' && DO_5_Status === 'OFF'">
+                        <img id="Ong_thang_ngang5_ON" src="assets/img/Ong thang ngang_ON.png" alt="Hình ảnh 4"
+                            *ngIf="DO_4_Status === 'ON' || DO_5_Status === 'ON'">
                     </div>
                     <table class="hidden-table2" style="color: rgb(67, 53, 53);">
                         <tr>

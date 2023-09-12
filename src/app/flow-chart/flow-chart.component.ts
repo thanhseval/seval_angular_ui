@@ -44,7 +44,7 @@ export class FlowChartComponent implements OnInit {
 
   ngOnInit() {
     this.updateDataAndChart(); // Call the updateDataAndChart() method when the component initializes
-    setInterval(() => this.updateDataAndChart(), 300000); // Update every 5 seconds
+    setInterval(() => this.updateDataAndChart(), 120000); // Update every 5 seconds
   }
 
   // async loginAndGetToken(): Promise<string> {
