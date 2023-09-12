@@ -74,15 +74,15 @@ export class FlowChartComponent implements OnInit {
       const deviceId = 'Device001';
       const attributePressure = 'AI_1,AI_2';
       const attributeFlow = 'PI_1,PI_2';
-
+      // const attributeFlow = 'AI_1_420,AI_2_420,AI_3_420,AI_4_420,Bat';
       // const pressureData = await this.fetchData(token, deviceId, attributePressure);
       // const flowData = await this.fetchData(token, deviceId, attributeFlow);
       this.deviceService.getAllDeviceData(deviceId, attributeFlow).subscribe(
         (data) => {
           var deviceDataPI_1: DeviceData[] = data.data.PI_1;
           var deviceDataPI_2: DeviceData[] = data.data.PI_2;
-          var deviceDataPI_3: DeviceData[] = data.data.PI_3;
-          var deviceDataPI_4: DeviceData[] = data.data.PI_4;
+          var deviceDataPI_3: DeviceData[] = data.data.AI_3_420;
+          var deviceDataPI_4: DeviceData[] = data.data.AI_5_420;
           var deviceDataBat: DeviceData[] = data.data.Bat;
 
           //sort data
@@ -210,7 +210,7 @@ export class FlowChartComponent implements OnInit {
         text: 'Giá trị'
       },
       tickAmount: 5, // Số lượng mức chia trục y
-      min: 0, // Giá trị tối thiểu trên trục y
+      // min: 0, // Giá trị tối thiểu trên trục y
       // max: 1000, // Giá trị tối đa trên trục y
     };
     this.xaxis = {

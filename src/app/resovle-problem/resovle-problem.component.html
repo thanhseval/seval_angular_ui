@@ -1,7 +1,61 @@
-<div>
-    <label for="deviceId">Device ID:</label>
-    <input type="text" id="deviceId" placeholder="Nhập ID của thiết bị" [(ngModel)]="deviceId"
-        (input)="pollForData()" />
-</div>
+<div class="container-fluid">
+    <div class="left-conlumn">
+        <table class="table1">
+            <thead>
+                <th>Tổng sự cố trong ngày</th>
+            </thead>
+            <tbody>
+                <tr>1: Điểm chưa xử lý: 0</tr>
+                <tr>2: Điểm đã xử lý: 0</tr>
+            </tbody>
+        </table>
+        <table class="table2">
+            <thead>
+                <th>Tổng sự cố trong tháng</th>
+            </thead>
+            <tbody>
+                <tr>1: Điểm chưa xử lý: 0</tr>
+                <tr>2: Điểm đã xử lý: 0</tr>
+            </tbody>
+        </table>
+        <table class="table3">
+            <thead>
+                <th>Xuất sự cố theo thời gian</th>
+            </thead>
+            <tbody>
+                <tr>1: Điểm chưa xử lý: 0</tr>
+                <tr>2: Điểm đã xử lý: 0</tr>
+                <tr>3: Vật tư sử dụng: 0</tr>
+            </tbody>
+        </table>
+        <table class="table4">
+            <thead>
+                <th>Cảnh báo điểm sự cố</th>
+            </thead>
+            <tbody>
+                <tr>1: Điểm vượt thời gian xử lý: 0</tr>
+                <tr>2: Điểm trở ngại: 0</tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="right-column">
+        <div class="button-control">
+            <button mat-stroked-button (click)="openDialogAddNewProblem()">Thêm điểm sự cố</button>
+            <button mat-stroked-button (click)="openDialogSearchProblem()">Tìm kiếm</button>
+            <button mat-stroked-button (click)="openDialogReportProblem()">Báo cáo sự cố</button>
+            <button mat-stroked-button>Chi tiết vật tư</button>
+        </div>
+        <div class="map-title">
+            <div class="circle normal" style="margin-left: 5%;"></div>
+            <span class="circle-label">Bình thường</span>
+            <div class="circle warning"></div>
+            <span class="circle-label">Cảnh báo</span>
+            <div class="circle error"></div>
+            <span class="circle-label">Lỗi</span>
+        </div>
+        <div id="map" class="map-container" leaflet [leafletOptions]="options" (leafletMapReady)="onMapReady($event)"
+            (leafletClick)="mapClicked($event)">
+        </div>
 
-<div id="result">{{ resultDisplay }}</div>
+    </div>
+</div>

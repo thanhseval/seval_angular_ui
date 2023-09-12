@@ -35,9 +35,9 @@ import { LoginComponent } from './login/login.component';
 import { SettingComponent } from './setting/setting.component';
 import { ControllerPumpComponent } from './controller-pump/controller-pump.component';
 import { RouterModule } from '@angular/router';
-// import { AuthGuard } from './_auth/auth.guard';
-// import { AuthInterceptor } from './_auth/auth.interceptor';
-// import { UserService } from './_service/user.service';
+import { AuthGuard } from './_auth/auth.guard';
+import { AuthInterceptor } from './_auth/auth.interceptor';
+import { UserService } from './_service/user.service';
 
 
 @NgModule({
@@ -84,13 +84,13 @@ import { RouterModule } from '@angular/router';
 
   ],
   providers: [
-    // AuthGuard,
-    // {
-    //   provide: HTTP_INTERCEPTORS,
-    //   useClass: AuthInterceptor,
-    //   multi: true
-    // },
-    // UserService
+    AuthGuard,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    },
+    UserService
 
   ],
   bootstrap: [AppComponent]

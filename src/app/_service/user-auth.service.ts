@@ -26,9 +26,10 @@ export class UserAuthService {
     localStorage.clear();
   }
 
-  // public isLoggedIn() {
-  //   return this.getRoles() && this.getToken();
-  // }
+  public isLoggedIn() {
+    // return this.getRoles() && this.getToken();
+    return this.getToken();
+  }
 
   // public isAdmin() {
   //   const roles: any[] = this.getRoles();

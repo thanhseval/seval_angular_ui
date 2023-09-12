@@ -52,12 +52,12 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="https://id.seval.com.vn/scriptentry?script=43&deploy=59">
+          <a href="/home">
             <span>Lịch sử vận hành</span>
           </a>
         </li>
         <li class="nav-item">
-          <a routerLink="resovle-problem"  target="_parent">
+          <a routerLink="resovle-problem" target="_parent">
             <span>Xử lý sự cố</span>
           </a>
         </li>
@@ -71,9 +71,14 @@
             <span>Thông tin</span>
           </a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="!isLoggedIn()">
           <a routerLink="" target="_parent">
             <span>Đăng nhập</span>
+          </a>
+        </li>
+        <li class="nav-item" *ngIf="isLoggedIn()">
+          <a (click)="logout()" target="_parent">
+            <span>Đăng xuất</span>
           </a>
         </li>
       </ul>

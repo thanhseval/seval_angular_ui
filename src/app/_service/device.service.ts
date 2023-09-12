@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { ApiService } from './api.service';
 import { UserAuthService } from './user-auth.service';
 
 @Injectable({
@@ -12,7 +11,7 @@ export class DeviceService {
   token = this.userAuthService.getToken()!;
 
 
-  constructor(private http: HttpClient, private apiService: ApiService, private userAuthService: UserAuthService) {
+  constructor(private http: HttpClient,  private userAuthService: UserAuthService) {
   }
 
   getDeviceData(deviceId: string, keys: string, startTime: string, endTime: string): Observable<any> {
