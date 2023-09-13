@@ -437,9 +437,9 @@ body {
     background: #4585b3;
     position: absolute;
     top: 12%;
-    left: 18%;
-    width: 16.5%;
-    height: 50%;
+    left: 12%;
+    width: 25%;
+    height: 55%;
     padding: 2px;
 }
 
@@ -449,15 +449,18 @@ body {
     background: #d0dbe3;
     position: absolute;
     top: 19%;
-    left: 19%;
-    width: 14.5%;
-    height: 15%;
+    left: 13%;
+    width: 23%;
+    height: 22%;
     padding: 1px;
 }
 
 
 
 /* NUT NHAN GAT 1 */
+button{
+    width: 100%;
+}
 .switch1 {
     position: absolute;
     display: inline-block;

@@ -20,16 +20,73 @@ export class SettingComponent implements OnInit {
   lastDataPI_3: any;
   lastDataPI_4: any;
   lastDataBat: any;
+  DO_0_Status: any;
+  DO_1_Status: any;
+  DO_2_Status: any;
+  DO_3_Status: any;
+  DO_4_Status: any;
+  DO_5_Status: any;
+  valve_status: any;
+  pressure_status: any;
 
   constructor(private http: HttpClient,
     private userAuthService: UserAuthService,
-    private deviceService: DeviceService) { }
+    private deviceService: DeviceService
+    ) {  }
 
   ngOnInit() {
     // this.search();
     // this.getData();
     this.getLatestData();
     setInterval(() => this.getLatestData(), 30000);
+    this.getStatus();
+    setInterval(() => this.getStatus(), 100);
+  }
+
+  getStatus() {
+    const deviceId = 'Device001';
+    const keys = 'DO_0,DO_1,DO_2,DO_3,DO_4,DO_5';
+    this.deviceService.getDeviceStatus(deviceId, keys).subscribe(
+      (res) => {
+        // console.log(res);
+        // this.DO_0_Status = res.data.DO_0.status;
+        // this.DO_1_Status = res.data.DO_1.status;
+        // this.DO_2_Status = res.data.DO_2.status;
+        // this.DO_3_Status = res.data.DO_0.status;
+        // this.DO_4_Status = res.data.DO_1.status;
+        // this.DO_5_Status = res.data.DO_2.status;
+
+        // if (this.DO_0_Status === 'ON') {
+        //   this.pressure_status = 'Đang mở chế độ áp cao'
+        // } else {
+        //   this.pressure_status = 'Đang mở chế độ áp thấp'
+        // }
+        // if (this.DO_1_Status === 'ON') {
+        //   this.valve_status = 'Đang mở chế độ mở hoàn toàn'
+        // }
+        // if (this.DO_2_Status === 'ON') {
+        //   this.valve_status = 'Đang mở chế độ đóng hoàn toàn'
+        // }
+        // if (this.DO_2_Status === 'ON' && this.DO_1_Status === 'ON') {
+        //   this.valve_status = 'Đang mở chế độ đóng hoàn toàn Đang mở chế độ mở hoàn toàn'
+        // }
+      },
+      (err) => {
+        console.log(err);
+      }
+    )
+  }
+
+  control( action: string) {
+    this.deviceService.sendDataDeviceSV3(action).subscribe(
+      (res) => {
+        this.getStatus();
+        console.log(res);
+      },
+      (err) => {
+        console.log(err);
+      }
+    )
   }
 
   getData(attribute: string): Observable<any> {
@@ -204,4 +261,8 @@ export class SettingComponent implements OnInit {
   //     await this.updateDataOnce(token, requests);
   //   }, 15000);  // This updates every 15 seconds.
   // }
+}
+
+function ngOnDestroy() {
+  throw new Error('Function not implemented.');
 }

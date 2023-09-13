@@ -56,12 +56,6 @@ export class ControllerPumpComponent implements OnInit {
       )
   }
 
-  sendDataDevicePLC() {
-    const deviceKeys = '';
-    const action = '';
-    this.deviceService.sendDataDevicePLC(deviceKeys, action);
-  }
-
   getData(attribute: string): Observable<any> {
     const deviceId = 'Device001';
     // const attribute = 'PI_1,PI_2';

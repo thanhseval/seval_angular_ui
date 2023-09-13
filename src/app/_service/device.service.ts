@@ -11,7 +11,7 @@ export class DeviceService {
   token = this.userAuthService.getToken()!;
 
 
-  constructor(private http: HttpClient,  private userAuthService: UserAuthService) {
+  constructor(private http: HttpClient, private userAuthService: UserAuthService) {
   }
 
   getDeviceData(deviceId: string, keys: string, startTime: string, endTime: string): Observable<any> {
@@ -38,6 +38,14 @@ export class DeviceService {
       action: action
     };
     const headers = new HttpHeaders({ 'Authorization': this.token });
-    return this.http.post(this.apiUrl + '/device/mqtt/mqttsend/',data , { headers });
+    return this.http.post(this.apiUrl + '/device/mqtt/mqttsend/', data, { headers });
+  }
+
+  sendDataDeviceSV3(action: string): Observable<any> {
+    const data = {
+      action: action
+    };
+    const headers = new HttpHeaders({ 'Authorization': this.token });
+    return this.http.post(this.apiUrl + '/device/mqtt/mqttcontrol/', data, { headers });
   }
 }

@@ -38,6 +38,16 @@ import { RouterModule } from '@angular/router';
 import { AuthGuard } from './_auth/auth.guard';
 import { AuthInterceptor } from './_auth/auth.interceptor';
 import { UserService } from './_service/user.service';
+// import { MqttModule, IMqttServiceOptions } from 'ngx-mqtt';
+
+// // MQTT broker options
+// const MQTT_SERVICE_OPTIONS: IMqttServiceOptions = {
+//   hostname: 'seval.ddns.net', // MQTT broker hostname
+//   port: 1883,                 // MQTT broker port
+//   path: '/mqtt',              // MQTT broker path
+//   protocol: 'ws'             // Use WebSocket
+// };
+
 
 
 @NgModule({
@@ -81,6 +91,7 @@ import { UserService } from './_service/user.service';
     MatSelectModule,
     MatNativeDateModule,
     RouterModule,
+    // MqttModule.forRoot(MQTT_SERVICE_OPTIONS),
 
   ],
   providers: [
