@@ -44,11 +44,8 @@ export class PressureChartComponent implements OnInit {
   public grid!: ApexGrid;
   public tooltip!: ApexTooltip;
   public legend!: ApexLegend;
-  dataPI_1: any;
-  dataPI_2: any;
-  dataPI_3: any;
-  dataPI_4: any;
-  dataBat: any;
+  dataAI_1_420: any;
+  dataAI_2_420: any;
 
   constructor(
     private deviceService: DeviceService) {
@@ -66,21 +63,17 @@ export class PressureChartComponent implements OnInit {
       // const token = await this.userAuthService.getToken;
       // console.log(token);
       const deviceId = 'Device001';
-      const attributePressure = 'AI_1,AI_2';
-      const attributeFlow = 'PI_1,PI_2,PI_3,PI_4';
+      const attributeFlow = 'AI_1_420,AI_2_420';
 
       // const pressureData = await this.fetchData(token, deviceId, attributePressure);
       // const flowData = await this.fetchData(token, deviceId, attributeFlow);
       this.deviceService.getAllDeviceData(deviceId, attributeFlow).subscribe(
         (data) => {
-          var deviceDataPI_1: DeviceData[] = data.data.PI_1;
-          var deviceDataPI_2: DeviceData[] = data.data.PI_2;
-          var deviceDataPI_3: DeviceData[] = data.data.PI_3;
-          var deviceDataPI_4: DeviceData[] = data.data.PI_4;
-          var deviceDataBat: DeviceData[] = data.data.Bat;
+          var deviceDataAI_1_420: DeviceData[] = data.data.AI_1_420;
+          var deviceDataAI_2_420: DeviceData[] = data.data.AI_2_420;
 
           //sort data
-          deviceDataPI_1.sort((a, b) => {
+          deviceDataAI_1_420.sort((a, b) => {
             const dateA = new Date(a.updated_at);
             const dateB = new Date(b.updated_at);
 
@@ -92,31 +85,7 @@ export class PressureChartComponent implements OnInit {
             }
 
           });
-          deviceDataPI_2.sort((a, b) => {
-            const dateA = new Date(a.updated_at);
-            const dateB = new Date(b.updated_at);
-
-            if (!isNaN(dateA.getTime()) && !isNaN(dateB.getTime())) {
-              return dateA.getTime() - dateB.getTime();
-            } else {
-              // Handle cases where the date strings are invalid
-              return 0; // You can choose to handle this differently
-            }
-
-          });
-          deviceDataPI_3.sort((a, b) => {
-            const dateA = new Date(a.updated_at);
-            const dateB = new Date(b.updated_at);
-
-            if (!isNaN(dateA.getTime()) && !isNaN(dateB.getTime())) {
-              return dateA.getTime() - dateB.getTime();
-            } else {
-              // Handle cases where the date strings are invalid
-              return 0; // You can choose to handle this differently
-            }
-
-          });
-          deviceDataPI_4.sort((a, b) => {
+          deviceDataAI_2_420.sort((a, b) => {
             const dateA = new Date(a.updated_at);
             const dateB = new Date(b.updated_at);
 
@@ -129,18 +98,12 @@ export class PressureChartComponent implements OnInit {
 
           });
 
+          this.dataAI_1_420 = deviceDataAI_1_420;
+          this.dataAI_2_420 = deviceDataAI_2_420;
 
-          this.dataPI_1 = deviceDataPI_1;
-          this.dataPI_2 = deviceDataPI_2;
-          this.dataPI_3 = deviceDataPI_3;
-          this.dataPI_4 = deviceDataPI_4;
-          this.dataBat = deviceDataBat;
-          console.log(this.dataPI_1);
           this.series = [
-            { name: "PI_1", data: this.dataPI_1.map((entry: { updated_at: string | number | Date; value: any; }) => ({ x: new Date(entry.updated_at).getTime(), y: entry.value })) },
-            { name: "PI_2", data: this.dataPI_2.map((entry: { updated_at: string | number | Date; value: any; }) => ({ x: new Date(entry.updated_at).getTime(), y: entry.value })) },
-            { name: "PI_3", data: this.dataPI_3.map((entry: { updated_at: string | number | Date; value: any; }) => ({ x: new Date(entry.updated_at).getTime(), y: entry.value })) },
-            { name: "PI_4", data: this.dataPI_4.map((entry: { updated_at: string | number | Date; value: any; }) => ({ x: new Date(entry.updated_at).getTime(), y: entry.value })) },
+            { name: "AI_1_420", data: this.dataAI_1_420.map((entry: { updated_at: string | number | Date; value: any; }) => ({ x: new Date(entry.updated_at).getTime(), y: entry.value })) },
+            { name: "AI_2_420", data: this.dataAI_2_420.map((entry: { updated_at: string | number | Date; value: any; }) => ({ x: new Date(entry.updated_at).getTime(), y: entry.value })) },
           ];
         },
         (error) => {
@@ -157,18 +120,7 @@ export class PressureChartComponent implements OnInit {
 
   public initChartData(): void {
     this.series = [
-      {
-        name: "Series 1",
-        data: [30, 40, 35, 50, 49, 60, 70, 91, 125]
-      },
-      {
-        name: "Series 2",
-        data: [23, 31, 35, 40, 45, 55, 60, 75, 85]
-      },
-      {
-        name: "Series 3",
-        data: [20, 29, 32, 45, 50, 60, 70, 88, 110]
-      }
+     
     ],
       this.chart = {
         height: 350,

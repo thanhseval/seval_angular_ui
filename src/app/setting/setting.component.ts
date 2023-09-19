@@ -16,23 +16,28 @@ export class SettingComponent implements OnInit {
   device10Data: any;
   device20Data: any;
   lastDataPI_1: any;
-  lastDataPI_2: any;
-  lastDataPI_3: any;
-  lastDataPI_4: any;
+  lastDataAI_1_420: any;
+  lastDataAI_2_420: any;
+  lastDataAI_3_420: any;
   lastDataBat: any;
   DO_0_Status: any;
   DO_1_Status: any;
   DO_2_Status: any;
-  DO_3_Status: any;
-  DO_4_Status: any;
-  DO_5_Status: any;
+  DO_00_Status: any;
+  DO_01_Status: any;
+  DO_02_Status: any;
+  DO_03_Status: any;
+  DO_04_Status: any;
+  DO_05_Status: any;
   valve_status: any;
   pressure_status: any;
-
+  isSwitch1On = false;
+  isSwitch2On = false;
+  isSwitch3On = false;
   constructor(private http: HttpClient,
     private userAuthService: UserAuthService,
     private deviceService: DeviceService
-    ) {  }
+  ) { }
 
   ngOnInit() {
     // this.search();
@@ -43,32 +48,114 @@ export class SettingComponent implements OnInit {
     setInterval(() => this.getStatus(), 100);
   }
 
+  onSwitchChange(action: string): void {
+    if (action === 'Van_dien_1') {
+      if (this.isSwitch1On) {
+        console.log('Switch is ON');
+        this.control('DO_2_ON');
+      } else {
+        console.log('Switch is OFF');
+        this.control('DO_1_ON');
+      }
+    } else if (action === 'Van_dien_2') {
+      if (this.isSwitch2On) {
+        console.log('Switch is ON');
+        this.control('DO_4_ON');
+      } else {
+        console.log('Switch is OFF');
+        this.control('DO_3_ON');
+      }
+    } else if (action === 'Van_dien_3') {
+      if (this.isSwitch3On) {
+        console.log('Switch is ON');
+        this.control('DO_6_ON');
+      } else {
+        console.log('Switch is OFF');
+        this.control('DO_5_ON');
+      }
+    }
+
+
+  }
+
+
+  control(action: string) {
+    this.deviceService.sendDataDeviceSV3(action).subscribe(
+      (res) => {
+        console.log(res);
+      },
+      (err) => {
+        console.log(err);
+      }
+    )
+    this.getStatus();
+  }
+
   getStatus() {
-    const deviceId = 'Device001';
-    const keys = 'DO_0,DO_1,DO_2,DO_3,DO_4,DO_5';
+    const deviceId = '8C-F3-19-3B-2E-B9';
+    const keys = 'DO_0,DO_1,DO_2';
     this.deviceService.getDeviceStatus(deviceId, keys).subscribe(
       (res) => {
         // console.log(res);
-        // this.DO_0_Status = res.data.DO_0.status;
-        // this.DO_1_Status = res.data.DO_1.status;
-        // this.DO_2_Status = res.data.DO_2.status;
-        // this.DO_3_Status = res.data.DO_0.status;
-        // this.DO_4_Status = res.data.DO_1.status;
-        // this.DO_5_Status = res.data.DO_2.status;
-
-        // if (this.DO_0_Status === 'ON') {
-        //   this.pressure_status = 'Đang mở chế độ áp cao'
-        // } else {
-        //   this.pressure_status = 'Đang mở chế độ áp thấp'
+        this.DO_0_Status = res.data.DO_0.status;
+        this.DO_1_Status = res.data.DO_1.status;
+        this.DO_2_Status = res.data.DO_2.status;
+        // console.log('DO_0 ' + this.DO_0_Status);
+        // console.log('DO_1 ' + this.DO_1_Status);
+        // console.log('DO_2 ' + this.DO_2_Status);
+        if (this.DO_0_Status === 'ON') {
+          this.pressure_status = 'Đang mở chế độ áp cao'
+        } else {
+          this.pressure_status = 'Đang mở chế độ áp thấp'
+        }
+        if (this.DO_1_Status === 'ON') {
+          this.valve_status = 'Đang mở chế độ mở hoàn toàn'
+        }
+        if (this.DO_2_Status === 'ON') {
+          this.valve_status = 'Đang mở chế độ đóng hoàn toàn'
+        }
+        if (this.DO_2_Status === 'ON' && this.DO_1_Status === 'ON') {
+          this.valve_status = 'Đang mở chế độ đóng hoàn toàn Đang mở chế độ mở hoàn toàn'
+        }
+      },
+      (err) => {
+        console.log(err);
+      }
+    )
+    const deviceId1 = 'Device001';
+    const keys1 = 'DO_0,DO_1,DO_2,DO_3,DO_4,DO_5';
+    this.deviceService.getDeviceStatus(deviceId1, keys1).subscribe(
+      (res) => {
+        // console.log(res);
+        this.DO_00_Status = res.data.DO_0.status;
+        this.DO_01_Status = res.data.DO_1.status;
+        this.DO_02_Status = res.data.DO_2.status;
+        this.DO_03_Status = res.data.DO_3.status;
+        this.DO_04_Status = res.data.DO_4.status;
+        this.DO_05_Status = res.data.DO_5.status;
+        // console.log('DO_0 ' + this.DO_00_Status);
+        // console.log('DO_1 ' + this.DO_01_Status);
+        // console.log('DO_2 ' + this.DO_02_Status);
+        // console.log('DO_3 ' + this.DO_03_Status);
+        // console.log('DO_4 ' + this.DO_04_Status);
+        // console.log('DO_5 ' + this.DO_05_Status);
+        // if (this.DO_00_Status === 'ON' && this.DO_01_Status === 'OFF') {
+        //   this.isSwitch1On = false;
         // }
-        // if (this.DO_1_Status === 'ON') {
-        //   this.valve_status = 'Đang mở chế độ mở hoàn toàn'
+        // if (this.DO_00_Status === 'OFF' && this.DO_01_Status === 'ON') {
+        //   this.isSwitch1On = true;
         // }
-        // if (this.DO_2_Status === 'ON') {
-        //   this.valve_status = 'Đang mở chế độ đóng hoàn toàn'
+        // if (this.DO_02_Status === 'ON' && this.DO_03_Status === 'OFF') {
+        //   this.isSwitch1On = false;
         // }
-        // if (this.DO_2_Status === 'ON' && this.DO_1_Status === 'ON') {
-        //   this.valve_status = 'Đang mở chế độ đóng hoàn toàn Đang mở chế độ mở hoàn toàn'
+        // if (this.DO_02_Status === 'OFF' && this.DO_03_Status === 'ON') {
+        //   this.isSwitch1On = true;
+        // }
+        // if (this.DO_04_Status === 'ON' && this.DO_05_Status === 'OFF') {
+        //   this.isSwitch1On = false;
+        // }
+        // if (this.DO_04_Status === 'OFF' && this.DO_05_Status === 'ON') {
+        //   this.isSwitch1On = true;
         // }
       },
       (err) => {
@@ -77,8 +164,8 @@ export class SettingComponent implements OnInit {
     )
   }
 
-  control( action: string) {
-    this.deviceService.sendDataDeviceSV3(action).subscribe(
+  ON(deviceKey: string, action: string) {
+    this.deviceService.sendDataDevicePLC(deviceKey, action).subscribe(
       (res) => {
         this.getStatus();
         console.log(res);
@@ -97,12 +184,13 @@ export class SettingComponent implements OnInit {
   }
 
   getLatestData() {
-    this.getData('Bat,PI_1,PI_2,PI_3,PI_4').subscribe(
+    this.getData('Bat,PI_1,AI_1_420,AI_2_420,AI_3_420').subscribe(
       (data) => {
+        // console.log(data);
         var deviceDataPI_1: DeviceData[] = data.data.PI_1;
-        var deviceDataPI_2: DeviceData[] = data.data.PI_2;
-        var deviceDataPI_3: DeviceData[] = data.data.PI_3;
-        var deviceDataPI_4: DeviceData[] = data.data.PI_4;
+        var deviceDataAI_1_420: DeviceData[] = data.data.AI_1_420;
+        var deviceDataAI_2_420: DeviceData[] = data.data.AI_2_420;
+        var deviceDataAI_3_420: DeviceData[] = data.data.AI_3_420;
         var deviceDataBat: DeviceData[] = data.data.Bat;
         // console.log(deviceData);
 
@@ -119,7 +207,7 @@ export class SettingComponent implements OnInit {
           }
 
         });
-        deviceDataPI_2.sort((a, b) => {
+        deviceDataAI_1_420.sort((a, b) => {
           const dateA = new Date(a.updated_at);
           const dateB = new Date(b.updated_at);
 
@@ -131,7 +219,7 @@ export class SettingComponent implements OnInit {
           }
 
         });
-        deviceDataPI_3.sort((a, b) => {
+        deviceDataAI_2_420.sort((a, b) => {
           const dateA = new Date(a.updated_at);
           const dateB = new Date(b.updated_at);
 
@@ -143,7 +231,19 @@ export class SettingComponent implements OnInit {
           }
 
         });
-        deviceDataPI_4.sort((a, b) => {
+        deviceDataAI_3_420.sort((a, b) => {
+          const dateA = new Date(a.updated_at);
+          const dateB = new Date(b.updated_at);
+
+          if (!isNaN(dateA.getTime()) && !isNaN(dateB.getTime())) {
+            return dateA.getTime() - dateB.getTime();
+          } else {
+            // Handle cases where the date strings are invalid
+            return 0; // You can choose to handle this differently
+          }
+
+        });
+        deviceDataBat.sort((a, b) => {
           const dateA = new Date(a.updated_at);
           const dateB = new Date(b.updated_at);
 
@@ -158,33 +258,33 @@ export class SettingComponent implements OnInit {
 
         if (deviceDataPI_1 && deviceDataPI_1.length > 0) {
           this.lastDataPI_1 = deviceDataPI_1[deviceDataPI_1.length - 1];
-          console.log(this.lastDataPI_1);
+          // console.log(this.lastDataPI_1);
         } else {
-          console.log('Data is empty.');
+          // console.log('Data is empty.');
         }
-        if (deviceDataPI_2 && deviceDataPI_2.length > 0) {
-          this.lastDataPI_2 = deviceDataPI_2[deviceDataPI_2.length - 1];
-          console.log(this.lastDataPI_2);
+        if (deviceDataAI_1_420 && deviceDataAI_1_420.length > 0) {
+          this.lastDataAI_1_420 = deviceDataAI_1_420[deviceDataAI_1_420.length - 1];
+          // console.log(this.lastDataPI_2);
         } else {
-          console.log('Data is empty.');
+          // console.log('Data is empty.');
         }
-        if (deviceDataPI_3 && deviceDataPI_3.length > 0) {
-          this.lastDataPI_3 = deviceDataPI_3[deviceDataPI_3.length - 1];
-          console.log(this.lastDataPI_3);
+        if (deviceDataAI_2_420 && deviceDataAI_2_420.length > 0) {
+          this.lastDataAI_2_420 = deviceDataAI_2_420[deviceDataAI_2_420.length - 1];
+          // console.log(this.lastDataPI_3);
         } else {
-          console.log('Data is empty.');
+          // console.log('Data is empty.');
         }
-        if (deviceDataPI_4 && deviceDataPI_4.length > 0) {
-          this.lastDataPI_4 = deviceDataPI_4[deviceDataPI_4.length - 1];
-          console.log(this.lastDataPI_4);
+        if (deviceDataAI_3_420 && deviceDataAI_3_420.length > 0) {
+          this.lastDataAI_3_420 = deviceDataAI_3_420[deviceDataAI_3_420.length - 1];
+          // console.log(this.lastDataPI_4);
         } else {
-          console.log('Data is empty.');
+          // console.log('Data is empty.');
         }
         if (deviceDataBat && deviceDataBat.length > 0) {
           this.lastDataBat = deviceDataBat[deviceDataBat.length - 1];
-          console.log(this.lastDataBat);
+          // console.log(this.lastDataBat);
         } else {
-          console.log('Data is empty.');
+          // console.log('Data is empty.');
         }
 
       },
@@ -261,8 +361,4 @@ export class SettingComponent implements OnInit {
   //     await this.updateDataOnce(token, requests);
   //   }, 15000);  // This updates every 15 seconds.
   // }
-}
-
-function ngOnDestroy() {
-  throw new Error('Function not implemented.');
 }

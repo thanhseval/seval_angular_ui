@@ -9,9 +9,10 @@ body {
     width: 100%;
 }
 
-.container-fluid{
+.container-fluid {
     height: fit-content;
 }
+
 /* Header/Blog Title */
 .header {
     padding: 10px;
@@ -22,9 +23,11 @@ body {
 .header h1 {
     font-size: 30px;
 }
-.row{
+
+.row {
     height: fit-content;
 }
+
 .row h2 {
 
     font-size: 20px;
@@ -78,6 +81,7 @@ body {
     padding: 1%;
 
 }
+
 /* NUT NHAN GAT 1 */
 .switch1 {
     position: absolute;
@@ -146,7 +150,7 @@ input:checked+.slider1:before {
 }
 
 /* Ẩn ảnh thứ hai ban đầu */
-.Controller #Ong_thang_doc1_ON {
+/* .Controller #Ong_thang_doc1_ON {
     position: absolute;
     top: 82.3%;
     left: 21.8%;
@@ -154,7 +158,7 @@ input:checked+.slider1:before {
     height: 10%;
     opacity: 0;
     z-index: 2;
-}
+} */
 
 .Controller .image_Ong_L_traiduoi1 img {
     position: absolute;
@@ -166,7 +170,7 @@ input:checked+.slider1:before {
 }
 
 /* Ẩn ảnh thứ hai ban đầu */
-.Controller #Ong_L_traiduoi1_ON {
+/* .Controller #Ong_L_traiduoi1_ON {
     position: absolute;
     top: 76%;
     left: 21.4%;
@@ -174,7 +178,7 @@ input:checked+.slider1:before {
     height: 7%;
     opacity: 0;
     z-index: 2;
-}
+} */
 
 .Controller .image_Ong_thang_ngang1 img {
     position: absolute;
@@ -186,10 +190,10 @@ input:checked+.slider1:before {
 }
 
 /* Ẩn ảnh thứ hai ban đầu */
-.Controller #Ong_thang_ngang1_ON {
+/* .Controller #Ong_thang_ngang1_ON {
     opacity: 0;
     z-index: 2;
-}
+} */
 
 .Controller .image_Bom1 img {
     position: absolute;
@@ -201,10 +205,10 @@ input:checked+.slider1:before {
 }
 
 /* Ẩn ảnh thứ hai ban đầu */
-.Controller #Bom1_ON {
+/* .Controller #Bom1_ON {
     opacity: 0;
     z-index: 2;
-}
+} */
 
 
 .Controller .image_Ong_thang_doc1_2 img {
@@ -217,7 +221,7 @@ input:checked+.slider1:before {
 }
 
 /* Ẩn ảnh thứ hai ban đầu */
-.Controller #Ong_thang_doc1_2_ON {
+/* .Controller #Ong_thang_doc1_2_ON {
     position: absolute;
     top: 62.5%;
     left: 11.6%;
@@ -225,7 +229,7 @@ input:checked+.slider1:before {
     height: 8%;
     opacity: 0;
     z-index: 2;
-}
+} */
 
 /* KET THUC PHAN TRAM BOM 1 */
 
@@ -249,7 +253,7 @@ input:checked+.slider1:before {
 }
 
 /* Ẩn ảnh thứ hai ban đầu */
-.Controller #Ong_thang_doc2_ON {
+/* .Controller #Ong_thang_doc2_ON {
     position: absolute;
     top: 82.3%;
     left: 62.8%;
@@ -257,7 +261,7 @@ input:checked+.slider1:before {
     height: 10%;
     opacity: 0;
     z-index: 2;
-}
+} */
 
 .Controller .image_Ong_L_traiduoi2 img {
     position: absolute;
@@ -269,7 +273,7 @@ input:checked+.slider1:before {
 }
 
 /* Ẩn ảnh thứ hai ban đầu */
-.Controller #Ong_L_traiduoi2_ON {
+/* .Controller #Ong_L_traiduoi2_ON {
     position: absolute;
     top: 76%;
     left: 55.3%;
@@ -277,7 +281,7 @@ input:checked+.slider1:before {
     height: 7%;
     opacity: 0;
     z-index: 2;
-}
+} */
 
 .Controller .image_Ong_thang_ngang2 img {
     position: absolute;
@@ -289,26 +293,26 @@ input:checked+.slider1:before {
 }
 
 /* Ẩn ảnh thứ hai ban đầu */
-.Controller #Ong_thang_ngang2_ON {
+/* .Controller #Ong_thang_ngang2_ON {
     opacity: 0;
     z-index: 2;
-}
+} */
 
 /* 50-38=12 */
 .Controller .image_Bom2 img {
     position: absolute;
     top: 70%;
-    left: 38%; 
+    left: 38%;
     width: 10%;
     height: 16%;
     transition: opacity 0.3s ease;
 }
 
 /* Ẩn ảnh thứ hai ban đầu */
-.Controller #Bom2_ON {
+/* .Controller #Bom2_ON {
     opacity: 0;
     z-index: 2;
-}
+} */
 
 
 .Controller .image_Ong_thang_doc2_2 img {
@@ -321,7 +325,7 @@ input:checked+.slider1:before {
 }
 
 /* Ẩn ảnh thứ hai ban đầu */
-.Controller #Ong_thang_doc2_2_ON {
+/* .Controller #Ong_thang_doc2_2_ON {
     position: absolute;
     top: 62.5%;
     left: 49.4%;
@@ -329,7 +333,7 @@ input:checked+.slider1:before {
     height: 8%;
     opacity: 0;
     z-index: 2;
-}
+} */
 /* KET THUC TRAM BOM 2 */
 
 /* ONG GOP */
@@ -352,10 +356,10 @@ input:checked+.slider1:before {
 }
 
 /* Ẩn ảnh thứ hai ban đầu */
-.Controller #Ong_T_duoi1_ON {
+/* .Controller #Ong_T_duoi1_ON {
     opacity: 0;
     z-index: 2;
-}
+} */
 
 .Controller .image_Van_1chieu2 img {
     position: absolute;
@@ -376,10 +380,10 @@ input:checked+.slider1:before {
 }
 
 /* Ẩn ảnh thứ hai ban đầu */
-.Controller #Ong_T_duoi2_ON {
+/* .Controller #Ong_T_duoi2_ON {
     opacity: 0;
     z-index: 2;
-}
+} */
 
 .Controller .image_Mat_pic_trai img {
     position: absolute;
@@ -400,10 +404,10 @@ input:checked+.slider1:before {
 }
 
 /* Ẩn ảnh thứ hai ban đầu */
-.Controller #Ong_thang_ngang3_ON {
+/* .Controller #Ong_thang_ngang3_ON {
     opacity: 0;
     z-index: 2;
-}
+} */
 
 .Controller .image_Ong_thang_ngang4 img {
     position: absolute;
@@ -415,10 +419,10 @@ input:checked+.slider1:before {
 }
 
 /* Ẩn ảnh thứ hai ban đầu */
-.Controller #Ong_thang_ngang4_ON {
+/* .Controller #Ong_thang_ngang4_ON {
     opacity: 0;
     z-index: 2;
-}
+} */
 
 .Controller .image_Van_buom_dien img {
     position: absolute;
@@ -426,29 +430,30 @@ input:checked+.slider1:before {
     left: 59.3%;
     width: 5.8%;
     height: 25%;
-    transition: opacity 0.3s ease;
+    /* transition: opacity 0.3s ease; */
 }
+
 /* Ẩn ảnh thứ hai ban đầu */
-.Controller #Van_buom_dien_ON {
+/* .Controller #Van_buom_dien_ON {
     opacity: 0;
     z-index: 2;
-}
+} */
 
 
 .Controller .image_Ong_thang_ngang5 img {
     position: absolute;
     top: 41%;
-    left: 62.65%;
-    width: 38%;
+    left: 62.8%;
+    width: 37%;
     height: 15%;
     transition: opacity 0.3s ease;
 }
 
 /* Ẩn ảnh thứ hai ban đầu */
-.Controller #Ong_thang_ngang5_ON {
+/* .Controller #Ong_thang_ngang5_ON {
     opacity: 0;
     z-index: 2;
-}
+} */
 
 /* KET THUC ONG GOP */
 
@@ -476,7 +481,7 @@ tr:hover {
 
 /* Add a card effect for articles */
 
- .lable_Status_Bom{
+.lable_Status_Bom {
     font-size: 10px;
     background-color: rgb(166, 180, 164);
     color: white;
@@ -497,7 +502,7 @@ tr:hover {
     font-family: Arial;
 }
 
-.lable_Warning{
+.lable_Warning {
     font-size: 150%;
     background-color: rgb(215, 215, 215);
     color: rgb(247, 3, 3);
@@ -553,14 +558,21 @@ tr:hover {
     clear: both;
 }
 
+.Button-control {
+    width: 3%;
+    height: 5%;
+}
 
 /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 800px) {
+
     .leftcolumn,
     .rightcolumn {
         width: 100%;
         padding: 0;
     }
+
+
 }
 
 /* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
@@ -569,4 +581,6 @@ tr:hover {
         float: none;
         width: 100%;
     }
+
+
 }

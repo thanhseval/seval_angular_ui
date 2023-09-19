@@ -72,18 +72,14 @@ export class FlowChartComponent implements OnInit {
       // const token = await this.userAuthService.getToken;
       // console.log(token);
       const deviceId = 'Device001';
-      const attributePressure = 'AI_1,AI_2';
-      const attributeFlow = 'PI_1,PI_2';
+      // const attributePressure = 'AI_1,AI_2';
+      const attributeFlow = 'PI_1';
       // const attributeFlow = 'AI_1_420,AI_2_420,AI_3_420,AI_4_420,Bat';
       // const pressureData = await this.fetchData(token, deviceId, attributePressure);
       // const flowData = await this.fetchData(token, deviceId, attributeFlow);
       this.deviceService.getAllDeviceData(deviceId, attributeFlow).subscribe(
         (data) => {
           var deviceDataPI_1: DeviceData[] = data.data.PI_1;
-          var deviceDataPI_2: DeviceData[] = data.data.PI_2;
-          var deviceDataPI_3: DeviceData[] = data.data.AI_3_420;
-          var deviceDataPI_4: DeviceData[] = data.data.AI_5_420;
-          var deviceDataBat: DeviceData[] = data.data.Bat;
 
           //sort data
           deviceDataPI_1.sort((a, b) => {
@@ -98,30 +94,11 @@ export class FlowChartComponent implements OnInit {
             }
 
           });
-          deviceDataPI_2.sort((a, b) => {
-            const dateA = new Date(a.updated_at);
-            const dateB = new Date(b.updated_at);
-
-            if (!isNaN(dateA.getTime()) && !isNaN(dateB.getTime())) {
-              return dateA.getTime() - dateB.getTime();
-            } else {
-              // Handle cases where the date strings are invalid
-              return 0; // You can choose to handle this differently
-            }
-
-          });
-
 
 
           this.dataPI_1 = deviceDataPI_1;
-          this.dataPI_2 = deviceDataPI_2;
-          this.dataPI_3 = deviceDataPI_3;
-          this.dataPI_4 = deviceDataPI_4;
-          this.dataBat = deviceDataBat;
-          console.log(this.dataPI_1);
           this.series = [
-            { name: "PI_1", data: this.dataPI_1.map((entry: { updated_at: string | number | Date; value: any; }) => ({ x: new Date(entry.updated_at).getTime(), y: entry.value })) },
-            { name: "PI_2", data: this.dataPI_2.map((entry: { updated_at: string | number | Date; value: any; }) => ({ x: new Date(entry.updated_at).getTime(), y: entry.value })) }
+            { name: "PI_1", data: this.dataPI_1.map((entry: { updated_at: string | number | Date; value: any; }) => ({ x: new Date(entry.updated_at).getTime(), y: entry.value })) }
           ];
         },
         (error) => {

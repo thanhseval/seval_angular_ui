@@ -94,12 +94,13 @@
                     <input type="checkbox" id="Van_dien2">
                     <span class="slider2"></span>
                 </label> -->
+                
                 <button style="width: 4% !important;height: 5%; font-size:70%; position:absolute; left: 14%; top: 47%;"
                     [style.backgroundColor]="DO_1_Status === 'ON' ? 'green' : 'white'"
-                    (click)="control('DO_2_ON')">BẬT</button>
+                    (click)="ON('DO_1','ON')">BẬT</button>
                 <button style="width: 4% !important;height: 5%; font-size:70%; position:absolute; left: 19%; top: 47%;"
                     [style.backgroundColor]="DO_1_Status === 'OFF' ? 'green' : 'white'"
-                    (click)="control('DO_3_OFF')">TẮT</button>
+                    (click)="ON('DO_1','OFF')">TẮT</button>
 
                 <p
                     style="font-size:10px;color: rgb(0, 0, 0); width: 200px;height: 15px;text-align: center;position:absolute; left: 20%; top:42%;">
@@ -107,10 +108,10 @@
                 </p>
                 <button style="width: 4% !important;height: 5%; font-size:70%; position:absolute; left: 27%; top: 47%;"
                     [style.backgroundColor]="DO_2_Status === 'ON' ? 'green' : 'white'"
-                    (click)="control('DO_4_ON')">BẬT</button>
-                <button  style="width: 4% !important;height: 5%; font-size:70%; position:absolute; left: 32%; top: 47%;"
+                    (click)="ON('DO_2','ON')">BẬT</button>
+                <button style="width: 4% !important;height: 5%; font-size:70%; position:absolute; left: 32%; top: 47%;"
                     [style.backgroundColor]="DO_2_Status === 'OFF' ? 'green' : 'white'"
-                    (click)="control('DO_5_OFF')">TẮT</button>
+                    (click)="ON('DO_2','OFF')">TẮT</button>
 
                 <!-- <label class="switch3">
                     <input type="checkbox" id="Van_dien3">
@@ -124,7 +125,7 @@
                 <button mat-stroked-button
                     style="width: 4% !important;height: 5%; font-size:70%; position:absolute; left: 14%; top: 59%;"
                     [style.backgroundColor]="DO_0_Status === 'OFF' ? 'green' : 'white'"
-                    (click)="control('DO_1_OFF')">BẬT</button>
+                    (click)="ON('DO_0','OFF')">BẬT</button>
 
                 <!-- <label class="switch4">
                     <input type="checkbox" id="Van_dien4">
@@ -138,10 +139,81 @@
                 <button mat-stroked-button
                     style="width: 4% !important;height: 5%; font-size:70%; position:absolute; left: 27%; top: 59%;"
                     [style.backgroundColor]="DO_0_Status === 'ON' ? 'green' : 'white'"
-                    (click)="control('DO_0_ON')">BẬT</button>
+                    (click)="ON('DO_0','ON')">BẬT</button>
 
 
             </div>
+
+
+            <p style="position:absolute; left:45%; top: 15%;">Van_dien 1</p>
+            <label class="switch1" style="position:absolute; left:55%; top: 15%;">
+                <input type="checkbox" [(ngModel)]="isSwitch1On" (change)="onSwitchChange('Van_dien_1')">
+                <span class="slider1"></span>
+            </label>
+            <p style="position:absolute; left:45%; top: 25%;">Van_dien 2</p>
+            <label class="switch1" style="position:absolute; left:55%; top: 25%;">
+                <input type="checkbox" [(ngModel)]="isSwitch2On" (change)="onSwitchChange('Van_dien_2')">
+                <span class="slider1"></span>
+            </label>
+            <p style="position:absolute; left:45%; top: 35%;">Van_dien 3</p>
+            <label class="switch1" style="position:absolute; left:55%; top: 35%;">
+                <input type="checkbox" [(ngModel)]="isSwitch3On" (change)="onSwitchChange('Van_dien_3')">
+                <span class="slider1"></span>
+            </label>
+            <!-- <button mat-stroked-button
+                style="width: 4% !important;height: 5%; font-size:70%; position:absolute; left:50%; top: 15%;"
+                [style.backgroundColor]="DO_00_Status === 'ON ' ? 'green' : 'white'"
+                (click)="control('DO_0_ON')">BẬT</button>
+            <button mat-stroked-button
+                style="width: 4% !important;height: 5%; font-size:70%; position:absolute; left: 60%; top: 15%;"
+                [style.backgroundColor]="DO_00_Status === 'OFF' ? 'green' : 'white'"
+                (click)="control('DO_0_OFF')">TẮT</button> -->
+            <!-- <p style="position:absolute; left:45%; top: 20%;">DO_1</p>
+            <button mat-stroked-button
+                style="width: 4% !important;height: 5%; font-size:70%; position:absolute; left:50%; top: 20%;"
+                [style.backgroundColor]="DO_01_Status === 'ON ' ? 'green' : 'white'"
+                (click)="control('DO_1_ON')">BẬT</button>
+            <button mat-stroked-button
+                style="width: 4% !important;height: 5%; font-size:70%; position:absolute; left: 60%; top: 20%;"
+                [style.backgroundColor]="DO_01_Status === 'OFF' ? 'green' : 'white'"
+                (click)="control('DO_1_OFF')">TẮT</button>
+            <p style="position:absolute; left:45%; top: 25%;">DO_2</p>
+            <button mat-stroked-button
+                style="width: 4% !important;height: 5%; font-size:70%; position:absolute; left:50%; top: 25%;"
+                [style.backgroundColor]="DO_02_Status === 'ON' ? 'green' : 'white'"
+                (click)="control('DO_2_ON')">BẬT</button>
+            <button mat-stroked-button
+                style="width: 4% !important;height: 5%; font-size:70%; position:absolute; left: 60%; top: 25%;"
+                [style.backgroundColor]="DO_02_Status === 'OFF' ? 'green' : 'white'"
+                (click)="control('DO_2_OFF')">TẮT</button>
+            <p style="position:absolute; left:45%; top: 30%;">DO_3</p>
+            <button mat-stroked-button
+                style="width: 4% !important;height: 5%; font-size:70%; position:absolute; left:50%; top: 30%;"
+                [style.backgroundColor]="DO_03_Status === 'ON' ? 'green' : 'white'"
+                (click)="control('DO_3_ON')">BẬT</button>
+            <button mat-stroked-button
+                style="width: 4% !important;height: 5%; font-size:70%; position:absolute; left: 60%; top: 30%;"
+                [style.backgroundColor]="DO_03_Status === 'OFF' ? 'green' : 'white'"
+                (click)="control('DO_3_OFF')">TẮT</button>
+            <p style="position:absolute; left:45%; top: 35%;">DO_4</p>
+            <button mat-stroked-button
+                style="width: 4% !important;height: 5%; font-size:70%; position:absolute; left:50%; top: 35%;"
+                [style.backgroundColor]="DO_04_Status === 'ON' ? 'green' : 'white'"
+                (click)="control('DO_4_ON')">BẬT</button>
+            <button mat-stroked-button
+                style="width: 4% !important;height: 5%; font-size:70%; position:absolute; left: 60%; top: 35%;"
+                [style.backgroundColor]="DO_04_Status === 'OFF' ? 'green' : 'white'"
+                (click)="control('DO_4_OFF')">TẮT</button>
+            <p style="position:absolute; left:45%; top: 40%;">DO_5</p>
+            <button mat-stroked-button
+                style="width: 4% !important;height: 5%; font-size:70%; position:absolute; left: 50%; top: 40%;"
+                [style.backgroundColor]="DO_05_Status === 'ON' ? 'green' : 'white'"
+                (click)="control('DO_5_ON')">BẬT</button>
+            <button mat-stroked-button
+                style="width: 4% !important;height: 5%; font-size:70%; position:absolute; left:60%; top: 40%;"
+                [style.backgroundColor]="DO_05_Status === 'OFF' ? 'green' : 'white'"
+                (click)="control('DO_5_OFF')">TẮT</button>
+             -->
 
             <!-- <p>Some text..</p>
     <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p> -->
@@ -156,12 +228,17 @@
                     </tr>
                     <tr>
                         <td>Lưu lượng thuận:</td>
-                        <td id="mypH">{{lastDataPI_3?.value}}</td>
+                        <td id="mypH">{{lastDataPI_1?.value}}</td>
                         <td>(bar)</td>
                     </tr>
                     <tr>
                         <td>Lưu lượng nghịch:</td>
-                        <td id="mypH">{{lastDataPI_4?.value}}</td>
+                        <td id="mypH">{{lastDataPI_1?.value}}</td>
+                        <td>(bar)</td>
+                    </tr>
+                    <tr>
+                        <td>Áp suất:</td>
+                        <td id="mypH">{{lastDataPI_1?.value}}</td>
                         <td>(bar)</td>
                     </tr>
                     <tr>
@@ -209,17 +286,17 @@
                     </tr>
                     <tr>
                         <td>Áp suất trước van:</td>
-                        <td id="mypH">{{lastDataPI_1?.value}}</td>
+                        <td id="mypH">{{lastDataAI_1_420?.value}}</td>
                         <td>(m3/h)</td>
                     </tr>
                     <tr>
                         <td>Áp suất sau van:</td>
-                        <td id="mypH">{{lastDataPI_2?.value}}</td>
+                        <td id="mypH">{{lastDataAI_2_420?.value}}</td>
                         <td>(m3/h)</td>
                     </tr>
                     <tr>
-                        <td>Áp suất:</td>
-                        <td id="mypH">{{lastDataPI_3?.value}}</td>
+                        <td>Lưu lượng:</td>
+                        <td id="mypH">{{lastDataPI_1?.value}}</td>
                         <td>(bar)</td>
                     </tr>
                     <tr>

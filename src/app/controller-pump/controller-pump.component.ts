@@ -37,6 +37,9 @@ export class ControllerPumpComponent implements OnInit {
         this.DO_3_Status = res.data.DO_3.status;
         this.DO_4_Status = res.data.DO_4.status;
         this.DO_5_Status = res.data.DO_5.status;
+        // console.log(this.DO_3_Status);
+        // console.log(this.DO_4_Status);
+        // console.log(this.DO_5_Status);
       },
       (err) => {
         console.log(err);
@@ -45,15 +48,15 @@ export class ControllerPumpComponent implements OnInit {
   }
 
   ON(deviceKey: string, action: string) {
-      this.deviceService.sendDataDevicePLC(deviceKey, action).subscribe(
-        (res) => {
-          this.getStatus();
-          console.log(res);
-        },
-        (err) => {
-          console.log(err);
-        }
-      )
+    this.deviceService.sendDataDevicePLC(deviceKey, action).subscribe(
+      (res) => {
+        console.log(res);
+        this.getStatus();
+      },
+      (err) => {
+        console.log(err);
+      }
+    )
   }
 
   getData(attribute: string): Observable<any> {
@@ -74,33 +77,33 @@ export class ControllerPumpComponent implements OnInit {
         // console.log(deviceData);
         if (deviceDataPI_1 && deviceDataPI_1.length > 0) {
           this.lastDataPI_1 = deviceDataPI_1[deviceDataPI_1.length - 1];
-          console.log(this.lastDataPI_1);
+          // console.log(this.lastDataPI_1);
         } else {
-          console.log('Data is empty.');
+          // console.log('Data is empty.');
         }
         if (deviceDataPI_2 && deviceDataPI_2.length > 0) {
           this.lastDataPI_2 = deviceDataPI_2[deviceDataPI_2.length - 1];
-          console.log(this.lastDataPI_2);
+          // console.log(this.lastDataPI_2);
         } else {
-          console.log('Data is empty.');
+          // console.log('Data is empty.');
         }
         if (deviceDataPI_3 && deviceDataPI_3.length > 0) {
           this.lastDataPI_3 = deviceDataPI_3[deviceDataPI_3.length - 1];
-          console.log(this.lastDataPI_3);
+          // console.log(this.lastDataPI_3);
         } else {
-          console.log('Data is empty.');
+          // console.log('Data is empty.');
         }
         if (deviceDataPI_4 && deviceDataPI_4.length > 0) {
           this.lastDataPI_4 = deviceDataPI_4[deviceDataPI_4.length - 1];
-          console.log(this.lastDataPI_4);
+          // console.log(this.lastDataPI_4);
         } else {
-          console.log('Data is empty.');
+          // console.log('Data is empty.');
         }
         if (deviceDataBat && deviceDataBat.length > 0) {
           this.lastDataBat = deviceDataBat[deviceDataBat.length - 1];
-          console.log(this.lastDataBat);
+          // console.log(this.lastDataBat);
         } else {
-          console.log('Data is empty.');
+          // console.log('Data is empty.');
         }
 
       },

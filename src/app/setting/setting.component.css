@@ -80,6 +80,53 @@ body {
     display: block;
 }
 
+.switch1 {
+    position: absolute;
+    display: inline-block;
+    top: 11%;
+    left: 4%;
+    width: 10%;
+    height: 6.5%;
+}
+
+.switch1 input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider1 {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 10px;
+}
+
+.slider1:before {
+    position: absolute;
+    content: "";
+    height: 75%;
+    width: 35%;
+    left: 11%;
+    bottom: 5px;
+    background-color: white;
+    transition: .3s;
+    border-radius: 10%;
+}
+
+/* input:checked+.slider1 {
+    background-color: #29d32f;
+} */
+
+input:checked+.slider1:before {
+    transform: translateX(85px);
+}
+
 /* Fake image */
 .Controller {
     position: relative;
@@ -128,7 +175,7 @@ body {
 }
 
 /* Ẩn ảnh thứ hai ban đầu */
-.Controller #Ong_thang_ngang4_ON {
+/* .Controller #Ong_thang_ngang4_ON {
     position: absolute;
     top: 80%;
     left: 0%;
@@ -136,7 +183,7 @@ body {
     height: 12%;
     opacity: 0;
     z-index: 2;
-}
+} */
 
 /* .Controller .Ong_thang_ngang6 {
     position: absolute;
@@ -154,7 +201,7 @@ body {
 }
 
 /* Ẩn ảnh thứ hai ban đầu */
-.Controller #Ong_thang_ngang6_ON {
+/* .Controller #Ong_thang_ngang6_ON {
     position: absolute;
     top: 230px;
     left: 340px;
@@ -162,7 +209,7 @@ body {
     height: 10px;
     opacity: 0;
     z-index: 2;
-}
+} */
 
 /* image_Ong_thang_doc1 - BO QUAN TRAC */
 .Controller .Ong_thang_doc5 {
@@ -181,10 +228,10 @@ body {
 }
 
 /* Ẩn ảnh thứ hai ban đầu */
-.Controller #Ong_thang_doc5_ON {
+/* .Controller #Ong_thang_doc5_ON {
     opacity: 0;
     z-index: 2;
-}
+} */
 
 /* image_Van_ giam_ap */
 /* .Controller .Van_giam_ap {
@@ -203,10 +250,10 @@ body {
 }
 
 /* Ẩn ảnh thứ hai ban đầu */
-.Controller #Van_giam_ap_ON {
+/* .Controller #Van_giam_ap_ON {
     opacity: 0;
     z-index: 2;
-}
+} */
 
 /* image_Ong_thang_doc1 BO DIEU KHIEN*/
 .Controller .Ong_thang_doc3 {
@@ -225,10 +272,10 @@ body {
 }
 
 /* Ẩn ảnh thứ hai ban đầu */
-.Controller #Ong_thang_doc3_ON {
+/* .Controller #Ong_thang_doc3_ON {
     opacity: 0;
     z-index: 2;
-}
+} */
 
 /* image_Ong_thang_doc1  BO DIEU KHIEN*/
 .Controller .Ong_thang_doc4 {
@@ -247,10 +294,10 @@ body {
 }
 
 /* Ẩn ảnh thứ hai ban đầu */
-.Controller #Ong_thang_doc4_ON {
+/* .Controller #Ong_thang_doc4_ON {
     opacity: 0;
     z-index: 2;
-}
+} */
 
 /* image_Ong_thang_ngang4 */
 .Controller .Ong_thang_ngang5 {
@@ -269,7 +316,7 @@ body {
 }
 
 /* Ẩn ảnh thứ hai ban đầu */
-.Controller #Ong_thang_ngang5_ON {
+/* .Controller #Ong_thang_ngang5_ON {
     position: absolute;
     top: 82%;
     left: 27%;
@@ -277,7 +324,7 @@ body {
     height: 13%;
     opacity: 0;
     z-index: 2;
-}
+} */
 
 /* image_Ong_thang_ngang4 */
 /* .Controller .Ong_thang_ngang7 {
@@ -296,7 +343,7 @@ body {
 }
 
 /* Ẩn ảnh thứ hai ban đầu */
-.Controller #Ong_thang_ngang7_ON {
+/* .Controller #Ong_thang_ngang7_ON {
     position: absolute;
     top: 82%;
     left: 47.9%;
@@ -304,7 +351,7 @@ body {
     height: 13%;
     opacity: 0;
     z-index: 2;
-}
+} */
 
 /* image_Ong_thang_doc6 - BO DIEM BAT LOI*/
 .Controller .Ong_thang_doc6 {
@@ -323,10 +370,10 @@ body {
 }
 
 /* Ẩn ảnh thứ hai ban đầu */
-.Controller #Ong_thang_doc6_ON {
+/* .Controller #Ong_thang_doc6_ON {
     opacity: 0;
     z-index: 2;
-}
+} */
 
 /* image_Ong_thang_doc1 */
 .Controller .Ong_L_phaiduoi2 {
@@ -345,10 +392,10 @@ body {
 }
 
 /* Ẩn ảnh thứ hai ban đầu */
-.Controller #Ong_L_phaiduoi2_ON {
+/* .Controller #Ong_L_phaiduoi2_ON {
     opacity: 0;
     z-index: 2;
-}
+} */
 
 /* image_Ong_thang_doc7 */
 .Controller .Ong_thang_doc7 {
@@ -367,10 +414,10 @@ body {
 }
 
 /* Ẩn ảnh thứ hai ban đầu */
-.Controller #Ong_thang_doc7_ON {
+/* .Controller #Ong_thang_doc7_ON {
     opacity: 0;
     z-index: 2;
-}
+} */
 
 /* image_Ong_L_traiduoi4 */
 .Controller .Ong_L_traiduoi3 {
@@ -389,10 +436,10 @@ body {
 }
 
 /* Ẩn ảnh thứ hai ban đầu */
-.Controller #Ong_L_traiduoi3_ON {
+/* .Controller #Ong_L_traiduoi3_ON {
     opacity: 0;
     z-index: 2;
-}
+} */
 
 .Controller .Tu_quantrac {
     border-radius: 20px;
@@ -426,8 +473,8 @@ body {
 .Controller .image_Hotel img {
     position: absolute;
     top: 15%;
-    left: 74%;
-    width: 17%;
+    left: 73.5%;
+    width: 20%;
     height: 80%;
 }
 
@@ -458,9 +505,9 @@ body {
 
 
 /* NUT NHAN GAT 1 */
-button{
+/* button{
     width: 100%;
-}
+} */
 .switch1 {
     position: absolute;
     display: inline-block;
@@ -508,9 +555,12 @@ input:checked+.slider1 {
 input:checked+.slider1:before {
     transform: translateX(160%);
 }
-
+.Button-control {
+    width: 5%;
+    height: 100%;
+}
 /* NUT NHAN GAT 2 */
-.switch2 {
+/* .switch2 {
     position: absolute;
     display: inline-block;
     top: 40%;
@@ -556,10 +606,10 @@ input:checked+.slider2 {
 
 input:checked+.slider2:before {
     transform: translateX(160%);
-}
+} */
 
 /* NUT NHAN GAT 3 */
-.switch3 {
+/* .switch3 {
     position: absolute;
     display: inline-block;
     top: 52%;
@@ -605,10 +655,10 @@ input:checked+.slider3 {
 
 input:checked+.slider3:before {
     transform: translateX(160%);
-}
+} */
 
 /* NUT NHAN GAT 4 */
-.switch4 {
+/* .switch4 {
     position: absolute;
     display: inline-block;
     top: 52%;
@@ -654,7 +704,7 @@ input:checked+.slider4 {
 
 input:checked+.slider4:before {
     transform: translateX(160%);
-}
+} */
 
 /* TABLE 4 */
 /* .Controller .hidden-table4 {
