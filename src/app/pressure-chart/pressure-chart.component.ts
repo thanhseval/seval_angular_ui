@@ -102,8 +102,8 @@ export class PressureChartComponent implements OnInit {
           this.dataAI_2_420 = deviceDataAI_2_420;
 
           this.series = [
-            { name: "AI_1_420", data: this.dataAI_1_420.map((entry: { updated_at: string | number | Date; value: any; }) => ({ x: new Date(entry.updated_at).getTime(), y: entry.value })) },
-            { name: "AI_2_420", data: this.dataAI_2_420.map((entry: { updated_at: string | number | Date; value: any; }) => ({ x: new Date(entry.updated_at).getTime(), y: entry.value })) },
+            { name: "Áp suất trước van AI_1_420", data: this.dataAI_1_420.map((entry: { updated_at: string | number | Date; value: any; }) => ({ x: new Date(entry.updated_at).getTime(), y: entry.value })) },
+            { name: "Áp suất sau van AI_2_420", data: this.dataAI_2_420.map((entry: { updated_at: string | number | Date; value: any; }) => ({ x: new Date(entry.updated_at).getTime(), y: entry.value })) },
           ];
         },
         (error) => {
@@ -120,7 +120,7 @@ export class PressureChartComponent implements OnInit {
 
   public initChartData(): void {
     this.series = [
-     
+
     ],
       this.chart = {
         height: 350,
@@ -162,9 +162,15 @@ export class PressureChartComponent implements OnInit {
         align: "left"
       },
       this.yaxis = {
+        labels: {
+          formatter: function (val) {
+            return val.toFixed(1); // Hiển thị giá trị thực tế
+          },
+        },
         title: {
-          text: "Giá trị"
-        }
+          text: 'Giá trị'
+        },
+        tickAmount: 5, // Số lượng mức chia trục y
       },
       this.legend = {
         position: "bottom",

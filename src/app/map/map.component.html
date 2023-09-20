@@ -1,5 +1,5 @@
 <div class="container-fluid">
-    <div class="left-conlumn">
+    <!-- <div class="left-conlumn">
         <table class="table1">
             <thead>
                 <th>Tổng sự cố trong ngày</th>
@@ -44,18 +44,40 @@
             <button mat-stroked-button (click)="openDialogSearchProblem()">Tìm kiếm</button>
             <button mat-stroked-button (click)="openDialogReportProblem()">Báo cáo sự cố</button>
             <button mat-stroked-button>Chi tiết vật tư</button>
+        </div> -->
+    <div class="map-title">
+        <div class="lab">
+            <div class="circle black" style="margin-left: 5%;"></div>
+            <span class="circle-label">Đồng hồ lưu lượng</span>
         </div>
-        <div class="map-title">
-            <div class="circle normal" style="margin-left: 5%;"></div>
-            <span class="circle-label">Bình thường</span>
-            <div class="circle warning"></div>
-            <span class="circle-label">Cảnh báo</span>
-            <div class="circle error"></div>
-            <span class="circle-label">Lỗi</span>
+        <div class="lab">
+            <div class="circle yellow"></div>
+            <span class="circle-label">Đồng hồ lưu lượng tổng</span>
         </div>
-        <div id="map" class="map-container" leaflet [leafletOptions]="options" (leafletMapReady)="onMapReady($event)"
-            (leafletClick)="mapClicked($event)">
+        <div class="lab">
+            <div class="circle green"></div>
+            <span class="circle-label">Đồng hồ lưu lượng khu vực</span>
         </div>
-
+        <div class="lab">
+            <div class="square blue"></div>
+            <span class="circle-label">Van cách ly</span>
+        </div>
+        <div class="lab">
+            <div class="square red"></div>
+            <span class="circle-label">Điểm bất lợi</span>
+        </div>
+        <div class="lab">
+            <div><img src="assets/img/Van.png" alt="Van giảm áp"></div>
+            <span class="circle-label">Van giảm áp</span>
+        </div>
+        <div class="lab">
+            <div><img src="assets/img/van bướm.jpg" alt="Van bướm"></div>
+            <span class="circle-label">Van bướm</span>
+        </div>
     </div>
+    <div id="map" class="map-container" leaflet [leafletOptions]="options" (leafletMapReady)="onMapReady($event)"
+        (leafletClick)="mapClicked($event)">
+    </div>
+
+    <!-- </div> -->
 </div>

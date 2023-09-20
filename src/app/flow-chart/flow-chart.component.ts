@@ -98,7 +98,7 @@ export class FlowChartComponent implements OnInit {
 
           this.dataPI_1 = deviceDataPI_1;
           this.series = [
-            { name: "PI_1", data: this.dataPI_1.map((entry: { updated_at: string | number | Date; value: any; }) => ({ x: new Date(entry.updated_at).getTime(), y: entry.value })) }
+            { name: "Lưu lượng PI_1", data: this.dataPI_1.map((entry: { updated_at: string | number | Date; value: any; }) => ({ x: new Date(entry.updated_at).getTime(), y: entry.value })) }
           ];
         },
         (error) => {
@@ -180,7 +180,7 @@ export class FlowChartComponent implements OnInit {
       // }
       labels: {
         formatter: function (val) {
-          return val.toFixed(2); // Hiển thị giá trị thực tế
+          return val.toFixed(1); // Hiển thị giá trị thực tế
         },
       },
       title: {

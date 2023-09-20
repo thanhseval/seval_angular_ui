@@ -35,12 +35,13 @@ button {
     background-color: #309ee2;
     width: 25%;
     /* font-size: 16px; */
-    border: 2px solid black;    
+    border: 2px solid black;
     border-collapse: collapse;
     border-radius: 0%;
     height: fit-content;
 }
-button:hover{
+
+button:hover {
     background-color: #f2f2f2;
     color: black;
 }
@@ -56,28 +57,52 @@ button:hover{
     background-color: #f0f0f0;
 }
 
+.lab {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 13%;
+}
+
 .circle {
     width: 20px;
     height: 20px;
-    /* border-radius: 50%; */
+    border-radius: 50%;
     margin-left: 12%;
     margin-right: 1%;
 }
 
-.normal {
-    background-color: #72af26;
+.square {
+    width: 20px;
+    height: 20px;
+    margin-left: 12%;
+    margin-right: 1%;
 }
 
-.warning {
-    background-color: #f69730;
+.black {
+    background-color: #000;
 }
 
-.error {
-    background-color: #d63e2a;
+.yellow {
+    background-color: #febf00;
+}
+
+.green {
+    background-color: #3ad620;
+}
+
+.blue {
+    background-color: #2c25b4;
+}
+
+.red {
+    background-color: #f01b23;
 }
 
 .map-container {
-    height: 600px;
+    width: 100%;
+    height: 800px;
 }
 
 table {
@@ -101,13 +126,20 @@ table tr {
     height: 35px;
 }
 
+img {
+    width: 25px;
+    height: 25px;
+}
+
 @media (max-width: 1000px) {
-    .button-control button{
+    .button-control button {
         height: 70px;
     }
-    table{
+
+    table {
         height: fit-content;
     }
+
     .left-conlumn,
     .right-column {
         width: 100%;

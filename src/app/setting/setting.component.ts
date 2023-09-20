@@ -23,12 +23,12 @@ export class SettingComponent implements OnInit {
   DO_0_Status: any;
   DO_1_Status: any;
   DO_2_Status: any;
-  DO_00_Status: any;
   DO_01_Status: any;
   DO_02_Status: any;
   DO_03_Status: any;
   DO_04_Status: any;
   DO_05_Status: any;
+  DO_06_Status: any;
   valve_status: any;
   pressure_status: any;
   isSwitch1On = false;
@@ -92,71 +92,78 @@ export class SettingComponent implements OnInit {
   }
 
   getStatus() {
-    const deviceId = '8C-F3-19-3B-2E-B9';
-    const keys = 'DO_0,DO_1,DO_2';
-    this.deviceService.getDeviceStatus(deviceId, keys).subscribe(
-      (res) => {
-        // console.log(res);
-        this.DO_0_Status = res.data.DO_0.status;
-        this.DO_1_Status = res.data.DO_1.status;
-        this.DO_2_Status = res.data.DO_2.status;
-        // console.log('DO_0 ' + this.DO_0_Status);
-        // console.log('DO_1 ' + this.DO_1_Status);
-        // console.log('DO_2 ' + this.DO_2_Status);
-        if (this.DO_0_Status === 'ON') {
-          this.pressure_status = 'Đang mở chế độ áp cao'
-        } else {
-          this.pressure_status = 'Đang mở chế độ áp thấp'
-        }
-        if (this.DO_1_Status === 'ON') {
-          this.valve_status = 'Đang mở chế độ mở hoàn toàn'
-        }
-        if (this.DO_2_Status === 'ON') {
-          this.valve_status = 'Đang mở chế độ đóng hoàn toàn'
-        }
-        if (this.DO_2_Status === 'ON' && this.DO_1_Status === 'ON') {
-          this.valve_status = 'Đang mở chế độ đóng hoàn toàn Đang mở chế độ mở hoàn toàn'
-        }
-      },
-      (err) => {
-        console.log(err);
-      }
-    )
+    // const deviceId = '8C-F3-19-3B-2E-B9';
+    // const keys = 'DO_0,DO_1,DO_2';
+    // this.deviceService.getDeviceStatus(deviceId, keys).subscribe(
+    //   (res) => {
+    //     // console.log(res);
+    //     this.DO_0_Status = res.data.DO_0.status;
+    //     this.DO_1_Status = res.data.DO_1.status;
+    //     this.DO_2_Status = res.data.DO_2.status;
+    //     // console.log('DO_0 ' + this.DO_0_Status);
+    //     // console.log('DO_1 ' + this.DO_1_Status);
+    //     // console.log('DO_2 ' + this.DO_2_Status);
+    //     if (this.DO_0_Status === 'ON') {
+    //       this.pressure_status = 'Đang mở chế độ áp cao'
+    //     } else {
+    //       this.pressure_status = 'Đang mở chế độ áp thấp'
+    //     }
+    //     if (this.DO_1_Status === 'ON') {
+    //       this.valve_status = 'Đang mở chế độ mở hoàn toàn'
+    //     }
+    //     if (this.DO_2_Status === 'ON') {
+    //       this.valve_status = 'Đang mở chế độ đóng hoàn toàn'
+    //     }
+    //     if (this.DO_2_Status === 'ON' && this.DO_1_Status === 'ON') {
+    //       this.valve_status = 'Đang mở chế độ đóng hoàn toàn Đang mở chế độ mở hoàn toàn'
+    //     }
+    //   },
+    //   (err) => {
+    //     console.log(err);
+    //   }
+    // )
     const deviceId1 = 'Device001';
-    const keys1 = 'DO_0,DO_1,DO_2,DO_3,DO_4,DO_5';
+    const keys1 = 'DO_1,DO_2,DO_3,DO_4,DO_5,DO_6';
     this.deviceService.getDeviceStatus(deviceId1, keys1).subscribe(
       (res) => {
         // console.log(res);
-        this.DO_00_Status = res.data.DO_0.status;
         this.DO_01_Status = res.data.DO_1.status;
         this.DO_02_Status = res.data.DO_2.status;
         this.DO_03_Status = res.data.DO_3.status;
         this.DO_04_Status = res.data.DO_4.status;
         this.DO_05_Status = res.data.DO_5.status;
+        this.DO_06_Status = res.data.DO_6.status;
         // console.log('DO_0 ' + this.DO_00_Status);
         // console.log('DO_1 ' + this.DO_01_Status);
         // console.log('DO_2 ' + this.DO_02_Status);
         // console.log('DO_3 ' + this.DO_03_Status);
         // console.log('DO_4 ' + this.DO_04_Status);
         // console.log('DO_5 ' + this.DO_05_Status);
-        // if (this.DO_00_Status === 'ON' && this.DO_01_Status === 'OFF') {
-        //   this.isSwitch1On = false;
-        // }
-        // if (this.DO_00_Status === 'OFF' && this.DO_01_Status === 'ON') {
-        //   this.isSwitch1On = true;
-        // }
-        // if (this.DO_02_Status === 'ON' && this.DO_03_Status === 'OFF') {
-        //   this.isSwitch1On = false;
-        // }
-        // if (this.DO_02_Status === 'OFF' && this.DO_03_Status === 'ON') {
-        //   this.isSwitch1On = true;
-        // }
-        // if (this.DO_04_Status === 'ON' && this.DO_05_Status === 'OFF') {
-        //   this.isSwitch1On = false;
-        // }
-        // if (this.DO_04_Status === 'OFF' && this.DO_05_Status === 'ON') {
-        //   this.isSwitch1On = true;
-        // }
+        if (this.DO_01_Status === 'ON' && this.DO_02_Status === 'OFF') {
+          this.isSwitch1On = false;
+          this.pressure_status = 'Đang mở chế độ áp cao'
+        }
+        if (this.DO_01_Status === 'OFF' && this.DO_02_Status === 'ON') {
+          this.isSwitch1On = true;
+          this.pressure_status = 'Đang mở chế độ áp thấp'
+        }
+        if (this.DO_03_Status === 'ON' && this.DO_04_Status === 'OFF') {
+          this.isSwitch2On = false;
+        }
+        if (this.DO_03_Status === 'OFF' && this.DO_04_Status === 'ON') {
+          this.isSwitch2On = true;
+          this.valve_status = 'Đang mở chế độ mở hoàn toàn'
+        }
+        if (this.DO_05_Status === 'ON' && this.DO_06_Status === 'OFF') {
+          this.isSwitch3On = false;
+        }
+        if (this.DO_05_Status === 'OFF' && this.DO_06_Status === 'ON') {
+          this.isSwitch3On = true;
+          this.valve_status = 'Đang mở chế độ đóng hoàn toàn'
+        }
+        if (this.DO_04_Status === 'ON' && this.DO_06_Status === 'ON') {
+          this.valve_status = 'Đang mở chế độ đóng hoàn toàn Đang mở chế độ mở hoàn toàn'
+        }
       },
       (err) => {
         console.log(err);

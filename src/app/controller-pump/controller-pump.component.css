@@ -443,7 +443,7 @@ input:checked+.slider1:before {
 .Controller .image_Ong_thang_ngang5 img {
     position: absolute;
     top: 41%;
-    left: 62.8%;
+    left: 62.6%;
     width: 37%;
     height: 15%;
     transition: opacity 0.3s ease;

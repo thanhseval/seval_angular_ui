@@ -514,7 +514,7 @@ input:checked+.slider1:before {
     top: 40%;
     left: 19%;
     width: 5%;
-    height: 6%;
+    height: 4%;
 }
 
 .switch1 input {
@@ -530,7 +530,7 @@ input:checked+.slider1:before {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #ccc;
+    background-color: #29d32f;
     transition: .4s;
     border-radius: 34px;
 }
@@ -731,12 +731,13 @@ tr:hover {
     /* position: relative; */
     top: 0px;
     left: 0px;
-    background-color: #fffafa;
+    background-color: #E1F5FE;
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: row;
     padding: 1%;
+    border-radius: 15px;
 }
 
 /* TABLE 1 */
@@ -762,12 +763,13 @@ th,td {
 }
 
 tr:hover {
-    background-color: rgb(74, 70, 70);
+    background-color: #0277BD;
     color: white;
 }
 
-
-
+.mypH{
+text-align: center;
+}
 /* TABLE 3 */
 /* .Setup .hidden-table3 {
     border-collapse: collapse;
@@ -821,7 +823,7 @@ tr:hover {
     }
 
 } */
-@media (max-width: 1000px) {
+@media (max-width: 845px) {
     .column {
         width: 100%;
         margin-top: 15px;
@@ -829,14 +831,14 @@ tr:hover {
 }
 
 /* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 390px) {
     .topnav a {
         float: none;
         width: 100%;
     }
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 390px) {
 
     /* Add a card effect for articles */
     .card {
@@ -861,4 +863,8 @@ tr:hover {
         width: 95%;
         margin: 0 2.5% 0;
     }
+}
+
+@media screen and (max-width: 845px) {
+
 }
