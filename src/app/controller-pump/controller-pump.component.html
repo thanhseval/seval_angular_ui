@@ -41,7 +41,10 @@
                     <div class="image_Bom1">
                         <img id="Bom1_OFF" src="assets/img/BOM_OFF1.png" alt="Hình ảnh 1" *ngIf="DO_4_Status === 'OFF'">
                         <img id="Bom1_ON" src="assets/img/BOM_ON1.png" alt="Hình ảnh 2" *ngIf="DO_4_Status === 'ON'">
-                        <div class="button-conctrol-gr" style="font-size:100%; position:absolute; left:5%; top: 90%;">
+                        <div class="text-p1">
+                            <b> Bơm 1</b>
+                        </div>
+                        <div class="button-conctrol-gr bt-p1">
                             <button mat-stroked-button class="Button-control"
                                 [style.backgroundColor]="DO_4_Status === 'ON' ? 'green' : 'white'"
                                 (click)="ON('DO_4','ON')" [disabled]="DO_3_Status === 'OFF'"> <b>BẬT
@@ -90,7 +93,10 @@
                     <div class="image_Bom2">
                         <img id="Bom2_OFF" src="assets/img/BOM_OFF1.png" alt="Hình ảnh 1" *ngIf="DO_5_Status === 'OFF'">
                         <img id="Bom2_ON" src="assets/img/BOM_ON1.png" alt="Hình ảnh 2" *ngIf="DO_5_Status === 'ON'">
-                        <div class="button-conctrol-gr" style="font-size:100%; position:absolute; left:39%; top: 90%;">
+                        <div class="text-p2">
+                           <b> Bơm 2</b>
+                        </div>
+                        <div class="button-conctrol-gr bt-p2">
                             <button mat-stroked-button class="Button-control"
                                 [style.backgroundColor]="DO_5_Status === 'ON' ? 'green' : 'white'"
                                 (click)="ON('DO_5','ON')" [disabled]="DO_3_Status === 'OFF'">
@@ -171,12 +177,14 @@
                     </div>
 
                     <div class="image_Van_buom_dien">
-                        <img id="Van_buom_dien_OFF" src="assets/img/Van_buom_dien_2_OFF.png" alt="Ong L trai duoi OFF" style="width: 6%;"
+                        <img id="Van_buom_dien_OFF" src="assets/img/Van_buom_dien_2_OFF.png" alt="Ong L trai duoi OFF"
                             *ngIf="DO_3_Status === 'OFF'">
                         <img id="Van_buom_dien_ON" src="assets/img/Van_buom_dien_2_ON.png" alt="Ong L trai duoi OFF"
-                            style="width: 6.5%;" *ngIf="DO_3_Status === 'ON'">
-                        <div class="button-conctrol-gr"
-                            style="font-size:100%; position:absolute; left:58.5%; top: 58%;">
+                            *ngIf="DO_3_Status === 'ON'">
+                        <div class="text-vb">
+                            <b>Van bướm điện</b>
+                        </div>
+                        <div class="button-conctrol-gr bt-vb">
                             <button mat-stroked-button class="Button-control"
                                 [style.backgroundColor]="DO_3_Status === 'ON' ? 'green' : 'white'"
                                 (click)="ON('DO_3','ON')"><b>BẬT </b></button>
@@ -199,29 +207,29 @@
                         </tr>
                         <tr>
                             <td>Độ pH:</td>
-                            <td id="mypH"> {{lastDataPI_1?.value}}</td>
+                            <td class="mypH"> {{lastDataPI_1?.value}}</td>
                             <td>(ph)</td>
                         </tr>
                         <tr>
                             <td>Độ Clo dư:</td>
-                            <td id="mypH">{{lastDataPI_2?.value}}</td>
+                            <td class="mypH">{{lastDataPI_2?.value}}</td>
                             <td>(ppm)</td>
 
                         </tr>
                         <tr>
                             <td>Độ đục:</td>
-                            <td id="mypH">{{lastDataPI_3?.value}}</td>
+                            <td class="mypH">{{lastDataPI_3?.value}}</td>
                             <td>(ntu)</td>
 
                         </tr>
                         <tr>
                             <td>Độ dẫn điện:</td>
-                            <td id="mypH">{{lastDataPI_4?.value}}</td>
+                            <td class="mypH">{{lastDataPI_4?.value}}</td>
                             <td>(mS/cm)</td>
                         </tr>
                         <tr>
                             <td>Dung lượng pin:</td>
-                            <td id="mypH">{{lastDataBat?.value}}</td>
+                            <td class="mypH">{{lastDataBat?.value}}</td>
                             <td>(%)</td>
                         </tr>
                     </table>

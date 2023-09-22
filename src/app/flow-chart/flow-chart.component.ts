@@ -95,10 +95,16 @@ export class FlowChartComponent implements OnInit {
 
           });
 
+          if (deviceDataPI_1.length > 200) {
+            deviceDataPI_1 = deviceDataPI_1.slice(-200);
+          }
 
           this.dataPI_1 = deviceDataPI_1;
           this.series = [
-            { name: "Lưu lượng PI_1", data: this.dataPI_1.map((entry: { updated_at: string | number | Date; value: any; }) => ({ x: new Date(entry.updated_at).getTime(), y: entry.value })) }
+            {
+              name: "Lưu lượng PI_1",
+              data: this.dataPI_1.map((entry: { updated_at: string | number | Date; value: any; }) => ({ x: new Date(entry.updated_at).getTime(), y: entry.value }))
+            }
           ];
         },
         (error) => {
@@ -144,7 +150,13 @@ export class FlowChartComponent implements OnInit {
         autoSelected: "zoom"
       },
       fontFamily: "Roboto, sans-serif",
-
+      animations: {
+        enabled: true,
+        easing: 'linear',
+        dynamicAnimation: {
+          speed: 1000, // Adjust the speed as needed
+        },
+      },
     };
     this.dataLabels = {
       enabled: false

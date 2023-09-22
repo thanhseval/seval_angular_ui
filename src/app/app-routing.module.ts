@@ -7,6 +7,7 @@ import { MapComponent } from './map/map.component';
 import { SettingComponent } from './setting/setting.component';
 import { ControllerPumpComponent } from './controller-pump/controller-pump.component';
 import { LoginComponent } from './login/login.component';
+import { ControllIotComponent } from './controll-iot/controll-iot.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -16,6 +17,8 @@ const routes: Routes = [
   { path: 'map', component: MapComponent },
   { path: 'setting', component: SettingComponent },
   { path: 'controller-pump', component: ControllerPumpComponent },
+  { path: 'controller-iot', component: ControllIotComponent },
+
 ];
 
 @NgModule({

@@ -98,6 +98,13 @@ export class PressureChartComponent implements OnInit {
 
           });
 
+          if (deviceDataAI_1_420.length > 200) {
+            deviceDataAI_1_420 = deviceDataAI_1_420.slice(-200);
+          }
+          if (deviceDataAI_2_420.length > 200) {
+            deviceDataAI_2_420 = deviceDataAI_2_420.slice(-200);
+          }
+
           this.dataAI_1_420 = deviceDataAI_1_420;
           this.dataAI_2_420 = deviceDataAI_2_420;
 
@@ -135,6 +142,13 @@ export class PressureChartComponent implements OnInit {
           autoSelected: "zoom"
         },
         fontFamily: "Roboto, sans-serif",
+        animations: {
+          enabled: true,
+          easing: 'linear',
+          dynamicAnimation: {
+            speed: 1000, // Adjust the speed as needed
+          },
+        },
       },
       this.dataLabels = {
         enabled: false

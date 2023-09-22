@@ -38,6 +38,7 @@ import { RouterModule } from '@angular/router';
 import { AuthGuard } from './_auth/auth.guard';
 import { AuthInterceptor } from './_auth/auth.interceptor';
 import { UserService } from './_service/user.service';
+import { ControllIotComponent } from './controll-iot/controll-iot.component';
 // import { MqttModule, IMqttServiceOptions } from 'ngx-mqtt';
 
 // // MQTT broker options
@@ -67,6 +68,7 @@ import { UserService } from './_service/user.service';
     LoginComponent,
     SettingComponent,
     ControllerPumpComponent,
+    ControllIotComponent,
   ],
   imports: [
     BrowserModule,

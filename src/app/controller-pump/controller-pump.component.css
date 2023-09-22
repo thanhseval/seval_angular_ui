@@ -475,10 +475,13 @@ td {
     border-bottom: 1px solid #474040;
 }
 
-tr:hover {
-    background-color: rgb(107, 105, 105);
-}
 
+tr:hover {
+    background-color: #40C4FF;
+}
+.mypH{
+    text-align: center;
+}
 /* Add a card effect for articles */
 
 .lable_Status_Bom {
@@ -563,6 +566,45 @@ tr:hover {
     height: 5%;
 }
 
+.bt-vb {
+    font-size: 100%;
+    position: absolute;
+    left: 58.5%;
+    top: 60%;
+}
+
+.bt-p2 {
+    font-size: 100%;
+    position: absolute;
+    left: 39%;
+    top: 90%;
+}
+
+.bt-p1 {
+    font-size: 100%;
+    position: absolute;
+    left: 5%;
+    top: 90%;
+}
+
+.text-p1 {
+    position: absolute;
+    left: 7%;
+    top: 87%;
+}
+
+.text-p2 {
+    position: absolute;
+    left: 41%;
+    top: 87%;
+}
+
+.text-vb {
+    position: absolute;
+    left: 59%;
+    top: 57%;
+}
+
 /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 800px) {
 
@@ -576,10 +618,403 @@ tr:hover {
 }
 
 /* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 390px) {
     .topnav a {
         float: none;
         width: 100%;
+    }
+
+    .Controller .hidden-table2 {
+        border-collapse: collapse;
+        font-size: 130%;
+        width: 100%;
+        height: 40%;
+        position: absolute;
+        left: 0%;
+        top: 2%;
+    }
+
+    .mypH{
+        text-align: center;
+    }
+    table tr:hover {
+        background-color: #40C4FF;
+    }
+
+
+    /* PHAN TRAM BOM 1 */
+    .Controller .image_Buong_nuoc1 img {
+        position: absolute;
+        top: 90.5%;
+        left: 16%;
+        width: 12%;
+        height: 9%;
+        transition: opacity 0.3s ease;
+        display: none;
+    }
+
+    .Controller .image_Ong_thang_doc1 img {
+        position: absolute;
+        top: 82.3%;
+        left: 21.8%;
+        width: 2%;
+        height: 10%;
+        display: none;
+        transition: opacity 0.3s ease;
+    }
+
+    /* Ẩn ảnh thứ hai ban đầu */
+    /* .Controller #Ong_thang_doc1_ON {
+    position: absolute;
+    top: 82.3%;
+    left: 21.8%;
+    width: 2%;
+    height: 10%;
+    opacity: 0;
+    z-index: 2;
+} */
+
+    .Controller .image_Ong_L_traiduoi1 img {
+        position: absolute;
+        top: 76%;
+        left: 21.4%;
+        width: 2%;
+        height: 7%;
+        display: none;
+        transition: opacity 0.3s ease;
+    }
+
+    /* Ẩn ảnh thứ hai ban đầu */
+    /* .Controller #Ong_L_traiduoi1_ON {
+    position: absolute;
+    top: 76%;
+    left: 21.4%;
+    width: 2%;
+    height: 7%;
+    opacity: 0;
+    z-index: 2;
+} */
+
+    .Controller .image_Ong_thang_ngang1 img {
+        position: absolute;
+        top: 76.1%;
+        left: 13.8%;
+        width: 8%;
+        height: 4.5%;
+        transition: opacity 0.3s ease;
+        display: none;
+    }
+
+    /* Ẩn ảnh thứ hai ban đầu */
+    /* .Controller #Ong_thang_ngang1_ON {
+    opacity: 0;
+    z-index: 2;
+} */
+
+    .Controller .image_Bom1 img {
+        position: absolute;
+        top: 70%;
+        left: 4%;
+        width: 30%;
+        height: 16%;
+        transition: opacity 0.3s ease;
+    }
+
+    /* Ẩn ảnh thứ hai ban đầu */
+    /* .Controller #Bom1_ON {
+    opacity: 0;
+    z-index: 2;
+} */
+
+
+    .Controller .image_Ong_thang_doc1_2 img {
+        position: absolute;
+        top: 62.5%;
+        left: 11.6%;
+        width: 2.2%;
+        height: 8%;
+        transition: opacity 0.3s ease;
+        display: none;
+    }
+
+    /* Ẩn ảnh thứ hai ban đầu */
+    /* .Controller #Ong_thang_doc1_2_ON {
+    position: absolute;
+    top: 62.5%;
+    left: 11.6%;
+    width: 2.2%;
+    height: 8%;
+    opacity: 0;
+    z-index: 2;
+} */
+
+    /* KET THUC PHAN TRAM BOM 1 */
+
+    /* PHẦN TRẠM BƠM 2 */
+    .Controller .image_Buong_nuoc2 img {
+        position: absolute;
+        top: 90.5%;
+        left: 50%;
+        width: 12%;
+        height: 9%;
+        transition: opacity 0.3s ease;
+        display: none;
+    }
+
+    .Controller .image_Ong_thang_doc2 img {
+        position: absolute;
+        top: 82%;
+        left: 55.7%;
+        width: 2%;
+        height: 10%;
+        transition: opacity 0.3s ease;
+        display: none;
+    }
+
+    /* Ẩn ảnh thứ hai ban đầu */
+    /* .Controller #Ong_thang_doc2_ON {
+    position: absolute;
+    top: 82.3%;
+    left: 62.8%;
+    width: 2%;
+    height: 10%;
+    opacity: 0;
+    z-index: 2;
+} */
+
+    .Controller .image_Ong_L_traiduoi2 img {
+        position: absolute;
+        top: 76%;
+        left: 55.3%;
+        width: 2%;
+        height: 7%;
+        transition: opacity 0.3s ease;
+        display: none;
+    }
+
+    /* Ẩn ảnh thứ hai ban đầu */
+    /* .Controller #Ong_L_traiduoi2_ON {
+    position: absolute;
+    top: 76%;
+    left: 55.3%;
+    width: 2%;
+    height: 7%;
+    opacity: 0;
+    z-index: 2;
+} */
+
+    .Controller .image_Ong_thang_ngang2 img {
+        position: absolute;
+        top: 76.1%;
+        left: 47.8%;
+        width: 8%;
+        height: 4.5%;
+        transition: opacity 0.3s ease;
+        display: none;
+    }
+
+    /* Ẩn ảnh thứ hai ban đầu */
+    /* .Controller #Ong_thang_ngang2_ON {
+    opacity: 0;
+    z-index: 2;
+} */
+
+    /* 50-38=12 */
+    .Controller .image_Bom2 img {
+        position: absolute;
+        top: 70%;
+        left: 58%;
+        width: 30%;
+        height: 16%;
+        transition: opacity 0.3s ease;
+    }
+
+    /* Ẩn ảnh thứ hai ban đầu */
+    /* .Controller #Bom2_ON {
+    opacity: 0;
+    z-index: 2;
+} */
+
+
+    .Controller .image_Ong_thang_doc2_2 img {
+        position: absolute;
+        top: 62.5%;
+        left: 45.6%;
+        width: 2.2%;
+        height: 8%;
+        transition: opacity 0.3s ease;
+        display: none;
+    }
+
+    /* Ẩn ảnh thứ hai ban đầu */
+    /* .Controller #Ong_thang_doc2_2_ON {
+    position: absolute;
+    top: 62.5%;
+    left: 49.4%;
+    width: 2.2%;
+    height: 8%;
+    opacity: 0;
+    z-index: 2;
+} */
+    /* KET THUC TRAM BOM 2 */
+
+    /* ONG GOP */
+    .Controller .image_Van_1chieu1 img {
+        position: absolute;
+        top: 55.8%;
+        left: 11.65%;
+        width: 2.3%;
+        height: 8%;
+        transition: opacity 0.3s ease;
+        display: none;
+    }
+
+    .Controller .image_Ong_T_duoi1 img {
+        position: absolute;
+        top: 43.2%;
+        left: 11.3%;
+        width: 3%;
+        height: 15%;
+        transition: opacity 0.3s ease;
+        display: none;
+    }
+
+    /* Ẩn ảnh thứ hai ban đầu */
+    /* .Controller #Ong_T_duoi1_ON {
+    opacity: 0;
+    z-index: 2;
+} */
+
+    .Controller .image_Van_1chieu2 img {
+        position: absolute;
+        top: 55.8%;
+        left: 45.65%;
+        width: 2.3%;
+        height: 8%;
+        transition: opacity 0.3s ease;
+        display: none;
+    }
+
+    .Controller .image_Ong_T_duoi2 img {
+        position: absolute;
+        top: 43.2%;
+        left: 45.35%;
+        width: 3%;
+        height: 15%;
+        transition: opacity 0.3s ease;
+        display: none;
+    }
+
+    /* Ẩn ảnh thứ hai ban đầu */
+    /* .Controller #Ong_T_duoi2_ON {
+    opacity: 0;
+    z-index: 2;
+} */
+
+    .Controller .image_Mat_pic_trai img {
+        position: absolute;
+        top: 41%;
+        left: 2%;
+        width: 1%;
+        height: 16%;
+        transition: opacity 0.3s ease;
+        display: none;
+    }
+
+    .Controller .image_Ong_thang_ngang3 img {
+        position: absolute;
+        top: 41%;
+        left: 2.35%;
+        width: 30%;
+        height: 15%;
+        transition: opacity 0.3s ease;
+        display: none;
+    }
+
+    /* Ẩn ảnh thứ hai ban đầu */
+    /* .Controller #Ong_thang_ngang3_ON {
+    opacity: 0;
+    z-index: 2;
+} */
+
+    .Controller .image_Ong_thang_ngang4 img {
+        position: absolute;
+        top: 41%;
+        left: 31.5%;
+        width: 30%;
+        height: 15%;
+        transition: opacity 0.3s ease;
+        display: none;
+    }
+
+    /* Ẩn ảnh thứ hai ban đầu */
+    /* .Controller #Ong_thang_ngang4_ON {
+    opacity: 0;
+    z-index: 2;
+} */
+
+    .Controller .image_Van_buom_dien img {
+        position: absolute;
+        top: 45%;
+        left: 3%;
+        width: 10%;
+        height: 15%;
+        /* transition: opacity 0.3s ease; */
+    }
+
+    /* Ẩn ảnh thứ hai ban đầu */
+    /* .Controller #Van_buom_dien_ON {
+    opacity: 0;
+    z-index: 2;
+} */
+
+
+    .Controller .image_Ong_thang_ngang5 img {
+        position: absolute;
+        top: 41%;
+        left: 62.6%;
+        width: 37%;
+        height: 15%;
+        transition: opacity 0.3s ease;
+        display: none;
+    }
+
+    .bt-vb {
+        font-size: 100%;
+        position: absolute;
+        left: 15%;
+        top: 56%;
+    }
+
+    .bt-p2 {
+        font-size: 100%;
+        position: absolute;
+        left: 59%;
+        top: 93%;
+    }
+
+    .bt-p1 {
+        font-size: 100%;
+        position: absolute;
+        left: 5%;
+        top: 93%;
+    }
+    .text-vb {
+        position: absolute;
+        left: 17%;
+        top: 50%;
+    }
+
+    .text-p1 {
+        position: absolute;
+        left: 10%;
+        top: 87%;
+    }
+
+    .text-p2 {
+        position: absolute;
+        left: 65%;
+        top: 87%;
     }
 
 
