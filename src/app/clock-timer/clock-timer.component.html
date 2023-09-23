@@ -2,16 +2,17 @@
     <div class="container">
         <div class="container1">
             <h2 id="CloseVal_Title">ĐÓNG HOÀN TOÀN</h2>
-            <p>Trạng thái: <span id="status_CloseVal">Hoạt động</span></p>
+            <p>Trạng thái: <span *ngIf="DO_05_Status === 'OFF' && DO_06_Status === 'ON'">Mở</span><span
+                    *ngIf="DO_05_Status === 'ON' && DO_06_Status === 'OFF'">Đóng</span></p>
             <!-- <div style="display: flex; justify-content: center; align-items: center;">
                 <div id="light_CloseVal"
                     style="width: 25px; height: 25px; background-color: rgb(21, 216, 21); border-radius: 50%; margin-right: 60px;padding: 4px;">
                 </div>
             </div> -->
-            <button class="clock-icon" (click)="show_timer_CloseVal('Close_val')">
+            <button class="clock-icon" (click)="show_timer('Đóng hoàn toàn')">
                 ⏰ Hẹn giờ <!-- Biểu tượng đồng hồ (cài đặt chung) -->
             </button>
-            <button class="gear-icon" (click)="showCustomSettings_CloseVal('Close_val')">
+            <button class="gear-icon" (click)="showCustomSettings('Đóng hoàn toàn')">
                 ⚙️ Cài đặt <!-- Biểu tượng bánh răng (cài đặt tùy chỉnh) -->
             </button>
             <!-- <button class="button button-secondary" (click)="showScheduleList()">Danh sách thời gian</button> -->
@@ -20,16 +21,17 @@
 
         <div class="container1">
             <h2 id="LowPressure_Title">ÁP THẤP</h2>
-            <p>Trạng thái: <span id="status_LowPressure">Hoạt động</span></p>
+            <p>Trạng thái: <span *ngIf="DO_01_Status === 'ON' && DO_02_Status === 'OFF'">Mở</span><span
+                    *ngIf="DO_01_Status === 'OFF' && DO_02_Status === 'ON'">Đóng</span></p>
             <!-- <div style="display: flex; justify-content: center; align-items: center;">
                 <div id="light_LowPressure"
                     style="width: 25px; height: 25px; background-color: rgb(21, 216, 21); border-radius: 50%; margin-right: 60px;padding: 4px;">
                 </div>
             </div> -->
-            <button class="clock-icon" (click)="show_timer_LowPressure('Low_pressure')">
+            <button class="clock-icon" (click)="show_timer('Áp thấp')">
                 ⏰ Hẹn giờ <!-- Biểu tượng đồng hồ (cài đặt chung) -->
             </button>
-            <button class="gear-icon" (click)="showCustomSettings_LowPressre('Low_pressure')">
+            <button class="gear-icon" (click)="showCustomSettings('Áp thấp')">
                 ⚙️ Cài đặt <!-- Biểu tượng bánh răng (cài đặt tùy chỉnh) -->
             </button>
             <!-- <button class="button button-secondary" (click)="showScheduleList()">Danh sách thời gian</button> -->
@@ -38,16 +40,17 @@
 
         <div class="container1">
             <h2 id="HightPressure_Title">ÁP CAO</h2>
-            <p>Trạng thái: <span id="status_HightPressure">Hoạt động</span></p>
+            <p>Trạng thái: <span *ngIf="DO_01_Status === 'OFF' && DO_02_Status === 'ON'">Mở</span><span
+                    *ngIf="DO_01_Status === 'ON' && DO_02_Status === 'OFF'">Đóng</span></p>
             <!-- <div style="display: flex; justify-content: center; align-items: center;">
                 <div id="light_HightPressure"
                     style="width: 25px; height: 25px; background-color: rgb(21, 216, 21); border-radius: 50%; margin-right: 60px;padding: 4px;">
                 </div>
             </div> -->
-            <button class="clock-icon" (click)="show_timer_HightPressure('Hight_pressure')">
+            <button class="clock-icon" (click)="show_timer('Áp cao')">
                 ⏰ Hẹn giờ <!-- Biểu tượng đồng hồ (cài đặt chung) -->
             </button>
-            <button class="gear-icon" (click)="showCustomSettings_HightPressure('Hight_pressure')">
+            <button class="gear-icon" (click)="showCustomSettings('Áp cao')">
                 ⚙️ Cài đặt <!-- Biểu tượng bánh răng (cài đặt tùy chỉnh) -->
             </button>
             <!-- <button class="button button-secondary" (click)="showScheduleList()">Danh sách thời gian</button> -->
@@ -56,16 +59,17 @@
 
         <div class="container1">
             <h2 id="OpenVal_Title">MỞ HOÀN TOÀN</h2>
-            <p>Trạng thái: <span id="status_OpenVal">Hoạt động</span></p>
+            <p>Trạng thái: <span *ngIf="DO_03_Status === 'OFF' && DO_04_Status === 'ON'">Mở</span><span
+                    *ngIf="DO_03_Status === 'ON' && DO_04_Status === 'OFF'">Đóng</span></p>
             <!-- <div style="display: flex; justify-content: center; align-items: center;">
                 <div id="light_OpenVal"
                     style="width: 25px; height: 25px; background-color: rgb(21, 216, 21); border-radius: 50%; margin-right: 60px;padding: 4px;">
                 </div>
             </div> -->
-            <button class="clock-icon" (click)="show_timer_OpenVal('Open_val')">
+            <button class="clock-icon" (click)="show_timer('Mở hoàn toàn')">
                 ⏰ Hẹn giờ <!-- Biểu tượng đồng hồ (cài đặt chung) -->
             </button>
-            <button class="gear-icon" (click)="showCustomSettings_OpenVal('Open_val')">
+            <button class="gear-icon" (click)="showCustomSettings('Mở hoàn toàn')">
                 ⚙️ Cài đặt <!-- Biểu tượng bánh răng (cài đặt tùy chỉnh) -->
             </button>
             <!-- <button class="button button-secondary" (click)="showScheduleList()">Danh sách thời gian</button> -->
@@ -79,12 +83,29 @@
             <div class="table-scroll"> <!-- Thêm phần tử bọc bảng với lớp .table-scroll -->
                 <table id="dataTable">
                     <tr>
-                        <th>STT</th>
+                        <th>ID</th>
                         <th>Tên</th>
                         <th>Thời gian bắt đầu</th>
                         <th>Thời gian kết thúc</th>
                         <th>Trạng thái</th>
-                        <th>Tùy chỉnh</th>
+                    </tr>
+                    <tr *ngFor="let data of scheduleDataArr">
+                        <td>{{data.id}}</td>
+                        <td>{{data.name}}</td>
+                        <td>{{data.start_time}}</td>
+                        <td>{{data.end_time}}</td>
+                        <td *ngIf="data.name === 'Đóng hoàn toàn' && DO_05_Status === 'OFF' && DO_06_Status === 'ON'">Mở
+                        </td>
+                        <td *ngIf="data.name === 'Đóng hoàn toàn' && DO_05_Status === 'ON' && DO_06_Status === 'OFF'">
+                            Đóng</td>
+                        <td *ngIf="data.name === 'Áp thấp' && DO_01_Status === 'ON' && DO_02_Status === 'OFF'">Mở</td>
+                        <td *ngIf="data.name === 'Áp thấp' && DO_01_Status === 'OFF' && DO_02_Status === 'ON'">Đóng</td>
+                        <td *ngIf="data.name === 'Áp cao' && DO_01_Status === 'OFF' && DO_02_Status === 'ON'">Mở</td>
+                        <td *ngIf="data.name === 'Áp cao' && DO_01_Status === 'ON' && DO_02_Status === 'OFF'">Đóng</td>
+                        <td *ngIf="data.name === 'Mở hoàn toàn' && DO_03_Status === 'OFF' && DO_04_Status === 'ON'">Mở
+                        </td>
+                        <td *ngIf="data.name === 'Mở hoàn toàn' && DO_03_Status === 'ON' && DO_04_Status === 'OFF'">Đóng
+                        </td>
                     </tr>
                 </table>
                 <!-- <p>Some text about me in culpa qui officia deserunt mollit anim..</p> -->
@@ -101,16 +122,15 @@
                 style="margin: -10px;">&#10006;</button>
         </div>
         <h2 style="margin-bottom: 10px;">Form Cài Đặt</h2>
-        <form>
-            <label for="action">Tên chức năng:</label>
-            <span>Đóng hoàn toàn</span><br><br>
+        <form #scheduleForm="ngForm" (ngSubmit)="addSchedule(scheduleForm)">
+            <label for="action">Tên chức năng: </label>
+            <span>{{functionName}}</span><br><br>
             <label for="startTime">Thời gian bắt đầu:</label>
-            <input type="time" id="startTime" name="startTime" style="margin-right: 10px;"><br><br>
+            <input type="time" ngModel id="startTime" name="startTime" style="margin-right: 10px;"><br><br>
             <label for="endTime">Thời gian kết thúc:</label>
-            <input type="time" id="endTime" name="endTime"><br><br>
+            <input type="time" ngModel id="endTime" name="endTime"><br><br>
             <div style="text-align: center;">
-                <button class="button button-primary" type="button" (click)="addSchedule()"
-                    style="margin-right: 10px;">Thêm
+                <button type="submit" class="button button-primary" style="margin-right: 10px;">Thêm
                     Thời Gian</button>
                 <button class="button button-secondary" type="button" (click)="closeForm()">Đóng</button>
             </div>

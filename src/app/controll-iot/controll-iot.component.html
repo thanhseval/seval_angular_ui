@@ -77,8 +77,13 @@
                 <div class="Bo_dieukhien">
                     <p style="text-align: center; color: rgb(255, 255, 255)"> <b> BỘ ĐIỀU KHIỂN VAN GIẢM ÁP </b></p>
                     <div class=" Trangthai_van">
-                        <p style=" color: rgb(93, 91, 91); font-size:larger;"> <b> Trạng thái
-                            </b><br>{{pressure_status}}<br>{{valve_status}}<br>{{valve_status_1}}</p>
+                        <!-- <p style=" color: rgb(93, 91, 91); font-size:larger;"> <b> Trạng thái
+                            </b><br>{{pressure_status}}<br>{{valve_status}}<br>{{valve_status_1}}</p> -->
+                        <p><b>Trạng thái</b></p>
+                        <p *ngIf="DO_01_Status === 'ON' && DO_02_Status === 'OFF'">Đang mở chế độ áp thấp</p>
+                        <p *ngIf="DO_01_Status === 'OFF' && DO_02_Status === 'ON'">Đang mở chế độ áp cao</p>
+                        <p *ngIf="DO_03_Status === 'OFF' && DO_04_Status === 'ON'">Đang mở chế độ mở hoàn toàn</p>
+                        <p *ngIf="DO_05_Status === 'OFF' && DO_06_Status === 'ON'">Đang mở chế độ đóng hoàn toàn</p>
                     </div>
                     <div class="row-1">
                         <div class="col">

@@ -130,7 +130,7 @@
     }
 }
 
-@media screen and (max-width: 845px) {
+@media screen and (max-width: 1000px) {
 
     .header {
         width: 100%;
@@ -172,8 +172,7 @@
         flex-direction: center;
     }
 
-    .title2 {
-        margin-top: 2%;
+    .title2 {   
         width: 41%;
         text-align: right;
     }

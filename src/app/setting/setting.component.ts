@@ -104,20 +104,20 @@ export class SettingComponent implements OnInit {
         // console.log('DO_0 ' + this.DO_0_Status);
         // console.log('DO_1 ' + this.DO_1_Status);
         // console.log('DO_2 ' + this.DO_2_Status);
-        if (this.DO_0_Status === 'ON') {
-          this.pressure_status = 'Đang mở chế độ áp cao'
-        } else {
-          this.pressure_status = 'Đang mở chế độ áp thấp'
-        }
-        if (this.DO_1_Status === 'ON') {
-          this.valve_status = 'Đang mở chế độ mở hoàn toàn'
-        }
-        if (this.DO_2_Status === 'ON') {
-          this.valve_status = 'Đang mở chế độ đóng hoàn toàn'
-        }
-        if (this.DO_2_Status === 'ON' && this.DO_1_Status === 'ON') {
-          this.valve_status = 'Đang mở chế độ đóng hoàn toàn Đang mở chế độ mở hoàn toàn'
-        }
+        // if (this.DO_0_Status === 'ON') {
+        //   this.pressure_status = 'Đang mở chế độ áp cao'
+        // } else {
+        //   this.pressure_status = 'Đang mở chế độ áp thấp'
+        // }
+        // if (this.DO_1_Status === 'ON') {
+        //   this.valve_status = 'Đang mở chế độ mở hoàn toàn'
+        // }
+        // if (this.DO_2_Status === 'ON') {
+        //   this.valve_status = 'Đang mở chế độ đóng hoàn toàn'
+        // }
+        // if (this.DO_2_Status === 'ON' && this.DO_1_Status === 'ON') {
+        //   this.valve_status = 'Đang mở chế độ đóng hoàn toàn Đang mở chế độ mở hoàn toàn'
+        // }
       },
       (err) => {
         console.log(err);

@@ -77,8 +77,13 @@
                 <div class="Bo_dieukhien">
                     <p style="text-align: center; color: rgb(255, 255, 255)"> <b> BỘ ĐIỀU KHIỂN VAN GIẢM ÁP </b></p>
                     <div class=" Trangthai_van">
-                        <p style=" color: rgb(93, 91, 91); font-size:larger;"> <b> Trạng thái
-                            </b><br>{{pressure_status}}<br>{{valve_status}}<br>{{valve_status_1}}</p>
+                        <!-- <p style=" color: rgb(93, 91, 91); font-size:larger;"> <b> Trạng thái
+                            </b><br>{{pressure_status}}<br>{{valve_status}}<br>{{valve_status_1}}</p> -->
+                        <p><b>Trạng thái</b></p>
+                        <p *ngIf="DO_0_Status === 'ON'">Đang mở chế độ áp cao</p>
+                        <p *ngIf="DO_0_Status === 'OFF'">Đang mở chế độ áp thấp</p>
+                        <p *ngIf="DO_1_Status === 'ON'">Đang mở chế độ mở hoàn toàn</p>
+                        <p *ngIf="DO_2_Status === 'ON'">Đang mở chế độ đóng hoàn toàn</p>
                     </div>
                     <div class="row-1">
                         <div class="col">
@@ -91,11 +96,11 @@
                                 <span class="slider1"></span>
                             </label> -->
                             <button
-                                style="width: 20% !important;height: 11%; font-size:100%; position:absolute; left: 2%; top: 70%;"
+                                style="width: 20% !important;height: 11%; font-size:100%; position:absolute; left: 4%; top: 70%;"
                                 [style.backgroundColor]="DO_1_Status === 'ON' ? 'green' : 'white'"
                                 (click)="ON('DO_1','ON')">BẬT</button>
                             <button
-                                style="width: 20% !important;height: 11%; font-size:100%; position:absolute; left: 22%; top: 70%;"
+                                style="width: 20% !important;height: 11%; font-size:100%; position:absolute; left: 24%; top: 70%;"
                                 [style.backgroundColor]="DO_1_Status === 'OFF' ? 'green' : 'white'"
                                 (click)="ON('DO_1','OFF')">TẮT</button>
                         </div>

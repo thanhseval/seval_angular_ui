@@ -272,7 +272,7 @@ th {
 /* Thêm phần tử bọc bảng */
 .table-scroll {
     overflow: auto;
-    max-height: 200px;
+    max-height: 300px;
     /* Điều chỉnh chiều cao tối đa của bảng trước khi thanh cuộn xuất hiện */
 }
 

@@ -162,9 +162,9 @@ export class ControllIotComponent implements OnInit {
           this.isSwitch3On = true;
           this.valve_status_1 = 'Đang mở chế độ đóng hoàn toàn'
         }
-        // if (this.DO_04_Status === 'ON' && this.DO_06_Status === 'ON') {
-        //   this.valve_status = 'Đang mở chế độ đóng hoàn toàn Đang mở chế độ mở hoàn toàn'
-        // }
+        if (this.DO_04_Status === 'ON' && this.DO_06_Status === 'ON') {
+          this.valve_status = 'Đang mở chế độ đóng hoàn toàn Đang mở chế độ mở hoàn toàn'
+        }
       },
       (err) => {
         console.log(err);

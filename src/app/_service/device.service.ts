@@ -48,4 +48,19 @@ export class DeviceService {
     const headers = new HttpHeaders({ 'Authorization': this.token });
     return this.http.post(this.apiUrl + '/device/mqtt/mqttcontrol/', data, { headers });
   }
+
+  updateOrCreateSchedule(name: string, startTime: string, endTime: string): Observable<any> {
+    const data = {
+      name: name,
+      startTime: startTime,
+      endTime: endTime
+    };
+    const headers = new HttpHeaders({ 'Authorization': this.token });
+    return this.http.post(this.apiUrl + '/device/settime/updateOrCreateSchedule', data, { headers });
+  }
+
+  getScheduleData(): Observable<any> {
+    const headers = new HttpHeaders({ 'Authorization': this.token });
+    return this.http.get(this.apiUrl + '/device/settime/getScheduleData/', { headers });
+  }
 }
