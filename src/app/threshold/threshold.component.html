@@ -1,0 +1,140 @@
+<div class="container-flur">
+    <div class="container">
+        <div class="container1">
+            <h2 id="HightPressure_Title">Thông số</h2>
+            <p>Áp suất điểm bất lợi: {{lastDataAI_3_420?.value}}</p>           
+        </div>
+        <div class="container1">
+            <h2 id="CloseVal_Title">Ngưỡng</h2>
+            <!-- <p>Trạng thái: <span *ngIf="DO_05_Status === 'OFF' && DO_06_Status === 'ON'">Mở</span><span
+                    *ngIf="DO_05_Status === 'ON' && DO_06_Status === 'OFF'">Đóng</span></p> -->
+            <!-- <div style="display: flex; justify-content: center; align-items: center;">
+                <div id="light_CloseVal"
+                    style="width: 25px; height: 25px; background-color: rgb(21, 216, 21); border-radius: 50%; margin-right: 60px;padding: 4px;">
+                </div>
+            </div> -->
+            <button class="clock-icon" (click)="show_timer('Ngưỡng')">
+                Cài đặt
+            </button>
+            <!-- <button class="gear-icon" (click)="showCustomSettings('Đóng hoàn toàn')">
+                ⚙️ Cài đặt 
+            </button> -->
+            <!-- <button class="button button-secondary" (click)="showScheduleList()">Danh sách thời gian</button> -->
+            <div id="schedule_CloseVal"></div>
+        </div>
+    </div>
+    <!-- Bảng nằm bên dưới container val1 -->
+    <div class="rightcolumn">
+        <div class="card">
+            <!-- <h2 style="font-size: 20px;">DANH SÁCH HẸN GIỜ ĐÃ CÀI ĐẶT</h2> -->
+            <div class="table-scroll"> <!-- Thêm phần tử bọc bảng với lớp .table-scroll -->
+                <table id="dataTable">
+                    <tr>
+                        <th>Ngưỡng 1</th>
+                        <th>So sánh</th>
+                        <th>Ngưỡng 2</th>
+                        <th>So sánh</th>
+                    </tr>
+                    <tr *ngFor="let data of thresholdDataArr; let i = index">
+                        <td>{{data.th1}}</td>
+                        <td>{{data.ss1}}</td>
+                        <td>{{data.th2}}</td>
+                        <td>{{data.ss2}}</td>
+                    </tr>
+                </table>
+                <!-- <p>Some text about me in culpa qui officia deserunt mollit anim..</p> -->
+            </div>
+        </div>
+    </div>
+
+
+    <!-- FORM HẸN GIỜ -->
+    <div id="settingsForm" *ngIf="settingsFormVisible" [style.display]="settingsFormVisible ? 'block' : 'none'"
+        style="display: none; position: fixed; top: 45%; left: 50%; transform: translate(-50%, -50%); background-color: white; padding: 20px; border-radius: 10px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); width: 300px; z-index: 2;">
+        <div style="display: flex; justify-content: flex-end; margin-bottom: 10px;">
+            <button class="button button-secondary" type="button" (click)="closeForm()"
+                style="margin: -10px;">&#10006;</button>
+        </div>
+        <h2 style="margin-bottom: 10px;">Form Cài Đặt</h2>
+        <form #thresholdForm="ngForm" (ngSubmit)="addThreshold(thresholdForm)">
+            <!-- <label for="action">Tên chức năng: </label>
+            <span>{{functionName}}</span><br><br> -->
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Ngưỡng 1</mat-label>
+                <input ngModel name="limit1" id="limit1" matInput placeholder="Ngưỡng">
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>So sánh ngưỡng 1</mat-label>
+                <mat-select ngModel name="sslimit1" id="sslimit1" [(value)]="selected">
+                    <mat-option value="Nhỏ hơn">Nhỏ hơn</mat-option>
+                    <mat-option value="Lớn hơn">Lớn hơn</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Ngưỡng 2</mat-label>
+                <input ngModel name="limit2" id="limit2" matInput placeholder="Ngưỡng">
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>So sánh ngưỡng 2</mat-label>
+                <mat-select ngModel name="sslimit2" id="sslimit2" [(value)]="selected1">
+                    <mat-option value="Nhỏ hơn">Nhỏ hơn</mat-option>
+                    <mat-option value="Lớn hơn">Lớn hơn</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <div style="text-align: center;">
+                <button type="submit" class="button button-primary" style="margin-right: 10px;">Cài đặt</button>
+                <button class="button button-secondary" type="button" (click)="closeForm()">Đóng</button>
+            </div>
+        </form>
+    </div>
+
+
+    <!-- Form cài đặt -->
+    <!-- <div id="settingsForm"
+style="display: none; position: fixed; top: 25%; left: 50%; transform: translate(-50%, -50%); background-color: white; padding: 20px; border-radius: 10px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); width: 300px; z-index: 2;">
+<div style="display: flex; justify-content: flex-end; margin-bottom: 10px;">
+  <button class="button button-secondary" type="button" (click)="closeForm()"
+    style="margin: -10px;">&#10006;</button>
+</div>
+<h2 style="margin-bottom: 10px;">Form Cài Đặt</h2>
+<form>
+  <label for="action">Chọn chức năng:</label>
+  <select id="action" name="action">
+    <option value="Áp cao">Áp cao</option>
+    <option value="Áp thấp">Áp thấp</option>
+    <option value="Mở van">Mở van hoàn toàn</option>
+    <option value="Đóng van">Đóng van hoàn toàn</option>
+  </select><br><br>
+  <label for="startTime">Thời gian bắt đầu:</label>
+  <input type="time" id="startTime" name="startTime" style="margin-right: 10px;"><br><br>
+  <label for="endTime">Thời gian kết thúc:</label>
+  <input type="time" id="endTime" name="endTime"><br><br>
+  <div style="text-align: center;">
+    <button class="button button-primary" type="button" (click)="addSchedule()" style="margin-right: 10px;">Thêm
+      Thời Gian</button>
+    <button class="button button-secondary" type="button" (click)="closeForm()">Đóng</button>
+  </div>
+</form>
+</div> -->
+
+    <!-- FORM CÀI ĐẶT -->
+    <!-- Form cài đặt tùy chỉnh -->
+    <div id="customSettingsForm" *ngIf="customSettingsFormVisible"
+        [style.display]="customSettingsFormVisible ? 'block' : 'none'"
+        style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: white; padding: 20px; border-radius: 10px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); width: 300px; z-index: 2;">
+        <div style="display: flex; justify-content: flex-end; margin-bottom: 10px;">
+            <button class="button button-secondary" type="button" (click)="closeCustomForm()"
+                style="margin: -10px;">&#10006;</button>
+        </div>
+        <h2 style="margin-bottom: 10px;">Form Cài Đặt Tùy Chỉnh</h2>
+        <form id="customUpdateForm">
+            <label for="customSettingName">Tên cài đặt:</label>
+            <input type="text" id="customSettingName" name="customSettingName"><br><br>
+            <div style="text-align: center;">
+                <button class="button button-primary" type="button" (click)="updateCustomSetting()">Cập nhật</button>
+                <button class="button button-secondary" type="button" (click)="deleteCustomSetting()">Xóa</button>
+            </div>
+        </form>
+    </div>
+</div>

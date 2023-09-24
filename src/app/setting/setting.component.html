@@ -71,11 +71,11 @@
 
                 <div class="Diem_batloi">
                     <p
-                        style="color: rgb(0, 0, 0); width: 100%;font-size: smaller;height:20%;text-align: center;margin-top: -5px; margin-left: 0px;">
+                        style="color: rgb(0, 0, 0); width: 100%;font-size: 8px;height:20%;text-align: center;margin-top: -5px; margin-left: 0px;">
                         Điểm bất lợi</p>
                 </div>
                 <div class="Bo_dieukhien">
-                    <p style="text-align: center; color: rgb(255, 255, 255)"> <b> BỘ ĐIỀU KHIỂN VAN GIẢM ÁP </b></p>
+                    <p style="margin-bottom: 6%; text-align: center; color: rgb(255, 255, 255)"> <b> BỘ ĐIỀU KHIỂN VAN GIẢM ÁP </b></p>
                     <div class=" Trangthai_van">
                         <!-- <p style=" color: rgb(93, 91, 91); font-size:larger;"> <b> Trạng thái
                             </b><br>{{pressure_status}}<br>{{valve_status}}<br>{{valve_status_1}}</p> -->
@@ -95,12 +95,10 @@
                                     (change)="onSwitchChange('Van_dien_2')">
                                 <span class="slider1"></span>
                             </label> -->
-                            <button
-                                style="width: 20% !important;height: 11%; font-size:100%; position:absolute; left: 4%; top: 70%;"
+                            <button style="position:absolute; left: 4%; top: 70%;"
                                 [style.backgroundColor]="DO_1_Status === 'ON' ? 'green' : 'white'"
                                 (click)="ON('DO_1','ON')">BẬT</button>
-                            <button
-                                style="width: 20% !important;height: 11%; font-size:100%; position:absolute; left: 24%; top: 70%;"
+                            <button style="position:absolute; left: 24%; top: 70%;"
                                 [style.backgroundColor]="DO_1_Status === 'OFF' ? 'green' : 'white'"
                                 (click)="ON('DO_1','OFF')">TẮT</button>
                         </div>
@@ -113,22 +111,19 @@
                                     (change)="onSwitchChange('Van_dien_3')">
                                 <span class="slider1"></span>
                             </label> -->
-                            <button
-                                style="width: 20% !important;height: 11%; font-size:100%; position:absolute; left: 56%; top: 70%;"
+                            <button style="position:absolute; left: 56%; top: 70%;"
                                 [style.backgroundColor]="DO_2_Status === 'ON' ? 'green' : 'white'"
                                 (click)="ON('DO_2','ON')">BẬT</button>
-                            <button
-                                style="width: 20% !important;height: 11%; font-size:100%; position:absolute; left: 76%; top: 70%;"
+                            <button style="position:absolute; left: 76%; top: 70%;"
                                 [style.backgroundColor]="DO_2_Status === 'OFF' ? 'green' : 'white'"
                                 (click)="ON('DO_2','OFF')">TẮT</button>
                         </div>
                     </div>
-                    <div class="row-1" style="padding: 10% 5% 0 5%;">
+                    <div class="row-1" style="padding: 20% 5% 0 5%;">
                         <p class="text-act">
                             <b> ÁP THẤP</b>
                         </p>
-                        <button
-                            style="width: 20% !important;height: 11%; font-size:100%; position:absolute; left: 30%; top: 85%;"
+                        <button style="position:absolute; left: 30%; top: 85%;"
                             [style.backgroundColor]="DO_0_Status === 'OFF' ? 'green' : 'white'"
                             (click)="ON('DO_0','OFF')">BẬT</button>
 
@@ -136,8 +131,7 @@
                         <p class="text-act-1">
                             <b> ÁP CAO </b>
                         </p>
-                        <button
-                            style="width: 20% !important;height: 11%; font-size:100%; position:absolute; left: 50%; top: 85%;"
+                        <button style="position:absolute; left: 50%; top: 85%;"
                             [style.backgroundColor]="DO_0_Status === 'ON' ? 'green' : 'white'"
                             (click)="ON('DO_0','ON')">BẬT</button>
                         <!-- <label class="switch1 sw-act">

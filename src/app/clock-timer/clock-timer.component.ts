@@ -17,6 +17,7 @@ export class ClockTimerComponent implements OnInit {
   customSettingsFormVisible: boolean = false;
   functionName: any;
   scheduleDataArr: any[] = [];
+  array: any[] = [];
 
   DO_01_Status: any;
   DO_02_Status: any;
@@ -32,6 +33,8 @@ export class ClockTimerComponent implements OnInit {
     this.getStatus();
     setInterval(() => this.getStatus(), 100);
     this.getScheduleData();
+    this.isTimeInRange();
+    setInterval(() => this.isTimeInRange(), 10000);
   }
 
   show_timer(name: string) {
@@ -78,7 +81,7 @@ export class ClockTimerComponent implements OnInit {
         this.scheduleDataArr = [];
         response.forEach(d => this.scheduleDataArr.push(d));
         this.scheduleDataArr.sort((a, b) => a.id - b.id);
-        // console.log(this.scheduleDataArr);
+        // console.log(this.scheduleDataArr[1]);
       },
       (error) => {
         console.log(error);
@@ -104,5 +107,67 @@ export class ClockTimerComponent implements OnInit {
         console.log(err);
       }
     )
+  }
+
+  isTimeInRange() {
+    const currentTime = new Date();
+    const formattedTime = currentTime.toLocaleTimeString([], { hour12: false, hour: '2-digit', minute: '2-digit', second: '2-digit' });
+    this.deviceService.getScheduleData().subscribe(
+      (response: ScheduleData[]) => {
+        // console.log(response);
+        this.array = [];
+        response.forEach(d => this.array.push(d));
+        this.array.sort((a, b) => a.id - b.id);
+        this.array.forEach(element => {
+          const isInRange = this.isTimeInRange1(element.start_time, element.end_time, formattedTime);
+          if (element.name === 'Mở hoàn toàn' && isInRange === true && this.DO_04_Status === 'OFF') {
+            this.control('DO_4_ON');
+          }
+          if (element.name === 'Mở hoàn toàn' && isInRange === false && this.DO_03_Status === 'OFF') {
+            this.control('DO_3_ON');
+          }
+          if (element.name === 'Đóng hoàn toàn' && isInRange === true && this.DO_06_Status === 'OFF') {
+            this.control('DO_6_ON');
+          }
+          if (element.name === 'Đóng hoàn toàn' && isInRange === false && this.DO_05_Status === 'OFF') {
+            this.control('DO_5_ON');
+          }
+          if (element.name === 'Áp cao' && isInRange === true && this.DO_02_Status === 'OFF') {
+            this.control('DO_2_ON');
+          }
+          if (element.name === 'Áp cao' && isInRange === false && this.DO_01_Status === 'OFF') {
+            this.control('DO_1_ON');
+          }
+          if (element.name === 'Áp thấp' && isInRange === true && this.DO_01_Status === 'OFF') {
+            this.control('DO_1_ON');
+          }
+          if (element.name === 'Áp thấp' && isInRange === false && this.DO_02_Status === 'OFF') {
+            this.control('DO_2_ON');
+          }
+        });
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  isTimeInRange1(startTime: string, endTime: string, currentTime: string): boolean {
+    if (currentTime >= startTime && currentTime <= endTime) {
+      return true;
+    }
+    return false; // Modify this logic as per your requirements
+  }
+
+  control(action: string) {
+    this.deviceService.sendDataDeviceSV3(action).subscribe(
+      (res) => {
+        console.log(res);
+      },
+      (err) => {
+        console.log(err);
+      }
+    )
+    this.getStatus();
   }
 }

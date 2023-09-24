@@ -12,9 +12,9 @@
             <button class="clock-icon" (click)="show_timer('Đóng hoàn toàn')">
                 ⏰ Hẹn giờ <!-- Biểu tượng đồng hồ (cài đặt chung) -->
             </button>
-            <button class="gear-icon" (click)="showCustomSettings('Đóng hoàn toàn')">
-                ⚙️ Cài đặt <!-- Biểu tượng bánh răng (cài đặt tùy chỉnh) -->
-            </button>
+            <!-- <button class="gear-icon" (click)="showCustomSettings('Đóng hoàn toàn')">
+                ⚙️ Cài đặt 
+            </button> -->
             <!-- <button class="button button-secondary" (click)="showScheduleList()">Danh sách thời gian</button> -->
             <div id="schedule_CloseVal"></div>
         </div>
@@ -31,9 +31,9 @@
             <button class="clock-icon" (click)="show_timer('Áp thấp')">
                 ⏰ Hẹn giờ <!-- Biểu tượng đồng hồ (cài đặt chung) -->
             </button>
-            <button class="gear-icon" (click)="showCustomSettings('Áp thấp')">
-                ⚙️ Cài đặt <!-- Biểu tượng bánh răng (cài đặt tùy chỉnh) -->
-            </button>
+            <!-- <button class="gear-icon" (click)="showCustomSettings('Áp thấp')">
+                ⚙️ Cài đặt
+            </button> -->
             <!-- <button class="button button-secondary" (click)="showScheduleList()">Danh sách thời gian</button> -->
             <div id="schedule_LowPressure"></div>
         </div>
@@ -50,9 +50,9 @@
             <button class="clock-icon" (click)="show_timer('Áp cao')">
                 ⏰ Hẹn giờ <!-- Biểu tượng đồng hồ (cài đặt chung) -->
             </button>
-            <button class="gear-icon" (click)="showCustomSettings('Áp cao')">
-                ⚙️ Cài đặt <!-- Biểu tượng bánh răng (cài đặt tùy chỉnh) -->
-            </button>
+            <!-- <button class="gear-icon" (click)="showCustomSettings('Áp cao')">
+                ⚙️ Cài đặt 
+            </button> -->
             <!-- <button class="button button-secondary" (click)="showScheduleList()">Danh sách thời gian</button> -->
             <div id="schedule_HightPressure"></div>
         </div>
@@ -69,9 +69,9 @@
             <button class="clock-icon" (click)="show_timer('Mở hoàn toàn')">
                 ⏰ Hẹn giờ <!-- Biểu tượng đồng hồ (cài đặt chung) -->
             </button>
-            <button class="gear-icon" (click)="showCustomSettings('Mở hoàn toàn')">
-                ⚙️ Cài đặt <!-- Biểu tượng bánh răng (cài đặt tùy chỉnh) -->
-            </button>
+            <!-- <button class="gear-icon" (click)="showCustomSettings('Mở hoàn toàn')">
+                ⚙️ Cài đặt 
+            </button> -->
             <!-- <button class="button button-secondary" (click)="showScheduleList()">Danh sách thời gian</button> -->
             <div id="list_"></div>
         </div>
@@ -83,14 +83,14 @@
             <div class="table-scroll"> <!-- Thêm phần tử bọc bảng với lớp .table-scroll -->
                 <table id="dataTable">
                     <tr>
-                        <th>ID</th>
+                        <th>STT</th>
                         <th>Tên</th>
                         <th>Thời gian bắt đầu</th>
                         <th>Thời gian kết thúc</th>
                         <th>Trạng thái</th>
                     </tr>
-                    <tr *ngFor="let data of scheduleDataArr">
-                        <td>{{data.id}}</td>
+                    <tr *ngFor="let data of scheduleDataArr; let i = index">
+                        <td>{{i+1}}</td>
                         <td>{{data.name}}</td>
                         <td>{{data.start_time}}</td>
                         <td>{{data.end_time}}</td>

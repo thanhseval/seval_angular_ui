@@ -63,4 +63,21 @@ export class DeviceService {
     const headers = new HttpHeaders({ 'Authorization': this.token });
     return this.http.get(this.apiUrl + '/device/settime/getScheduleData/', { headers });
   }
+
+  getThreshold(): Observable<any> {
+    const headers = new HttpHeaders({ 'Authorization': this.token });
+    return this.http.get(this.apiUrl + '/device/setthreshold/getthreshold', { headers });
+  }
+
+  updateThreshold(th1: string, ss1: string, th2: string, ss2: string): Observable<any> {
+    const data = {
+      id: 1,
+      th1: th1,
+      ss1: ss1,
+      th2: th2,
+      ss2: ss2
+    };
+    const headers = new HttpHeaders({ 'Authorization': this.token });
+    return this.http.post(this.apiUrl + '/device/setthreshold/updatethreshold', data, { headers });
+  }
 }

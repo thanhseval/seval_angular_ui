@@ -39,6 +39,7 @@ import { AuthGuard } from './_auth/auth.guard';
 import { AuthInterceptor } from './_auth/auth.interceptor';
 import { UserService } from './_service/user.service';
 import { ControllIotComponent } from './controll-iot/controll-iot.component';
+import { ThresholdComponent } from './threshold/threshold.component';
 // import { MqttModule, IMqttServiceOptions } from 'ngx-mqtt';
 
 // // MQTT broker options
@@ -69,6 +70,7 @@ import { ControllIotComponent } from './controll-iot/controll-iot.component';
     SettingComponent,
     ControllerPumpComponent,
     ControllIotComponent,
+    ThresholdComponent,
   ],
   imports: [
     BrowserModule,
