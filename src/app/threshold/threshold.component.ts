@@ -47,14 +47,14 @@ export class ThresholdComponent implements OnInit {
   }
   ngOnInit(): void {
     this.getLatestData();
-    setInterval(() => this.getLatestData(), 300);
+    setInterval(() => this.getLatestData(), 29000);
     this.getStatus();
-    setInterval(() => this.getLatestData(), 300);
+    // setInterval(() => this.getStatus(), 56000);
     this.getThresholdData();
     setTimeout(() => {
       this.isExceedTheThreshold();
-      setInterval(() => this.isExceedTheThreshold(), 120000);
-    }, 120000);
+      setInterval(() => this.isExceedTheThreshold(), 30000);
+    }, 60000);
   }
 
   show_timer(name: string) {
@@ -112,32 +112,25 @@ export class ThresholdComponent implements OnInit {
   }
 
   isExceedTheThreshold() {
+    this.getStatus();
+    this.getLatestData();
+
     this.deviceService.getThreshold().subscribe(
       (response: ThresholdData[]) => {
+        this.array = [];
         response.forEach(d => this.array.push(d));
         this.array.forEach(element => {
-          if (element.ss1 === 'Lớn hơn') {
-            if (this.DO_04_Status === 'OFF' && element.th1 > this.lastDataAI_3_420.value) {
-              this.control('DO_4_ON');
-            }
+          if (this.DO_04_Status === 'OFF' && element.th1 >= this.lastDataAI_3_420.value && element.th1 !== '') {
+            this.control('DO_4_ON');
           }
-          if (element.ss1 === 'Nhỏ hơn') {
-            if (this.DO_03_Status === 'OFF' && element.th1 < this.lastDataAI_3_420.value) {
-              this.control('DO_3_ON');
-            }
+          if (this.DO_03_Status === 'OFF' && element.th1 < this.lastDataAI_3_420.value && element.th1 !== '') {
+            this.control('DO_3_ON');
           }
-          if (element.ss2 === 'Lớn hơn') {
-            if (this.DO_5_Status === 'OFF' && element.th2 > this.lastDataAI_3_420.value) {
-              this.ON('DO_5', 'ON');
-            }
+          if (this.DO_5_Status === 'OFF' && element.th2 >= this.lastDataAI_3_420.value && element.th2 !== '') {
+            this.ON('DO_5', 'ON');
           }
-          if(element.th2 > this.lastDataAI_3_420.value){
-console.log(1);
-          }
-          if (element.ss2 === 'Nhỏ hơn') {
-            if (this.DO_5_Status === 'ON' && element.th2 < this.lastDataAI_3_420.value) {
-              this.ON('DO_5', 'OFF');
-            }
+          if (this.DO_5_Status === 'ON' && element.th2 < this.lastDataAI_3_420.value && element.th2 !== '') {
+            this.ON('DO_5', 'OFF');
           }
         });
       },
@@ -188,6 +181,7 @@ console.log(1);
     );
 
   }
+
   control(action: string) {
     this.deviceService.sendDataDeviceSV3(action).subscribe(
       (res) => {
@@ -198,6 +192,7 @@ console.log(1);
       }
     )
   }
+
   ON(deviceKey: string, action: string) {
     this.deviceService.sendDataDevicePLC(deviceKey, action).subscribe(
       (res) => {
@@ -208,6 +203,7 @@ console.log(1);
       }
     )
   }
+  
   getStatus() {
     const deviceId = '8C-F3-19-3B-2E-B9';
     const keys = 'DO_5';

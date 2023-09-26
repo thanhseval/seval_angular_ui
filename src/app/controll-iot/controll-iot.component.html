@@ -243,6 +243,11 @@
                         <td class="mypH">(bar)</td>
                     </tr>
                     <tr>
+                        <td>Áp suất điểm bất lợi:</td>
+                        <td class="mypH">{{lastDataAI_3_420?.value}}</td>
+                        <td class="mypH">(bar)</td>
+                    </tr>
+                    <tr>
                         <td>Lưu lượng:</td>
                         <td class="mypH">{{lastDataPI_1?.value}}</td>
                         <td class="mypH">(m3/h)</td>
@@ -262,10 +267,10 @@
     </div>
     <div class="column">
         <div class="card" id="flowChart" style="width:100%">
-            <app-flow-chart></app-flow-chart>
+            <app-pressure-chart></app-pressure-chart>
         </div>
         <div class="card" id="pressureChart" style="width:100%">
-            <app-pressure-chart></app-pressure-chart>
+            <app-flow-chart></app-flow-chart>            
         </div>
     </div>
 </div>

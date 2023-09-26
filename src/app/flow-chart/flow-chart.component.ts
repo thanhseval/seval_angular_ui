@@ -95,8 +95,8 @@ export class FlowChartComponent implements OnInit {
 
           });
 
-          if (deviceDataPI_1.length > 200) {
-            deviceDataPI_1 = deviceDataPI_1.slice(-200);
+          if (deviceDataPI_1.length > 100) {
+            deviceDataPI_1 = deviceDataPI_1.slice(-100);
           }
 
           this.dataPI_1 = deviceDataPI_1;

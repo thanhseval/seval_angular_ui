@@ -31,10 +31,12 @@ export class ClockTimerComponent implements OnInit {
   }
   ngOnInit(): void {
     this.getStatus();
-    setInterval(() => this.getStatus(), 100);
+    // setInterval(() => this.getStatus(), 20000);
     this.getScheduleData();
-    this.isTimeInRange();
-    setInterval(() => this.isTimeInRange(), 10000);
+    setTimeout(() => {
+      this.isTimeInRange();
+      setInterval(() => this.isTimeInRange(), 30000);
+    }, 15000);
   }
 
   show_timer(name: string) {
@@ -110,6 +112,7 @@ export class ClockTimerComponent implements OnInit {
   }
 
   isTimeInRange() {
+    this.getStatus();
     const currentTime = new Date();
     const formattedTime = currentTime.toLocaleTimeString([], { hour12: false, hour: '2-digit', minute: '2-digit', second: '2-digit' });
     this.deviceService.getScheduleData().subscribe(
@@ -138,12 +141,12 @@ export class ClockTimerComponent implements OnInit {
           if (element.name === 'Áp cao' && isInRange === false && this.DO_01_Status === 'OFF') {
             this.control('DO_1_ON');
           }
-          if (element.name === 'Áp thấp' && isInRange === true && this.DO_01_Status === 'OFF') {
-            this.control('DO_1_ON');
-          }
-          if (element.name === 'Áp thấp' && isInRange === false && this.DO_02_Status === 'OFF') {
-            this.control('DO_2_ON');
-          }
+          // if (element.name === 'Áp thấp' && isInRange === true && this.DO_01_Status === 'OFF') {
+          //   this.control('DO_1_ON');
+          // }
+          // if (element.name === 'Áp thấp' && isInRange === false && this.DO_02_Status === 'OFF') {
+          //   this.control('DO_2_ON');
+          // }
         });
       },
       (error) => {

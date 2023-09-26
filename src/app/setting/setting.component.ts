@@ -44,9 +44,9 @@ export class SettingComponent implements OnInit {
     // this.search();
     // this.getData();
     this.getLatestData();
-    setInterval(() => this.getLatestData(), 30000);
+    setInterval(() => this.getLatestData(), 60000);
     this.getStatus();
-    setInterval(() => this.getStatus(), 100);
+    setInterval(() => this.getStatus(), 1000);
   }
 
   onSwitchChange(action: string): void {

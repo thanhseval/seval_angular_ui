@@ -75,7 +75,8 @@
                         Điểm bất lợi</p>
                 </div>
                 <div class="Bo_dieukhien">
-                    <p style="margin-bottom: 6%; text-align: center; color: rgb(255, 255, 255)"> <b> BỘ ĐIỀU KHIỂN VAN GIẢM ÁP </b></p>
+                    <p style="margin-bottom: 6%; text-align: center; color: rgb(255, 255, 255)"> <b> BỘ ĐIỀU KHIỂN VAN
+                            GIẢM ÁP </b></p>
                     <div class=" Trangthai_van">
                         <!-- <p style=" color: rgb(93, 91, 91); font-size:larger;"> <b> Trạng thái
                             </b><br>{{pressure_status}}<br>{{valve_status}}<br>{{valve_status_1}}</p> -->
@@ -96,11 +97,11 @@
                                 <span class="slider1"></span>
                             </label> -->
                             <button style="position:absolute; left: 4%; top: 70%;"
-                                [style.backgroundColor]="DO_1_Status === 'ON' ? 'green' : 'white'"
-                                (click)="ON('DO_1','ON')">BẬT</button>
-                            <button style="position:absolute; left: 24%; top: 70%;"
                                 [style.backgroundColor]="DO_1_Status === 'OFF' ? 'green' : 'white'"
                                 (click)="ON('DO_1','OFF')">TẮT</button>
+                            <button style="position:absolute; left: 24%; top: 70%;"
+                                [style.backgroundColor]="DO_1_Status === 'ON' ? 'green' : 'white'"
+                                (click)="ON('DO_1','ON')">BẬT</button>
                         </div>
                         <div class="col">
                             <p class="text-dht">
@@ -112,11 +113,11 @@
                                 <span class="slider1"></span>
                             </label> -->
                             <button style="position:absolute; left: 56%; top: 70%;"
-                                [style.backgroundColor]="DO_2_Status === 'ON' ? 'green' : 'white'"
-                                (click)="ON('DO_2','ON')">BẬT</button>
-                            <button style="position:absolute; left: 76%; top: 70%;"
                                 [style.backgroundColor]="DO_2_Status === 'OFF' ? 'green' : 'white'"
                                 (click)="ON('DO_2','OFF')">TẮT</button>
+                            <button style="position:absolute; left: 76%; top: 70%;"
+                                [style.backgroundColor]="DO_2_Status === 'ON' ? 'green' : 'white'"
+                                (click)="ON('DO_2','ON')">BẬT</button>
                         </div>
                     </div>
                     <div class="row-1" style="padding: 20% 5% 0 5%;">
@@ -237,6 +238,11 @@
                         <td class="mypH">(bar)</td>
                     </tr>
                     <tr>
+                        <td>Áp suất điểm bất lợi:</td>
+                        <td class="mypH">{{lastDataAI_3_420?.value}}</td>
+                        <td class="mypH">(bar)</td>
+                    </tr>
+                    <tr>
                         <td>Lưu lượng:</td>
                         <td class="mypH">{{lastDataPI_1?.value}}</td>
                         <td class="mypH">(m3/h)</td>
@@ -256,10 +262,10 @@
     </div>
     <div class="column">
         <div class="card" id="flowChart" style="width:100%">
-            <app-flow-chart></app-flow-chart>
+            <app-pressure-chart></app-pressure-chart>
         </div>
         <div class="card" id="pressureChart" style="width:100%">
-            <app-pressure-chart></app-pressure-chart>
+            <app-flow-chart></app-flow-chart>
         </div>
     </div>
 </div>

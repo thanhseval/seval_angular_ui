@@ -46,6 +46,7 @@ export class PressureChartComponent implements OnInit {
   public legend!: ApexLegend;
   dataAI_1_420: any;
   dataAI_2_420: any;
+  dataAI_3_420: any;
 
   constructor(
     private deviceService: DeviceService) {
@@ -63,7 +64,7 @@ export class PressureChartComponent implements OnInit {
       // const token = await this.userAuthService.getToken;
       // console.log(token);
       const deviceId = 'Device001';
-      const attributeFlow = 'AI_1_420,AI_2_420';
+      const attributeFlow = 'AI_1_420,AI_2_420,AI_3_420';
 
       // const pressureData = await this.fetchData(token, deviceId, attributePressure);
       // const flowData = await this.fetchData(token, deviceId, attributeFlow);
@@ -71,6 +72,7 @@ export class PressureChartComponent implements OnInit {
         (data) => {
           var deviceDataAI_1_420: DeviceData[] = data.data.AI_1_420;
           var deviceDataAI_2_420: DeviceData[] = data.data.AI_2_420;
+          var deviceDataAI_3_420: DeviceData[] = data.data.AI_3_420;
 
           //sort data
           deviceDataAI_1_420.sort((a, b) => {
@@ -97,20 +99,37 @@ export class PressureChartComponent implements OnInit {
             }
 
           });
+          deviceDataAI_3_420.sort((a, b) => {
+            const dateA = new Date(a.updated_at);
+            const dateB = new Date(b.updated_at);
 
-          if (deviceDataAI_1_420.length > 200) {
-            deviceDataAI_1_420 = deviceDataAI_1_420.slice(-200);
+            if (!isNaN(dateA.getTime()) && !isNaN(dateB.getTime())) {
+              return dateA.getTime() - dateB.getTime();
+            } else {
+              // Handle cases where the date strings are invalid
+              return 0; // You can choose to handle this differently
+            }
+
+          });
+
+          if (deviceDataAI_1_420.length > 100) {
+            deviceDataAI_1_420 = deviceDataAI_1_420.slice(-100);
           }
-          if (deviceDataAI_2_420.length > 200) {
-            deviceDataAI_2_420 = deviceDataAI_2_420.slice(-200);
+          if (deviceDataAI_2_420.length > 100) {
+            deviceDataAI_2_420 = deviceDataAI_2_420.slice(-100);
+          }
+          if (deviceDataAI_3_420.length > 100) {
+            deviceDataAI_3_420 = deviceDataAI_3_420.slice(-100);
           }
 
           this.dataAI_1_420 = deviceDataAI_1_420;
           this.dataAI_2_420 = deviceDataAI_2_420;
+          this.dataAI_3_420 = deviceDataAI_3_420;
 
           this.series = [
-            { name: "Áp suất trước van AI_1_420", data: this.dataAI_1_420.map((entry: { updated_at: string | number | Date; value: any; }) => ({ x: new Date(entry.updated_at).getTime(), y: entry.value })) },
-            { name: "Áp suất sau van AI_2_420", data: this.dataAI_2_420.map((entry: { updated_at: string | number | Date; value: any; }) => ({ x: new Date(entry.updated_at).getTime(), y: entry.value })) },
+            { name: "Áp suất trước van ", data: this.dataAI_1_420.map((entry: { updated_at: string | number | Date; value: any; }) => ({ x: new Date(entry.updated_at).getTime(), y: entry.value })) },
+            { name: "Áp suất sau van ", data: this.dataAI_2_420.map((entry: { updated_at: string | number | Date; value: any; }) => ({ x: new Date(entry.updated_at).getTime(), y: entry.value })) },
+            { name: "Áp suất điểm bất lợi", data: this.dataAI_3_420.map((entry: { updated_at: string | number | Date; value: any; }) => ({ x: new Date(entry.updated_at).getTime(), y: entry.value })) },
           ];
         },
         (error) => {

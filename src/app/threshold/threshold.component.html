@@ -2,7 +2,7 @@
     <div class="container">
         <div class="container1">
             <h2 id="HightPressure_Title">Thông số</h2>
-            <p>Áp suất điểm bất lợi: {{lastDataAI_3_420?.value}}</p>           
+            <p>Áp suất điểm bất lợi: {{lastDataAI_3_420?.value}} bar</p>           
         </div>
         <div class="container1">
             <h2 id="CloseVal_Title">Ngưỡng</h2>
@@ -31,15 +31,15 @@
                 <table id="dataTable">
                     <tr>
                         <th>Ngưỡng 1</th>
-                        <th>So sánh</th>
+                        <!-- <th>So sánh</th> -->
                         <th>Ngưỡng 2</th>
-                        <th>So sánh</th>
+                        <!-- <th>So sánh</th> -->
                     </tr>
                     <tr *ngFor="let data of thresholdDataArr; let i = index">
                         <td>{{data.th1}}</td>
-                        <td>{{data.ss1}}</td>
+                        <!-- <td>{{data.ss1}}</td> -->
                         <td>{{data.th2}}</td>
-                        <td>{{data.ss2}}</td>
+                        <!-- <td>{{data.ss2}}</td> -->
                     </tr>
                 </table>
                 <!-- <p>Some text about me in culpa qui officia deserunt mollit anim..</p> -->
@@ -63,24 +63,24 @@
                 <mat-label>Ngưỡng 1</mat-label>
                 <input ngModel name="limit1" id="limit1" matInput placeholder="Ngưỡng">
             </mat-form-field>
-            <mat-form-field appearance="outline" class="w-100">
+            <!-- <mat-form-field appearance="outline" class="w-100">
                 <mat-label>So sánh ngưỡng 1</mat-label>
                 <mat-select ngModel name="sslimit1" id="sslimit1" [(value)]="selected">
                     <mat-option value="Nhỏ hơn">Nhỏ hơn</mat-option>
                     <mat-option value="Lớn hơn">Lớn hơn</mat-option>
                 </mat-select>
-            </mat-form-field>
+            </mat-form-field> -->
             <mat-form-field appearance="outline" class="w-100">
                 <mat-label>Ngưỡng 2</mat-label>
                 <input ngModel name="limit2" id="limit2" matInput placeholder="Ngưỡng">
             </mat-form-field>
-            <mat-form-field appearance="outline" class="w-100">
+            <!-- <mat-form-field appearance="outline" class="w-100">
                 <mat-label>So sánh ngưỡng 2</mat-label>
                 <mat-select ngModel name="sslimit2" id="sslimit2" [(value)]="selected1">
                     <mat-option value="Nhỏ hơn">Nhỏ hơn</mat-option>
                     <mat-option value="Lớn hơn">Lớn hơn</mat-option>
                 </mat-select>
-            </mat-form-field>
+            </mat-form-field> -->
 
             <div style="text-align: center;">
                 <button type="submit" class="button button-primary" style="margin-right: 10px;">Cài đặt</button>

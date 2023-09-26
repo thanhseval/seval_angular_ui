@@ -23,8 +23,8 @@ export class ControllerPumpComponent implements OnInit {
   ngOnInit() {
     // this.search();
     // this.getData();
-    this.getLatestData();
-    setInterval(() => this.getLatestData(), 300000);
+    // this.getLatestData();
+    // setInterval(() => this.getLatestData(), 300000);
     this.getStatus();
     setInterval(() => this.getStatus(), 100);
   }
@@ -66,50 +66,50 @@ export class ControllerPumpComponent implements OnInit {
     return this.deviceService.getAllDeviceData(deviceId, attribute);
   }
 
-  getLatestData() {
-    this.getData('Bat,PI_1,PI_2,PI_3,PI_4').subscribe(
-      (data) => {
-        var deviceDataPI_1: DeviceData[] = data.data.PI_1;
-        var deviceDataPI_2: DeviceData[] = data.data.PI_2;
-        var deviceDataPI_3: DeviceData[] = data.data.PI_3;
-        var deviceDataPI_4: DeviceData[] = data.data.PI_4;
-        var deviceDataBat: DeviceData[] = data.data.Bat;
-        // console.log(deviceData);
-        if (deviceDataPI_1 && deviceDataPI_1.length > 0) {
-          this.lastDataPI_1 = deviceDataPI_1[deviceDataPI_1.length - 1];
-          // console.log(this.lastDataPI_1);
-        } else {
-          // console.log('Data is empty.');
-        }
-        if (deviceDataPI_2 && deviceDataPI_2.length > 0) {
-          this.lastDataPI_2 = deviceDataPI_2[deviceDataPI_2.length - 1];
-          // console.log(this.lastDataPI_2);
-        } else {
-          // console.log('Data is empty.');
-        }
-        if (deviceDataPI_3 && deviceDataPI_3.length > 0) {
-          this.lastDataPI_3 = deviceDataPI_3[deviceDataPI_3.length - 1];
-          // console.log(this.lastDataPI_3);
-        } else {
-          // console.log('Data is empty.');
-        }
-        if (deviceDataPI_4 && deviceDataPI_4.length > 0) {
-          this.lastDataPI_4 = deviceDataPI_4[deviceDataPI_4.length - 1];
-          // console.log(this.lastDataPI_4);
-        } else {
-          // console.log('Data is empty.');
-        }
-        if (deviceDataBat && deviceDataBat.length > 0) {
-          this.lastDataBat = deviceDataBat[deviceDataBat.length - 1];
-          // console.log(this.lastDataBat);
-        } else {
-          // console.log('Data is empty.');
-        }
+  // getLatestData() {
+  //   this.getData('Bat,PI_1,PI_2,PI_3,PI_4').subscribe(
+  //     (data) => {
+  //       var deviceDataPI_1: DeviceData[] = data.data.PI_1;
+  //       var deviceDataPI_2: DeviceData[] = data.data.PI_2;
+  //       var deviceDataPI_3: DeviceData[] = data.data.PI_3;
+  //       var deviceDataPI_4: DeviceData[] = data.data.PI_4;
+  //       var deviceDataBat: DeviceData[] = data.data.Bat;
+  //       // console.log(deviceData);
+  //       if (deviceDataPI_1 && deviceDataPI_1.length > 0) {
+  //         this.lastDataPI_1 = deviceDataPI_1[deviceDataPI_1.length - 1];
+  //         // console.log(this.lastDataPI_1);
+  //       } else {
+  //         // console.log('Data is empty.');
+  //       }
+  //       if (deviceDataPI_2 && deviceDataPI_2.length > 0) {
+  //         this.lastDataPI_2 = deviceDataPI_2[deviceDataPI_2.length - 1];
+  //         // console.log(this.lastDataPI_2);
+  //       } else {
+  //         // console.log('Data is empty.');
+  //       }
+  //       if (deviceDataPI_3 && deviceDataPI_3.length > 0) {
+  //         this.lastDataPI_3 = deviceDataPI_3[deviceDataPI_3.length - 1];
+  //         // console.log(this.lastDataPI_3);
+  //       } else {
+  //         // console.log('Data is empty.');
+  //       }
+  //       if (deviceDataPI_4 && deviceDataPI_4.length > 0) {
+  //         this.lastDataPI_4 = deviceDataPI_4[deviceDataPI_4.length - 1];
+  //         // console.log(this.lastDataPI_4);
+  //       } else {
+  //         // console.log('Data is empty.');
+  //       }
+  //       if (deviceDataBat && deviceDataBat.length > 0) {
+  //         this.lastDataBat = deviceDataBat[deviceDataBat.length - 1];
+  //         // console.log(this.lastDataBat);
+  //       } else {
+  //         // console.log('Data is empty.');
+  //       }
 
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
-  }
+  //     },
+  //     (error) => {
+  //       console.log(error);
+  //     }
+  //   );
+  // }
 }
