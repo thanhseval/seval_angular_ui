@@ -80,10 +80,10 @@
                         <!-- <p style=" color: rgb(93, 91, 91); font-size:larger;"> <b> Trạng thái
                             </b><br>{{pressure_status}}<br>{{valve_status}}<br>{{valve_status_1}}</p> -->
                         <p><b>Trạng thái</b></p>
-                        <p *ngIf="DO_01_Status === 'ON' && DO_02_Status === 'OFF'">Đang mở chế độ áp thấp</p>
-                        <p *ngIf="DO_01_Status === 'OFF' && DO_02_Status === 'ON'">Đang mở chế độ áp cao</p>
-                        <p *ngIf="DO_03_Status === 'OFF' && DO_04_Status === 'ON'">Đang mở chế độ mở hoàn toàn</p>
-                        <p *ngIf="DO_05_Status === 'OFF' && DO_06_Status === 'ON'">Đang mở chế độ đóng hoàn toàn</p>
+                        <p *ngIf="DO_01_Status === 'ON' && DO_02_Status === 'OFF'">Đang bật chế độ áp thấp</p>
+                        <p *ngIf="DO_01_Status === 'OFF' && DO_02_Status === 'ON'">Đang bật chế độ áp cao</p>
+                        <p *ngIf="DO_03_Status === 'OFF' && DO_04_Status === 'ON'">Đang bật chế độ mở hoàn toàn</p>
+                        <p *ngIf="DO_05_Status === 'OFF' && DO_06_Status === 'ON'">Đang bật chế độ đóng hoàn toàn</p>
                     </div>
                     <div class="row-1">
                         <div class="col">
@@ -171,7 +171,7 @@
             <h2>THÔNG SỐ HỆ THỐNG</h2>
             <div class="Setup" style="height:300px;">
                 <!-- <scripts> -->
-                <table class="" style="color: rgb(65, 50, 50);">
+                <!-- <table class="" style="color: rgb(65, 50, 50);">
                     <tr>
                         <th colspan="3">SV1: Bộ điểm bất lợi</th>
                     </tr>
@@ -195,7 +195,7 @@
                         <td class="mypH">{{lastDataBat?.value}}</td>
                         <td class="mypH">(%)</td>
                     </tr>
-                </table>
+                </table> -->
                 <!-- <table class="hidden-table2" style="color: rgb(67, 53, 53);">
                     <tr>
                         <th colspan="3">SV2: Bộ quang trắc chất lượng nước</th>
@@ -230,31 +230,33 @@
                 </table> -->
                 <table class="hidden-table3" style="color: rgb(69, 52, 52);">
                     <tr>
-                        <th colspan="3">SV3: Bộ đo lưu lượng nước</th>
+                        <th colspan="3">Bộ đo áp lực nước</th>
                     </tr>
                     <tr>
                         <td>Áp suất trước van:</td>
-                        <td class="mypH">{{lastDataAI_1_420?.value}}</td>
-                        <td class="mypH">(bar)</td>
-                    </tr>
-                    <tr>
-                        <td>Áp suất sau van:</td>
                         <td class="mypH">{{lastDataAI_2_420?.value}}</td>
                         <td class="mypH">(bar)</td>
                     </tr>
                     <tr>
-                        <td>Áp suất điểm bất lợi:</td>
+                        <td>Áp suất sau van:</td>
                         <td class="mypH">{{lastDataAI_3_420?.value}}</td>
                         <td class="mypH">(bar)</td>
                     </tr>
                     <tr>
+                        <td>Áp suất điểm bất lợi:</td>
+                        <td class="mypH">{{lastDataAI_1_420?.value}}</td>
+                        <td class="mypH">(bar)</td>
+                    </tr>
+                    <tr>
                         <td>Lưu lượng:</td>
-                        <td class="mypH">{{lastDataPI_1?.value}}</td>
+                        <!-- <td class="mypH">{{lastDataPI_1?.value}}</td> -->
+                        <td class="mypH">0</td>
                         <td class="mypH">(m3/h)</td>
                     </tr>
                     <tr>
                         <td>Dung lượng pin:</td>
-                        <td class="mypH">{{lastDataBat?.value}}</td>
+                        <!-- <td class="mypH">{{lastDataBat?.value}}</td> -->
+                        <td class="mypH">80</td>
                         <td class="mypH">(%)</td>
                     </tr>
 

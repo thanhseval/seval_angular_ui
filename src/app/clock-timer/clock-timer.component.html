@@ -2,8 +2,8 @@
     <div class="container">
         <div class="container1">
             <h2 id="HightPressure_Title">ÁP CAO</h2>
-            <p>Trạng thái: <span *ngIf="DO_01_Status === 'OFF' && DO_02_Status === 'ON'">Mở</span><span
-                    *ngIf="DO_01_Status === 'ON' && DO_02_Status === 'OFF'">Đóng</span></p>
+            <p>Trạng thái: <span *ngIf="DO_01_Status === 'OFF' && DO_02_Status === 'ON'">Bật</span><span
+                    *ngIf="DO_01_Status === 'ON' && DO_02_Status === 'OFF'">Tắt</span></p>
             <!-- <div style="display: flex; justify-content: center; align-items: center;">
                 <div id="light_HightPressure"
                     style="width: 25px; height: 25px; background-color: rgb(21, 216, 21); border-radius: 50%; margin-right: 60px;padding: 4px;">
@@ -21,8 +21,8 @@
 
         <div class="container1">
             <h2 id="CloseVal_Title">ĐÓNG HOÀN TOÀN</h2>
-            <p>Trạng thái: <span *ngIf="DO_05_Status === 'OFF' && DO_06_Status === 'ON'">Mở</span><span
-                    *ngIf="DO_05_Status === 'ON' && DO_06_Status === 'OFF'">Đóng</span></p>
+            <p>Trạng thái: <span *ngIf="DO_05_Status === 'OFF' && DO_06_Status === 'ON'">Bật</span><span
+                    *ngIf="DO_05_Status === 'ON' && DO_06_Status === 'OFF'">Tắt</span></p>
             <!-- <div style="display: flex; justify-content: center; align-items: center;">
                 <div id="light_CloseVal"
                     style="width: 25px; height: 25px; background-color: rgb(21, 216, 21); border-radius: 50%; margin-right: 60px;padding: 4px;">
@@ -60,8 +60,8 @@
 
         <div class="container1">
             <h2 id="OpenVal_Title">MỞ HOÀN TOÀN</h2>
-            <p>Trạng thái: <span *ngIf="DO_03_Status === 'OFF' && DO_04_Status === 'ON'">Mở</span><span
-                    *ngIf="DO_03_Status === 'ON' && DO_04_Status === 'OFF'">Đóng</span></p>
+            <p>Trạng thái: <span *ngIf="DO_03_Status === 'OFF' && DO_04_Status === 'ON'">Bật</span><span
+                    *ngIf="DO_03_Status === 'ON' && DO_04_Status === 'OFF'">Tắt</span></p>
             <!-- <div style="display: flex; justify-content: center; align-items: center;">
                 <div id="light_OpenVal"
                     style="width: 25px; height: 25px; background-color: rgb(21, 216, 21); border-radius: 50%; margin-right: 60px;padding: 4px;">
@@ -95,17 +95,18 @@
                         <td>{{data.name}}</td>
                         <td>{{data.start_time}}</td>
                         <td>{{data.end_time}}</td>
-                        <td *ngIf="data.name === 'Đóng hoàn toàn' && DO_05_Status === 'OFF' && DO_06_Status === 'ON'">Mở
+                        <td *ngIf="data.name === 'Đóng hoàn toàn' && DO_05_Status === 'OFF' && DO_06_Status === 'ON'">
+                            Bật
                         </td>
                         <td *ngIf="data.name === 'Đóng hoàn toàn' && DO_05_Status === 'ON' && DO_06_Status === 'OFF'">
-                            Đóng</td>
-                        <td *ngIf="data.name === 'Áp thấp' && DO_01_Status === 'ON' && DO_02_Status === 'OFF'">Mở</td>
-                        <td *ngIf="data.name === 'Áp thấp' && DO_01_Status === 'OFF' && DO_02_Status === 'ON'">Đóng</td>
-                        <td *ngIf="data.name === 'Áp cao' && DO_01_Status === 'OFF' && DO_02_Status === 'ON'">Mở</td>
-                        <td *ngIf="data.name === 'Áp cao' && DO_01_Status === 'ON' && DO_02_Status === 'OFF'">Đóng</td>
-                        <td *ngIf="data.name === 'Mở hoàn toàn' && DO_03_Status === 'OFF' && DO_04_Status === 'ON'">Mở
+                            Tắt</td>
+                        <td *ngIf="data.name === 'Áp thấp' && DO_01_Status === 'ON' && DO_02_Status === 'OFF'">Bật</td>
+                        <td *ngIf="data.name === 'Áp thấp' && DO_01_Status === 'OFF' && DO_02_Status === 'ON'">Tắt</td>
+                        <td *ngIf="data.name === 'Áp cao' && DO_01_Status === 'OFF' && DO_02_Status === 'ON'">Bật</td>
+                        <td *ngIf="data.name === 'Áp cao' && DO_01_Status === 'ON' && DO_02_Status === 'OFF'">Tắt</td>
+                        <td *ngIf="data.name === 'Mở hoàn toàn' && DO_03_Status === 'OFF' && DO_04_Status === 'ON'">Bật
                         </td>
-                        <td *ngIf="data.name === 'Mở hoàn toàn' && DO_03_Status === 'ON' && DO_04_Status === 'OFF'">Đóng
+                        <td *ngIf="data.name === 'Mở hoàn toàn' && DO_03_Status === 'ON' && DO_04_Status === 'OFF'">Tắt
                         </td>
                     </tr>
                 </table>

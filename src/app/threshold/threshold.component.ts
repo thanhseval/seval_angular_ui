@@ -141,17 +141,17 @@ export class ThresholdComponent implements OnInit {
   }
 
   getData(attribute: string): Observable<any> {
-    const deviceId = 'Device001';
+    const deviceId = '8C-F3-19-3B-2E-B9';
     // const attribute = 'PI_1,PI_2';
 
     return this.deviceService.getAllDeviceData(deviceId, attribute);
   }
 
   getLatestData() {
-    this.getData('AI_3_420').subscribe(
+    this.getData('AI_1_420').subscribe(
       (data) => {
         // console.log(data);
-        var deviceDataAI_3_420: DeviceData[] = data.data.AI_3_420;
+        var deviceDataAI_3_420: DeviceData[] = data.data.AI_1_420;
         // console.log(deviceData);
 
         //sort data
@@ -203,7 +203,7 @@ export class ThresholdComponent implements OnInit {
       }
     )
   }
-  
+
   getStatus() {
     const deviceId = '8C-F3-19-3B-2E-B9';
     const keys = 'DO_5';

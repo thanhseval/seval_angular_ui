@@ -185,36 +185,36 @@ export class ControllIotComponent implements OnInit {
   }
 
   getData(attribute: string): Observable<any> {
-    const deviceId = 'Device001';
+    const deviceId = '8C-F3-19-3B-2E-B9';
     // const attribute = 'PI_1,PI_2';
 
     return this.deviceService.getAllDeviceData(deviceId, attribute);
   }
 
   getLatestData() {
-    this.getData('Bat,PI_1,AI_1_420,AI_2_420,AI_3_420').subscribe(
+    this.getData('AI_1_420,AI_2_420,AI_3_420').subscribe(
       (data) => {
         // console.log(data);
-        var deviceDataPI_1: DeviceData[] = data.data.PI_1;
+        // var deviceDataPI_1: DeviceData[] = data.data.PI_1;
         var deviceDataAI_1_420: DeviceData[] = data.data.AI_1_420;
         var deviceDataAI_2_420: DeviceData[] = data.data.AI_2_420;
         var deviceDataAI_3_420: DeviceData[] = data.data.AI_3_420;
-        var deviceDataBat: DeviceData[] = data.data.Bat;
+        // var deviceDataBat: DeviceData[] = data.data.Bat;
         // console.log(deviceData);
 
         //sort data
-        deviceDataPI_1.sort((a, b) => {
-          const dateA = new Date(a.updated_at);
-          const dateB = new Date(b.updated_at);
+        // deviceDataPI_1.sort((a, b) => {
+        //   const dateA = new Date(a.updated_at);
+        //   const dateB = new Date(b.updated_at);
 
-          if (!isNaN(dateA.getTime()) && !isNaN(dateB.getTime())) {
-            return dateA.getTime() - dateB.getTime();
-          } else {
-            // Handle cases where the date strings are invalid
-            return 0; // You can choose to handle this differently
-          }
+        //   if (!isNaN(dateA.getTime()) && !isNaN(dateB.getTime())) {
+        //     return dateA.getTime() - dateB.getTime();
+        //   } else {
+        //     // Handle cases where the date strings are invalid
+        //     return 0; // You can choose to handle this differently
+        //   }
 
-        });
+        // });
         deviceDataAI_1_420.sort((a, b) => {
           const dateA = new Date(a.updated_at);
           const dateB = new Date(b.updated_at);
@@ -251,25 +251,25 @@ export class ControllIotComponent implements OnInit {
           }
 
         });
-        deviceDataBat.sort((a, b) => {
-          const dateA = new Date(a.updated_at);
-          const dateB = new Date(b.updated_at);
+        // deviceDataBat.sort((a, b) => {
+        //   const dateA = new Date(a.updated_at);
+        //   const dateB = new Date(b.updated_at);
 
-          if (!isNaN(dateA.getTime()) && !isNaN(dateB.getTime())) {
-            return dateA.getTime() - dateB.getTime();
-          } else {
-            // Handle cases where the date strings are invalid
-            return 0; // You can choose to handle this differently
-          }
+        //   if (!isNaN(dateA.getTime()) && !isNaN(dateB.getTime())) {
+        //     return dateA.getTime() - dateB.getTime();
+        //   } else {
+        //     // Handle cases where the date strings are invalid
+        //     return 0; // You can choose to handle this differently
+        //   }
 
-        });
+        // });
 
-        if (deviceDataPI_1 && deviceDataPI_1.length > 0) {
-          this.lastDataPI_1 = deviceDataPI_1[deviceDataPI_1.length - 1];
-          // console.log(this.lastDataPI_1);
-        } else {
-          // console.log('Data is empty.');
-        }
+        // if (deviceDataPI_1 && deviceDataPI_1.length > 0) {
+        //   this.lastDataPI_1 = deviceDataPI_1[deviceDataPI_1.length - 1];
+        //   // console.log(this.lastDataPI_1);
+        // } else {
+        //   // console.log('Data is empty.');
+        // }
         if (deviceDataAI_1_420 && deviceDataAI_1_420.length > 0) {
           this.lastDataAI_1_420 = deviceDataAI_1_420[deviceDataAI_1_420.length - 1];
           // console.log(this.lastDataPI_2);
@@ -288,12 +288,12 @@ export class ControllIotComponent implements OnInit {
         } else {
           // console.log('Data is empty.');
         }
-        if (deviceDataBat && deviceDataBat.length > 0) {
-          this.lastDataBat = deviceDataBat[deviceDataBat.length - 1];
-          // console.log(this.lastDataBat);
-        } else {
-          // console.log('Data is empty.');
-        }
+        // if (deviceDataBat && deviceDataBat.length > 0) {
+        //   this.lastDataBat = deviceDataBat[deviceDataBat.length - 1];
+        //   // console.log(this.lastDataBat);
+        // } else {
+        //   // console.log('Data is empty.');
+        // }
 
       },
       (error) => {

@@ -63,7 +63,7 @@ export class PressureChartComponent implements OnInit {
       // const token = await this.loginAndGetToken();
       // const token = await this.userAuthService.getToken;
       // console.log(token);
-      const deviceId = 'Device001';
+      const deviceId = '8C-F3-19-3B-2E-B9';
       const attributeFlow = 'AI_1_420,AI_2_420,AI_3_420';
 
       // const pressureData = await this.fetchData(token, deviceId, attributePressure);
@@ -112,14 +112,14 @@ export class PressureChartComponent implements OnInit {
 
           });
 
-          if (deviceDataAI_1_420.length > 100) {
-            deviceDataAI_1_420 = deviceDataAI_1_420.slice(-100);
+          if (deviceDataAI_1_420.length > 60) {
+            deviceDataAI_1_420 = deviceDataAI_1_420.slice(-60);
           }
-          if (deviceDataAI_2_420.length > 100) {
-            deviceDataAI_2_420 = deviceDataAI_2_420.slice(-100);
+          if (deviceDataAI_2_420.length > 60) {
+            deviceDataAI_2_420 = deviceDataAI_2_420.slice(-60);
           }
-          if (deviceDataAI_3_420.length > 100) {
-            deviceDataAI_3_420 = deviceDataAI_3_420.slice(-100);
+          if (deviceDataAI_3_420.length > 60) {
+            deviceDataAI_3_420 = deviceDataAI_3_420.slice(-60);
           }
 
           this.dataAI_1_420 = deviceDataAI_1_420;
@@ -127,9 +127,9 @@ export class PressureChartComponent implements OnInit {
           this.dataAI_3_420 = deviceDataAI_3_420;
 
           this.series = [
-            { name: "Áp suất trước van ", data: this.dataAI_1_420.map((entry: { updated_at: string | number | Date; value: any; }) => ({ x: new Date(entry.updated_at).getTime(), y: entry.value })) },
-            { name: "Áp suất sau van ", data: this.dataAI_2_420.map((entry: { updated_at: string | number | Date; value: any; }) => ({ x: new Date(entry.updated_at).getTime(), y: entry.value })) },
-            { name: "Áp suất điểm bất lợi", data: this.dataAI_3_420.map((entry: { updated_at: string | number | Date; value: any; }) => ({ x: new Date(entry.updated_at).getTime(), y: entry.value })) },
+            { name: "Áp suất điểm bất lợi ", data: this.dataAI_1_420.map((entry: { updated_at: string | number | Date; value: any; }) => ({ x: new Date(entry.updated_at).getTime(), y: entry.value })) },
+            { name: "Áp suất trước van ", data: this.dataAI_2_420.map((entry: { updated_at: string | number | Date; value: any; }) => ({ x: new Date(entry.updated_at).getTime(), y: entry.value })) },
+            { name: "Áp suất sau van", data: this.dataAI_3_420.map((entry: { updated_at: string | number | Date; value: any; }) => ({ x: new Date(entry.updated_at).getTime(), y: entry.value })) },
           ];
         },
         (error) => {
