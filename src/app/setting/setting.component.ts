@@ -20,6 +20,10 @@ export class SettingComponent implements OnInit {
   lastDataAI_2_420: any;
   lastDataAI_3_420: any;
   lastDataBat: any;
+  lastDataEC: any;
+  lastDataFCL: any;
+  lastDataTurbidity: any;
+  lastDataPH: any;
   DO_0_Status: any;
   DO_1_Status: any;
   DO_2_Status: any;
@@ -190,6 +194,12 @@ export class SettingComponent implements OnInit {
 
     return this.deviceService.getAllDeviceData(deviceId, attribute);
   }
+  getData2(attribute: string): Observable<any> {
+    const deviceId = 'Device002';
+    // const attribute = 'PI_1,PI_2';
+
+    return this.deviceService.getAllDeviceData(deviceId, attribute);
+  }
 
   getLatestData() {
     this.getData('AI_1_420,AI_2_420,AI_3_420').subscribe(
@@ -294,6 +304,115 @@ export class SettingComponent implements OnInit {
         // } else {
         //   // console.log('Data is empty.');
         // }
+
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+
+    this.getData2('EC,FCL,Turbidity,pH').subscribe(
+      (data) => {
+        // console.log(data);
+        // var deviceDataPI_1: DeviceData[] = data.data.PI_1;
+        var deviceDataEC: DeviceData[] = data.data.EC;
+        var deviceDataFCL: DeviceData[] = data.data.FCL;
+        var deviceDataTurbidity: DeviceData[] = data.data.Turbidity
+        var deviceDataPH: DeviceData[] = data.data.pH;
+        // console.log(deviceData);
+
+        //sort data
+        // deviceDataPI_1.sort((a, b) => {
+        //   const dateA = new Date(a.updated_at);
+        //   const dateB = new Date(b.updated_at);
+
+        //   if (!isNaN(dateA.getTime()) && !isNaN(dateB.getTime())) {
+        //     return dateA.getTime() - dateB.getTime();
+        //   } else {
+        //     // Handle cases where the date strings are invalid
+        //     return 0; // You can choose to handle this differently
+        //   }
+
+        // });
+        deviceDataEC.sort((a, b) => {
+          const dateA = new Date(a.updated_at);
+          const dateB = new Date(b.updated_at);
+
+          if (!isNaN(dateA.getTime()) && !isNaN(dateB.getTime())) {
+            return dateA.getTime() - dateB.getTime();
+          } else {
+            // Handle cases where the date strings are invalid
+            return 0; // You can choose to handle this differently
+          }
+
+        });
+        deviceDataFCL.sort((a, b) => {
+          const dateA = new Date(a.updated_at);
+          const dateB = new Date(b.updated_at);
+
+          if (!isNaN(dateA.getTime()) && !isNaN(dateB.getTime())) {
+            return dateA.getTime() - dateB.getTime();
+          } else {
+            // Handle cases where the date strings are invalid
+            return 0; // You can choose to handle this differently
+          }
+
+        });
+        deviceDataTurbidity.sort((a, b) => {
+          const dateA = new Date(a.updated_at);
+          const dateB = new Date(b.updated_at);
+
+          if (!isNaN(dateA.getTime()) && !isNaN(dateB.getTime())) {
+            return dateA.getTime() - dateB.getTime();
+          } else {
+            // Handle cases where the date strings are invalid
+            return 0; // You can choose to handle this differently
+          }
+
+        });
+        deviceDataPH.sort((a, b) => {
+          const dateA = new Date(a.updated_at);
+          const dateB = new Date(b.updated_at);
+
+          if (!isNaN(dateA.getTime()) && !isNaN(dateB.getTime())) {
+            return dateA.getTime() - dateB.getTime();
+          } else {
+            // Handle cases where the date strings are invalid
+            return 0; // You can choose to handle this differently
+          }
+
+        });
+
+        // if (deviceDataPI_1 && deviceDataPI_1.length > 0) {
+        //   this.lastDataPI_1 = deviceDataPI_1[deviceDataPI_1.length - 1];
+        //   // console.log(this.lastDataPI_1);
+        // } else {
+        //   // console.log('Data is empty.');
+        // }
+        if (deviceDataEC && deviceDataEC.length > 0) {
+          this.lastDataEC = deviceDataEC[deviceDataEC.length - 1];
+          // console.log(this.lastDataPI_2);
+        } else {
+          // console.log('Data is empty.');
+        }
+        if (deviceDataFCL && deviceDataFCL.length > 0) {
+          this.lastDataFCL = deviceDataFCL[deviceDataFCL.length - 1];
+          // console.log(this.lastDataPI_3);
+        } else {
+          // console.log('Data is empty.');
+        }
+        if (deviceDataTurbidity && deviceDataTurbidity.length > 0) {
+          this.lastDataTurbidity = deviceDataTurbidity[deviceDataTurbidity.length - 1];
+          // console.log(this.lastDataPI_4);
+        } else {
+          // console.log('Data is empty.');
+        }
+        if (deviceDataPH && deviceDataPH.length > 0) {
+          this.lastDataPH = deviceDataPH[deviceDataPH.length - 1];
+          // console.log(this.lastDataBat);
+        } else {
+          // console.log('Data is empty.');
+        }
 
       },
       (error) => {

@@ -171,31 +171,31 @@
             <h2>THÔNG SỐ HỆ THỐNG</h2>
             <div class="Setup" style="height:300px;">
                 <!-- <scripts> -->
-                <!-- <table class="" style="color: rgb(65, 50, 50);">
+                <table class="" style="color: rgb(65, 50, 50);">
                     <tr>
-                        <th colspan="3">SV1: Bộ điểm bất lợi</th>
+                        <th colspan="3">Bộ quan trắc chất lượng nước</th>
                     </tr>
                     <tr>
-                        <td>Lưu lượng thuận:</td>
-                        <td class="mypH">{{lastDataPI_1?.value}}</td>
-                        <td class="mypH">(bar)</td>
+                        <td>Độ dẫn điện EC:</td>
+                        <td class="mypH">{{lastDataEC?.value}}</td>
+                        <td class="mypH">µS</td>
                     </tr>
                     <tr>
-                        <td>Lưu lượng nghịch:</td>
-                        <td class="mypH">{{lastDataPI_1?.value}}</td>
-                        <td class="mypH">(bar)</td>
+                        <td>Độ clo dư FCL:</td>
+                        <td class="mypH">{{lastDataFCL?.value}}</td>
+                        <td class="mypH">ppm</td>
                     </tr>
                     <tr>
-                        <td>Áp suất:</td>
-                        <td class="mypH">{{lastDataPI_1?.value}}</td>
-                        <td class="mypH">(bar)</td>
+                        <td>Độ đục Turbidity:</td>
+                        <td class="mypH">{{lastDataTurbidity?.value}}</td>
+                        <td class="mypH">NTU</td>
                     </tr>
                     <tr>
-                        <td>Dung lượng pin:</td>
-                        <td class="mypH">{{lastDataBat?.value}}</td>
-                        <td class="mypH">(%)</td>
+                        <td>Độ pH:</td>
+                        <td class="mypH">{{lastDataPH?.value}}</td>
+                        <td class="mypH"> </td>
                     </tr>
-                </table> -->
+                </table>
                 <!-- <table class="hidden-table2" style="color: rgb(67, 53, 53);">
                     <tr>
                         <th colspan="3">SV2: Bộ quang trắc chất lượng nước</th>
@@ -235,29 +235,29 @@
                     <tr>
                         <td>Áp suất trước van:</td>
                         <td class="mypH">{{lastDataAI_2_420?.value}}</td>
-                        <td class="mypH">(bar)</td>
+                        <td class="mypH">bar</td>
                     </tr>
                     <tr>
                         <td>Áp suất sau van:</td>
                         <td class="mypH">{{lastDataAI_3_420?.value}}</td>
-                        <td class="mypH">(bar)</td>
+                        <td class="mypH">bar</td>
                     </tr>
                     <tr>
                         <td>Áp suất điểm bất lợi:</td>
                         <td class="mypH">{{lastDataAI_1_420?.value}}</td>
-                        <td class="mypH">(bar)</td>
+                        <td class="mypH">bar</td>
                     </tr>
                     <tr>
                         <td>Lưu lượng:</td>
                         <!-- <td class="mypH">{{lastDataPI_1?.value}}</td> -->
                         <td class="mypH">0</td>
-                        <td class="mypH">(m3/h)</td>
+                        <td class="mypH">m3/h</td>
                     </tr>
                     <tr>
                         <td>Dung lượng pin:</td>
                         <!-- <td class="mypH">{{lastDataBat?.value}}</td> -->
                         <td class="mypH">80</td>
-                        <td class="mypH">(%)</td>
+                        <td class="mypH">%</td>
                     </tr>
 
                 </table>
@@ -272,7 +272,7 @@
             <app-pressure-chart></app-pressure-chart>
         </div>
         <div class="card" id="pressureChart" style="width:100%">
-            <app-flow-chart></app-flow-chart>            
+            <app-flow-chart></app-flow-chart>
         </div>
     </div>
 </div>

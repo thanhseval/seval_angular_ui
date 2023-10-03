@@ -49,12 +49,12 @@ export class ThresholdComponent implements OnInit {
     this.getLatestData();
     setInterval(() => this.getLatestData(), 29000);
     this.getStatus();
-    // setInterval(() => this.getStatus(), 56000);
+    setInterval(() => this.getStatus(), 29000);
     this.getThresholdData();
     setTimeout(() => {
       this.isExceedTheThreshold();
       setInterval(() => this.isExceedTheThreshold(), 30000);
-    }, 60000);
+    }, 30000);
   }
 
   show_timer(name: string) {
