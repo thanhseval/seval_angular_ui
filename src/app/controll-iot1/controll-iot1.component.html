@@ -1,0 +1,278 @@
+<div class="row mb-5">
+
+    <div class="lable_Warning">
+        <p>Thông báo:
+        <p id="myThongbao"> </p>
+    </div>
+    <div class="column">
+        <div class="card">
+            <h2>MÀN HÌNH GIÁM SÁT</h2>
+            <!-- <h5>Title description, Dec 7, 2017</h5> -->
+            <div class="Controller" style="height:400px;">
+                <!-- GIAO DIEN SCADA -->
+                <div class="image_Ong_thang_ngang4">
+                    <img id="Ong_thang_ngang4_OFF" src="assets/img/Ong thang ngang_OFF.png" alt="Ong L trai duoi OFF">
+                    <img id="Ong_thang_ngang4_ON" src="assets/img/Ong thang ngang_ON.png" alt="Ong L trai duoi ON">
+                </div>
+
+                <div class="image_Van_giam_ap">
+                    <img id="Van_giam_ap_OFF" src="assets/img/Van_giam ap_OFF.png" alt="Ong L trai duoi OFF">
+                    <img id="Van_giam_ap_ON" src="assets/img/Van_giam ap_ON.png" alt="Ong L trai duoi ON">
+                </div>
+
+                <div class="image_Ong_thang_doc3">
+                    <img id="Ong_thang_doc3_OFF" src="assets/img/Ong thang doc_OFF.png" alt="Ong L trai duoi OFF">
+                    <img id="Ong_thang_doc3_ON" src="assets/img/Ong thang doc_ON.png" alt="Ong L trai duoi ON">
+                </div>
+
+                <div class="image_Ong_thang_doc4">
+                    <img id="Ong_thang_doc4_OFF" src="assets/img/Ong thang doc_OFF.png" alt="Ong L trai duoi OFF">
+                    <img id="Ong_thang_doc4_ON" src="assets/img/Ong thang doc_ON.png" alt="Ong L trai duoi ON">
+                </div>
+
+                <div class="image_Ong_thang_ngang5">
+                    <img id="Ong_thang_ngang5_OFF" src="assets/img/Ong thang ngang_OFF.png" alt="Ong L trai duoi OFF">
+                    <img id="Ong_thang_ngang5_ON" src="assets/img/Ong thang ngang_ON.png" alt="Ong L trai duoi ON">
+                </div>
+
+                <div class="image_Ong_thang_ngang7">
+                    <img id="Ong_thang_ngang7_OFF" src="assets/img/Ong thang ngang_OFF.png" alt="Ong L trai duoi OFF">
+                    <img id="Ong_thang_ngang7_ON" src="assets/img/Ong thang ngang_ON.png" alt="Ong L trai duoi ON">
+                </div>
+
+                <div class="image_Ong_thang_doc6">
+                    <img id="Ong_thang_doc6_OFF" src="assets/img/Ong thang doc_OFF.png" alt="Ong L trai duoi OFF">
+                    <img id="Ong_thang_doc6_ON" src="assets/img/Ong thang doc_ON.png" alt="Ong L trai duoi ON">
+                </div>
+
+                <div class="image_Ong_L_phaiduoi2">
+                    <img id="Ong_L_phaiduoi2_OFF" src="assets/img/Ong L phai duoi_OFF.png" alt="Ong L trai duoi OFF">
+                    <img id="Ong_L_phaiduoi2_ON" src="assets/img/Ong L phai duoi_ON.png" alt="Ong L trai duoi ON">
+                </div>
+
+                <div class="image_Ong_thang_doc7">
+                    <img id="Ong_thang_doc7_OFF" src="assets/img/Ong thang doc_OFF.png" alt="Ong L trai duoi OFF">
+                    <img id="Ong_thang_doc7_ON" src="assets/img/Ong thang doc_ON.png" alt="Ong L trai duoi ON">
+                </div>
+
+                <div class="image_Ong_L_traiduoi3">
+                    <img id="Ong_L_traiduoi3_OFF" src="assets/img/Ong L trai duoi_OFF.png" alt="Ong L trai duoi OFF">
+                    <img id="Ong_L_traiduoi3_ON" src="assets/img/Ong L trai duoi_ON.png" alt="Ong L trai duoi ON">
+                </div>
+
+                <div class="image_Hotel">
+                    <img id="Hotel1" src="assets/img/Hotel.png" alt="Ong L trai duoi OFF">
+                </div>
+
+                <!-- <div class="Tu_quantrac">
+                    <p style="color: rgb(194, 9, 9); width: 100%;height:20%;text-align: center;margin-top: -5px; margin-left: 0px;">
+                        Tủ quan trắc CLN</p>
+                </div> -->
+
+                <div class="Diem_batloi">
+                    <p
+                        style="color: rgb(0, 0, 0); width: 100%;font-size: 8px;height:20%;text-align: center;margin-top: -5px; margin-left: 0px;">
+                        Điểm bất lợi</p>
+                </div>
+                <div class="Bo_dieukhien">
+                    <p style="text-align: center; color: rgb(255, 255, 255)"> <b> BỘ ĐIỀU KHIỂN VAN GIẢM ÁP </b></p>
+                    <div class=" Trangthai_van">
+                        <!-- <p style=" color: rgb(93, 91, 91); font-size:larger;"> <b> Trạng thái
+                            </b><br>{{pressure_status}}<br>{{valve_status}}<br>{{valve_status_1}}</p> -->
+                        <p><b>Trạng thái</b></p>
+                        <p *ngIf="DO_01_Status === 'ON' && DO_02_Status === 'OFF'">Đang bật chế độ áp thấp</p>
+                        <p *ngIf="DO_01_Status === 'OFF' && DO_02_Status === 'ON'">Đang bật chế độ áp cao</p>
+                        <p *ngIf="DO_03_Status === 'OFF' && DO_04_Status === 'ON'">Đang bật chế độ mở hoàn toàn</p>
+                        <p *ngIf="DO_05_Status === 'OFF' && DO_06_Status === 'ON'">Đang bật chế độ đóng hoàn toàn</p>
+                    </div>
+                    <div class="row-1">
+                        <div class="col">
+                            <p class="text-mht">
+                                <b> MỞ HOÀN TOÀN </b>
+                            </p>
+                            <label class="switch1 sw-mht">
+                                <input type="checkbox" [(ngModel)]="isSwitch2On"
+                                    (change)="onSwitchChange('Van_dien_2')">
+                                <span class="slider1"></span>
+                            </label>
+                            <!-- <button
+                                style="width: 20% !important;height: 11%; font-size:100%; position:absolute; left: 2%; top: 70%;"
+                                [style.backgroundColor]="DO_1_Status === 'ON' ? 'green' : 'white'"
+                                (click)="ON('DO_1','ON')">BẬT</button>
+                            <button
+                                style="width: 20% !important;height: 11%; font-size:100%; position:absolute; left: 22%; top: 70%;"
+                                [style.backgroundColor]="DO_1_Status === 'OFF' ? 'green' : 'white'"
+                                (click)="ON('DO_1','OFF')">TẮT</button> -->
+                        </div>
+                        <div class="col">
+                            <p class="text-dht">
+                                <b> ĐÓNG HOÀN TOÀN </b>
+                            </p>
+                            <label class="switch1 sw-dht">
+                                <input type="checkbox" [(ngModel)]="isSwitch3On"
+                                    (change)="onSwitchChange('Van_dien_3')">
+                                <span class="slider1"></span>
+                            </label>
+                            <!-- <button
+                                style="width: 20% !important;height: 11%; font-size:100%; position:absolute; left: 56%; top: 70%;"
+                                [style.backgroundColor]="DO_2_Status === 'ON' ? 'green' : 'white'"
+                                (click)="ON('DO_2','ON')">BẬT</button>
+                            <button
+                                style="width: 20% !important;height: 11%; font-size:100%; position:absolute; left: 76%; top: 70%;"
+                                [style.backgroundColor]="DO_2_Status === 'OFF' ? 'green' : 'white'"
+                                (click)="ON('DO_2','OFF')">TẮT</button> -->
+                        </div>
+                    </div>
+                    <div class="row-1" style="padding: 10% 5% 0 5%;">
+                        <p class="text-act">
+                            <b> ÁP THẤP</b>
+                        </p>
+                        <!-- <button
+                            style="width: 20% !important;height: 11%; font-size:100%; position:absolute; left: 30%; top: 85%;"
+                            [style.backgroundColor]="DO_0_Status === 'OFF' ? 'green' : 'white'"
+                            (click)="ON('DO_0','OFF')">BẬT</button> -->
+
+                        <span class="spacer"></span>
+                        <p class="text-act-1">
+                            <b> ÁP CAO </b>
+                        </p>
+                        <!-- <button
+                            style="width: 20% !important;height: 11%; font-size:100%; position:absolute; left: 50%; top: 85%;"
+                            [style.backgroundColor]="DO_0_Status === 'ON' ? 'green' : 'white'"
+                            (click)="ON('DO_0','ON')">BẬT</button> -->
+                        <label class="switch1 sw-act">
+                            <input type="checkbox" [(ngModel)]="isSwitch1On" (change)="onSwitchChange('Van_dien_1')">
+                            <span class="slider1"></span>
+                        </label>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+            <!-- <p style="position:absolute; left:45%; top: 15%;">Van_dien 1</p>
+            <label class="switch1" style="position:absolute; left:55%; top: 15%;">
+                <input type="checkbox" [(ngModel)]="isSwitch1On" (change)="onSwitchChange('Van_dien_1')">
+                <span class="slider1"></span>
+            </label>
+            <p style="position:absolute; left:45%; top: 25%;">Van_dien 2</p>
+            <label class="switch1" style="position:absolute; left:55%; top: 25%;">
+                <input type="checkbox" [(ngModel)]="isSwitch2On" (change)="onSwitchChange('Van_dien_2')">
+                <span class="slider1"></span>
+            </label>
+            <p style="position:absolute; left:45%; top: 35%;">Van_dien 3</p>
+            <label class="switch1" style="position:absolute; left:55%; top: 35%;">
+                <input type="checkbox" [(ngModel)]="isSwitch3On" (change)="onSwitchChange('Van_dien_3')">
+                <span class="slider1"></span>
+            </label> -->
+        </div>
+        <div class="card">
+            <h2>THÔNG SỐ HỆ THỐNG</h2>
+            <div class="Setup" style="height:300px;">
+                <!-- <scripts> -->
+                <table class="" style="color: rgb(65, 50, 50);">
+                    <tr>
+                        <th colspan="3">Bộ quan trắc chất lượng nước</th>
+                    </tr>
+                    <tr>
+                        <td>Độ dẫn điện EC:</td>
+                        <td class="mypH">{{lastDataEC?.value}}</td>
+                        <td class="mypH">µS</td>
+                    </tr>
+                    <tr>
+                        <td>Độ clo dư FCL:</td>
+                        <td class="mypH">{{lastDataFCL?.value}}</td>
+                        <td class="mypH">ppm</td>
+                    </tr>
+                    <tr>
+                        <td>Độ đục Turbidity:</td>
+                        <td class="mypH">{{lastDataTurbidity?.value}}</td>
+                        <td class="mypH">NTU</td>
+                    </tr>
+                    <tr>
+                        <td>Độ pH:</td>
+                        <td class="mypH">{{lastDataPH?.value}}</td>
+                        <td class="mypH"> </td>
+                    </tr>
+                </table>
+                <!-- <table class="hidden-table2" style="color: rgb(67, 53, 53);">
+                    <tr>
+                        <th colspan="3">SV2: Bộ quang trắc chất lượng nước</th>
+                    </tr>
+                    <tr>
+                        <td>Độ pH:</td>
+                        <td id="mypH">{{device20Data?.data.AI_4_420}}</td>
+                        <td>(ph)</td>
+                    </tr>
+                    <tr>
+                        <td>Độ Clo dư:</td>
+                        <td id="mypH">{{device20Data?.data.AI_5_420}}</td>
+                        <td>(ppm)</td>
+
+                    </tr>
+                    <tr>
+                        <td>Độ đục:</td>
+                        <td id="mypH">{{device20Data?.data.PI_1}}</td>
+                        <td>(ntu)</td>
+
+                    </tr>
+                    <tr>
+                        <td>Độ dẫn điện:</td>
+                        <td id="mypH">{{device20Data?.data.PI_2}}</td>
+                        <td>(mS/cm)</td>
+                    </tr>
+                    <tr>
+                        <td>Dung lượng pin:</td>
+                        <td id="mypH">{{device20Data?.data.PI_3}}</td>
+                        <td>(%)</td>
+                    </tr>
+                </table> -->
+                <table class="hidden-table3" style="color: rgb(69, 52, 52);">
+                    <tr>
+                        <th colspan="3">Bộ đo áp lực nước</th>
+                    </tr>
+                    <tr>
+                        <td>Áp suất trước van:</td>
+                        <td class="mypH">{{lastDataAI_2_420?.value}}</td>
+                        <td class="mypH">bar</td>
+                    </tr>
+                    <tr>
+                        <td>Áp suất sau van:</td>
+                        <td class="mypH">{{lastDataAI_3_420?.value}}</td>
+                        <td class="mypH">bar</td>
+                    </tr>
+                    <tr>
+                        <td>Áp suất điểm bất lợi:</td>
+                        <td class="mypH">{{lastDataAI_1_420?.value}}</td>
+                        <td class="mypH">bar</td>
+                    </tr>
+                    <tr>
+                        <td>Lưu lượng:</td>
+                        <td class="mypH">{{lastDataPI_1?.value}}</td>
+                        <!-- <td class="mypH">0</td> -->
+                        <td class="mypH">m3/h</td>
+                    </tr>
+                    <tr>
+                        <td>Dung lượng pin:</td>
+                        <td class="mypH">{{lastDataBat?.value}}</td>
+                        <!-- <td class="mypH">80</td> -->
+                        <td class="mypH">%</td>
+                    </tr>
+
+                </table>
+                <!-- </scripts> -->
+            </div>
+        </div>
+        <!-- <p>Some text..</p>
+    <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p> -->
+    </div>
+    <div class="column">
+        <div class="card" id="flowChart" style="width:100%">
+            <app-pressure-chart1></app-pressure-chart1>
+        </div>
+        <div class="card" id="pressureChart" style="width:100%">
+            <app-flow-chart1></app-flow-chart1>
+        </div>
+    </div>
+</div>

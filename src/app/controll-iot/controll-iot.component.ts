@@ -4,6 +4,9 @@ import { UserAuthService } from '../_service/user-auth.service';
 import { DeviceService } from '../_service/device.service';
 import { Observable } from 'rxjs';
 import { DeviceData } from '../_model/device_data.model';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Device } from '../_model/device.model';
+import { DeviceResolveService } from '../_service/device-resolve.service';
 
 @Component({
   selector: 'app-controll-iot',
@@ -11,6 +14,10 @@ import { DeviceData } from '../_model/device_data.model';
   styleUrls: ['./controll-iot.component.css']
 })
 export class ControllIotComponent implements OnInit {
+
+  device!: Device;
+  deviceId!: string;
+
   query: string = 'Long Trường 1';
   showTables: boolean = false;
   device10Data: any;
@@ -19,7 +26,8 @@ export class ControllIotComponent implements OnInit {
   lastDataPI_1: any;
   lastDataAI_1_420: any;
   lastDataAI_2_420: any;
-  lastDataAI_3_420: any;
+  lastDataAI_3_420: any;  
+  lastDataDI_1_485: any;
   lastDataBat: any;
 
   lastDataEC: any;
@@ -48,14 +56,20 @@ export class ControllIotComponent implements OnInit {
 
   constructor(private http: HttpClient,
     private userAuthService: UserAuthService,
-    private deviceService: DeviceService
+    private deviceService: DeviceService,
+    private deviceResolveService: DeviceResolveService,
+    private activatedRoute: ActivatedRoute,
+    private router: Router,
   ) { }
 
   ngOnInit() {
     // this.search();
     // this.getData();
+    this.device = this.activatedRoute.snapshot.data['device'];
+    this.deviceId = this.device.device_id;
+    // console.log(this.device);
     this.getLatestData();
-    setInterval(() => this.getLatestData(), 60000);
+    setInterval(() => this.getLatestData(), 30000);
     this.getStatus();
     setInterval(() => this.getStatus(), 1000);
   }
@@ -92,7 +106,7 @@ export class ControllIotComponent implements OnInit {
 
 
   control(action: string) {
-    this.deviceService.sendDataDeviceSV3(action).subscribe(
+    this.deviceService.sendDataDeviceSV3(this.deviceId, action).subscribe(
       (res) => {
         console.log(res);
       },
@@ -134,9 +148,9 @@ export class ControllIotComponent implements OnInit {
     //     console.log(err);
     //   }
     // )
-    const deviceId1 = 'Device001';
+     ;
     const keys1 = 'DO_1,DO_2,DO_3,DO_4,DO_5,DO_6';
-    this.deviceService.getDeviceStatus(deviceId1, keys1).subscribe(
+    this.deviceService.getDeviceStatus(this.deviceId, keys1).subscribe(
       (res) => {
         // console.log(res);
         this.DO_01_Status = res.data.DO_1.status;
@@ -196,10 +210,10 @@ export class ControllIotComponent implements OnInit {
   }
 
   getData(attribute: string): Observable<any> {
-    const deviceId = '8C-F3-19-3B-2E-B9';
+     
     // const attribute = 'PI_1,PI_2';
 
-    return this.deviceService.getAllDeviceData(deviceId, attribute);
+    return this.deviceService.getAllDeviceData(this.deviceId, attribute);
   }
   getData2(attribute: string): Observable<any> {
     const deviceId = 'Device002';
@@ -209,108 +223,16 @@ export class ControllIotComponent implements OnInit {
   }
 
   getLatestData() {
-    this.getData('AI_1_420,AI_2_420,AI_3_420').subscribe(
+    this.deviceService.getDeviceLastData(this.deviceId, 'PI_1,AI_1_420,AI_2_420,AI_3_420,Bat,DI_1_485').subscribe(
       (data) => {
-        // console.log(data);
-        // var deviceDataPI_1: DeviceData[] = data.data.PI_1;
-        var deviceDataAI_1_420: DeviceData[] = data.data.AI_1_420;
-        var deviceDataAI_2_420: DeviceData[] = data.data.AI_2_420;
-        var deviceDataAI_3_420: DeviceData[] = data.data.AI_3_420;
-        // var deviceDataBat: DeviceData[] = data.data.Bat;
-        // console.log(deviceData);
+        console.log(data);
+        this.lastDataPI_1 = data.data.PI_1;
+        this.lastDataAI_1_420 = data.data.AI_1_420;
+        this.lastDataAI_2_420 = data.data.AI_2_420;
+        this.lastDataAI_3_420 = data.data.AI_3_420;
+        this.lastDataDI_1_485 = data.data.DI_1_485;
+        this.lastDataBat = data.data.Bat;
 
-        //sort data
-        // deviceDataPI_1.sort((a, b) => {
-        //   const dateA = new Date(a.updated_at);
-        //   const dateB = new Date(b.updated_at);
-
-        //   if (!isNaN(dateA.getTime()) && !isNaN(dateB.getTime())) {
-        //     return dateA.getTime() - dateB.getTime();
-        //   } else {
-        //     // Handle cases where the date strings are invalid
-        //     return 0; // You can choose to handle this differently
-        //   }
-
-        // });
-        deviceDataAI_1_420.sort((a, b) => {
-          const dateA = new Date(a.updated_at);
-          const dateB = new Date(b.updated_at);
-
-          if (!isNaN(dateA.getTime()) && !isNaN(dateB.getTime())) {
-            return dateA.getTime() - dateB.getTime();
-          } else {
-            // Handle cases where the date strings are invalid
-            return 0; // You can choose to handle this differently
-          }
-
-        });
-        deviceDataAI_2_420.sort((a, b) => {
-          const dateA = new Date(a.updated_at);
-          const dateB = new Date(b.updated_at);
-
-          if (!isNaN(dateA.getTime()) && !isNaN(dateB.getTime())) {
-            return dateA.getTime() - dateB.getTime();
-          } else {
-            // Handle cases where the date strings are invalid
-            return 0; // You can choose to handle this differently
-          }
-
-        });
-        deviceDataAI_3_420.sort((a, b) => {
-          const dateA = new Date(a.updated_at);
-          const dateB = new Date(b.updated_at);
-
-          if (!isNaN(dateA.getTime()) && !isNaN(dateB.getTime())) {
-            return dateA.getTime() - dateB.getTime();
-          } else {
-            // Handle cases where the date strings are invalid
-            return 0; // You can choose to handle this differently
-          }
-
-        });
-        // deviceDataBat.sort((a, b) => {
-        //   const dateA = new Date(a.updated_at);
-        //   const dateB = new Date(b.updated_at);
-
-        //   if (!isNaN(dateA.getTime()) && !isNaN(dateB.getTime())) {
-        //     return dateA.getTime() - dateB.getTime();
-        //   } else {
-        //     // Handle cases where the date strings are invalid
-        //     return 0; // You can choose to handle this differently
-        //   }
-
-        // });
-
-        // if (deviceDataPI_1 && deviceDataPI_1.length > 0) {
-        //   this.lastDataPI_1 = deviceDataPI_1[deviceDataPI_1.length - 1];
-        //   // console.log(this.lastDataPI_1);
-        // } else {
-        //   // console.log('Data is empty.');
-        // }
-        if (deviceDataAI_1_420 && deviceDataAI_1_420.length > 0) {
-          this.lastDataAI_1_420 = deviceDataAI_1_420[deviceDataAI_1_420.length - 1];
-          // console.log(this.lastDataPI_2);
-        } else {
-          // console.log('Data is empty.');
-        }
-        if (deviceDataAI_2_420 && deviceDataAI_2_420.length > 0) {
-          this.lastDataAI_2_420 = deviceDataAI_2_420[deviceDataAI_2_420.length - 1];
-          // console.log(this.lastDataPI_3);
-        } else {
-          // console.log('Data is empty.');
-        }
-        if (deviceDataAI_3_420 && deviceDataAI_3_420.length > 0) {
-          this.lastDataAI_3_420 = deviceDataAI_3_420[deviceDataAI_3_420.length - 1];
-          // console.log(this.lastDataPI_4);
-        } else {
-          // console.log('Data is empty.');
-        }
-        // if (deviceDataBat && deviceDataBat.length > 0) {
-        //   this.lastDataBat = deviceDataBat[deviceDataBat.length - 1];
-        //   // console.log(this.lastDataBat);
-        // } else {
-        //   // console.log('Data is empty.');
-        // }
 
       },
       (error) => {
@@ -426,6 +348,14 @@ export class ControllIotComponent implements OnInit {
         console.log(error);
       }
     );
+  }
+
+  showClockTimeSetting(device_id: string) {
+    this.router.navigate(['/clock-timer', { device_id: device_id }]);
+  }
+
+  showThresholdSetting(device_id: string) {
+    this.router.navigate(['/threshold', { device_id: device_id }]);
   }
 
 }

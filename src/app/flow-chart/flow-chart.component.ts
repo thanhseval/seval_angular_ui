@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import {
   ApexAxisChartSeries,
   ApexChart,
@@ -14,6 +14,7 @@ import {
 import { dataSeries } from "./data-series";
 import { DeviceService } from '../_service/device.service';
 import { DeviceData } from '../_model/device_data.model';
+import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-flow-chart',
@@ -21,6 +22,8 @@ import { DeviceData } from '../_model/device_data.model';
   styleUrls: ['./flow-chart.component.css']
 })
 export class FlowChartComponent implements OnInit {
+  @Input() deviceId: string | undefined;
+
   public series!: ApexAxisChartSeries;
   public chart!: ApexChart;
   public dataLabels!: ApexDataLabels;
@@ -37,14 +40,87 @@ export class FlowChartComponent implements OnInit {
   dataPI_4: any;
   dataBat: any;
 
-  constructor(
+  range!: FormGroup;
+
+  constructor(private formBuilder: FormBuilder,
     private deviceService: DeviceService) {
     this.initChartData();
   }
 
   ngOnInit() {
-    this.updateDataAndChart(); // Call the updateDataAndChart() method when the component initializes
-    setInterval(() => this.updateDataAndChart(), 120000); // Update every 5 seconds
+    const today = new Date();
+
+    this.range = this.formBuilder.group({
+      start: new FormControl<Date | null>(today),
+      end: new FormControl<Date | null>(today),
+    });
+    this.getDataChart(this.range);
+    // this.updateDataAndChart(); // Call the updateDataAndChart() method when the component initializes
+    setInterval(() => this.getDataChart(this.range), 120000);
+    // this.updateDataAndChart(); // Call the updateDataAndChart() method when the component initializes
+    // setInterval(() => this.updateDataAndChart(), 120000); // Update every 5 seconds
+  }
+
+
+  submitDateRange() {
+    const startDate = this.range.get('start')?.value;
+    const endDate = this.range.get('end')?.value;
+
+    if (!startDate || !endDate) {
+      console.error('Invalid date range');
+      return;
+    }
+    this.getDataChart(this.range);
+    // Perform the desired action using the selected date range
+    // console.log('Selected date range:', startDate, endDate);
+  }
+
+  getDataChart(range: FormGroup) {
+    const startDate = range.get('start')?.value;
+    const endDate = range.get('end')?.value;
+    if (!startDate || !endDate) {
+      return; // Do nothing if no start or end date is specified
+    }
+
+    const formattedStartDate = new Date(startDate).toLocaleDateString('en-US', { timeZone: 'Asia/Ho_Chi_Minh' }) + 'T00:00:00Z';
+    const formattedEndDate = new Date(endDate).toLocaleDateString('en-US', { timeZone: 'Asia/Ho_Chi_Minh' }) + 'T23:59:59Z';
+    // console.log('Start date:', formattedStartDate);
+    // console.log('End date:', formattedEndDate);
+
+
+    const attributeFlow = 'PI_1';
+
+
+    // Query the database for data between the specified dates
+    this.deviceService.getDeviceData(this.deviceId, attributeFlow, formattedStartDate, formattedEndDate).subscribe(
+      (data) => {
+        var deviceDataPI_1: DeviceData[] = data.data.PI_1;
+
+        //sort data
+        deviceDataPI_1.sort((a, b) => {
+          const dateA = new Date(a.updated_at);
+          const dateB = new Date(b.updated_at);
+
+          if (!isNaN(dateA.getTime()) && !isNaN(dateB.getTime())) {
+            return dateA.getTime() - dateB.getTime();
+          } else {
+            // Handle cases where the date strings are invalid
+            return 0; // You can choose to handle this differently
+          }
+
+        });
+
+        this.dataPI_1 = deviceDataPI_1;
+        this.series = [
+          {
+            name: "Lưu lượng PI_1",
+            data: this.dataPI_1.map((entry: { updated_at: string | number | Date; value: any; }) => ({ x: new Date(entry.updated_at).getTime(), y: entry.value }))
+          }
+        ];
+      },
+      (error) => {
+        console.log(error);
+      });
   }
 
   // async loginAndGetToken(): Promise<string> {
@@ -65,77 +141,69 @@ export class FlowChartComponent implements OnInit {
   //   return response.data;
   // }
 
-  updateDataAndChart() {
-    try {
+  // updateDataAndChart() {
+  //   try {
 
-      // const token = await this.loginAndGetToken();
-      // const token = await this.userAuthService.getToken;
-      // console.log(token);
-      const deviceId = 'Device001';
-      // const attributePressure = 'AI_1,AI_2';
-      const attributeFlow = 'PI_1';
-      // const attributeFlow = 'AI_1_420,AI_2_420,AI_3_420,AI_4_420,Bat';
-      // const pressureData = await this.fetchData(token, deviceId, attributePressure);
-      // const flowData = await this.fetchData(token, deviceId, attributeFlow);
-      this.deviceService.getAllDeviceData(deviceId, attributeFlow).subscribe(
-        (data) => {
-          var deviceDataPI_1: DeviceData[] = data.data.PI_1;
+  //     // const token = await this.loginAndGetToken();
+  //     // const token = await this.userAuthService.getToken;
+  //     // console.log(token);
+  //     const deviceId = this.deviceId;
+  //     // const attributePressure = 'AI_1,AI_2';
+  //     const attributeFlow = 'PI_1';
+  //     // const attributeFlow = 'AI_1_420,AI_2_420,AI_3_420,AI_4_420,Bat';
+  //     // const pressureData = await this.fetchData(token, deviceId, attributePressure);
+  //     // const flowData = await this.fetchData(token, deviceId, attributeFlow);
+  //     this.deviceService.getAllDeviceData(deviceId, attributeFlow).subscribe(
+  //       (data) => {
+  //         var deviceDataPI_1: DeviceData[] = data.data.PI_1;
 
-          //sort data
-          deviceDataPI_1.sort((a, b) => {
-            const dateA = new Date(a.updated_at);
-            const dateB = new Date(b.updated_at);
+  //         //sort data
+  //         deviceDataPI_1.sort((a, b) => {
+  //           const dateA = new Date(a.updated_at);
+  //           const dateB = new Date(b.updated_at);
 
-            if (!isNaN(dateA.getTime()) && !isNaN(dateB.getTime())) {
-              return dateA.getTime() - dateB.getTime();
-            } else {
-              // Handle cases where the date strings are invalid
-              return 0; // You can choose to handle this differently
-            }
+  //           if (!isNaN(dateA.getTime()) && !isNaN(dateB.getTime())) {
+  //             return dateA.getTime() - dateB.getTime();
+  //           } else {
+  //             // Handle cases where the date strings are invalid
+  //             return 0; // You can choose to handle this differently
+  //           }
 
-          });
+  //         });
 
-          if (deviceDataPI_1.length > 100) {
-            deviceDataPI_1 = deviceDataPI_1.slice(-100);
-          }
+  //         if (deviceDataPI_1.length > 2900) {
+  //           deviceDataPI_1 = deviceDataPI_1.slice(-2900);
+  //         }
 
-          this.dataPI_1 = deviceDataPI_1;
-          this.series = [
-            {
-              name: "Lưu lượng PI_1",
-              data: this.dataPI_1.map((entry: { updated_at: string | number | Date; value: any; }) => ({ x: new Date(entry.updated_at).getTime(), y: entry.value }))
-            }
-          ];
-        },
-        (error) => {
-          console.log(error);
-        }
-      );
-      // Assuming the chart library uses updateSeries() method, adjust it as per your library
-      // this.series = [
-      //   { name: "PI_1", data: flowData.data?.PI_1.map((entry: { updated_at: string | number | Date; value: any; }) => ({ x: new Date(entry.updated_at).getTime(), y: entry.value })) },
-      //   { name: "PI_2", data: flowData.data?.PI_2.map((entry: { updated_at: string | number | Date; value: any; }) => ({ x: new Date(entry.updated_at).getTime(), y: entry.value })) }
-      // ];
+  //         this.dataPI_1 = deviceDataPI_1;
+  //         this.series = [
+  //           {
+  //             name: "Lưu lượng PI_1",
+  //             data: this.dataPI_1.map((entry: { updated_at: string | number | Date; value: any; }) => ({ x: new Date(entry.updated_at).getTime(), y: entry.value }))
+  //           }
+  //         ];
+  //       },
+  //       (error) => {
+  //         console.log(error);
+  //       }
+  //     );
+  //     // Assuming the chart library uses updateSeries() method, adjust it as per your library
+  //     // this.series = [
+  //     //   { name: "PI_1", data: flowData.data?.PI_1.map((entry: { updated_at: string | number | Date; value: any; }) => ({ x: new Date(entry.updated_at).getTime(), y: entry.value })) },
+  //     //   { name: "PI_2", data: flowData.data?.PI_2.map((entry: { updated_at: string | number | Date; value: any; }) => ({ x: new Date(entry.updated_at).getTime(), y: entry.value })) }
+  //     // ];
 
-      // Update the pressureChart series similarly
+  //     // Update the pressureChart series similarly
 
-    } catch (error) {
-      console.error('Data Error:', error);
-    }
-  }
+  //   } catch (error) {
+  //     console.error('Data Error:', error);
+  //   }
+  // }
   public initChartData(): void {
-    let ts2 = 1484418600000;
-    let dates = [];
-    for (let i = 0; i < 120; i++) {
-      ts2 = ts2 + 86400000;
-      dates.push([ts2, dataSeries[1][i].value]);
-    }
+
 
     this.series = [
-      {
-        name: "XYZ MOTORS",
-        data: dates
-      }
+
     ];
     this.chart = {
       type: "area",

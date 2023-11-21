@@ -2,34 +2,56 @@
     <div class="leftcolumn">
         <div class="card">
             <div class="lable_Status">
-                <h2>TRẠNG THÁI</h2>
+                <h2>Thiết bị SV3</h2>
             </div>
             <div class="container-fluid-1">
-                <div class="container_status">
-                    <p style="text-align: center; color: rgb(0, 0, 0)"> <b> THÔNG TIN TRẠM </b></p>
-                    <p style="text-align: left; color: rgb(255, 255, 255)"> Số trạm đang vận hành: 1</p>
-                    <p id="myStation"> </p>
+                <div class="container_status" *ngFor="let d of sv3List">
+                    <p style="font-size: large; text-align: center; color: rgb(0, 0, 0)"> <b>Thiết bị
+                            {{d.device_id}}</b></p>
+                    <!-- <p style="text-align: left; color: rgb(255, 255, 255)"> Số trạm đang vận hành: 1</p> -->
+                    <div class="d-flex justify-content-center">
+                        <button class="p-2" type="button" mat-raised-button color="warn"
+                            (click)="showControlDetails(d.device_id)">Xem chi
+                            tiết</button>
+                    </div>
                 </div>
 
-                <div class="container_status">
-                    <p style="text-align: center; color: rgb(0, 0, 0)"> <b> THÔNG TIN SỰ CỐ </b></p>
-                    <p style="text-align: left; color: rgb(255, 255, 255)"> Số trạm đang gặp sự cố: 0</p>
-                    <p id="myProlem"> </p>
+            </div>
+        </div>
+        <div class="card al">
+            <div class="lable_Status">
+                <h2>Thiết bị SV2</h2>
+            </div>
+            <div class="container-fluid-1">
+                <div class="container_status " *ngFor="let d of sv2List">
+                    <p style="font-size: large;text-align: center; color: rgb(0, 0, 0)"> <b>Thiết bị {{d.device_id}}</b>
+                    </p>
+                    <!-- <p style="text-align: left; color: rgb(255, 255, 255)"> Số trạm đang vận hành: 1</p> -->
+                    <div class="d-flex justify-content-center">
+                        <button class="p-2" type="button" mat-raised-button color="warn"
+                            (click)="showControlDetails(d.device_id)">Xem chi
+                            tiết</button>
+                    </div>
                 </div>
 
-                <div class="container_status">
-                    <p style="text-align: center; color: rgb(0, 0, 0)"> <b> THÔNG TIN ĐIỂM BẤT LỢI </b></p>
-                    <p style="text-align: left; color: rgb(255, 255, 255)"> Số trạm đang chạm điểm setpoint: 0</p>
-                    <p id="myPointBad"> </p>
-                </div>
             </div>
         </div>
         <div class="card">
             <div class="lable_Status">
-                <h2>THÔNG BÁO</h2>
+                <h2>Thiết bị SV1</h2>
             </div>
-            <div class="area-text">
-                
+            <div class="container-fluid-1">
+                <div class="container_status" *ngFor="let d of sv1List">
+                    <p style="font-size: large;text-align: center; color: rgb(0, 0, 0)"> <b>Thiết bị {{d.device_id}}</b>
+                    </p>
+                    <!-- <p style="text-align: left; color: rgb(255, 255, 255)"> Số trạm đang vận hành: 1</p> -->
+                    <div class="d-flex justify-content-center">
+                        <button class="p-2" type="button" mat-raised-button color="warn"
+                            (click)="showControlDetails(d.device_id)">Xem chi
+                            tiết</button>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>

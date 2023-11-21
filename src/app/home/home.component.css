@@ -47,7 +47,7 @@
 } */
 
 .container_status {
-    background: #757575;
+    background: #039BE5;
     width: 25%;
     margin: 1%;
     padding: 1%;
@@ -91,7 +91,7 @@
         padding: 0;
     }
     .container_status {
-        background: #757575;
+        background: #039BE5;
         width: 100%;
         margin: 1%;
         padding: 1%;

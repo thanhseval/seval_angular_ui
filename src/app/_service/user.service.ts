@@ -6,7 +6,8 @@ import { UserAuthService } from './user-auth.service';
   providedIn: 'root'
 })
 export class UserService {
-  PATH_OF_API = 'http://seval.ddns.net:80';
+  apiUrl = 'http://seval.ddns.net:80';
+  // apiUrl = 'https://seval.ddns.net:81';
 
   requestHeader = new HttpHeaders({ 'No-Auth': 'True' });
   constructor(
@@ -19,7 +20,7 @@ export class UserService {
   // // }
 
   public login(loginData: any) {
-    return this.httpclient.post(this.PATH_OF_API + '/users/login', loginData
+    return this.httpclient.post(this.apiUrl + '/users/login', loginData
       // , {
       //   headers: this.requestHeader,
       // }

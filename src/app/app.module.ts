@@ -40,6 +40,16 @@ import { AuthInterceptor } from './_auth/auth.interceptor';
 import { UserService } from './_service/user.service';
 import { ControllIotComponent } from './controll-iot/controll-iot.component';
 import { ThresholdComponent } from './threshold/threshold.component';
+import { ControllIot1Component } from './controll-iot1/controll-iot1.component';
+import { FlowChart1Component } from './flow-chart1/flow-chart1.component';
+import { PressureChart1Component } from './pressure-chart1/pressure-chart1.component';
+import { DatePipe } from '@angular/common';
+import { ReportDeviceComponent } from './report-device/report-device.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+
+
+
 // import { MqttModule, IMqttServiceOptions } from 'ngx-mqtt';
 
 // // MQTT broker options
@@ -71,6 +81,10 @@ import { ThresholdComponent } from './threshold/threshold.component';
     ControllerPumpComponent,
     ControllIotComponent,
     ThresholdComponent,
+    ControllIot1Component,
+    FlowChart1Component,
+    PressureChart1Component,
+    ReportDeviceComponent
   ],
   imports: [
     BrowserModule,
@@ -95,10 +109,13 @@ import { ThresholdComponent } from './threshold/threshold.component';
     MatSelectModule,
     MatNativeDateModule,
     RouterModule,
+    MatTableModule,
+    MatPaginatorModule,
     // MqttModule.forRoot(MQTT_SERVICE_OPTIONS),
 
   ],
   providers: [
+    DatePipe,
     AuthGuard,
     {
       provide: HTTP_INTERCEPTORS,

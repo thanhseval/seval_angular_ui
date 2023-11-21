@@ -9,6 +9,9 @@ import { ControllerPumpComponent } from './controller-pump/controller-pump.compo
 import { LoginComponent } from './login/login.component';
 import { ControllIotComponent } from './controll-iot/controll-iot.component';
 import { ThresholdComponent } from './threshold/threshold.component';
+import { ControllIot1Component } from './controll-iot1/controll-iot1.component';
+import { DeviceResolveService } from './_service/device-resolve.service';
+import { ReportDeviceComponent } from './report-device/report-device.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -18,8 +21,10 @@ const routes: Routes = [
   { path: 'map', component: MapComponent },
   { path: 'setting', component: SettingComponent },
   { path: 'controller-pump', component: ControllerPumpComponent },
-  { path: 'controller-iot', component: ControllIotComponent },
+  { path: 'controller-iot', component: ControllIotComponent , resolve: {device : DeviceResolveService}},
+  { path: 'controller-iot-1', component: ControllIot1Component },
   { path: 'threshold', component: ThresholdComponent },
+  { path: 'report-device', component: ReportDeviceComponent , resolve: {device : DeviceResolveService}},
 ];
 
 @NgModule({

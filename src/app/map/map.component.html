@@ -1,83 +1,75 @@
 <div class="container-fluid">
-    <!-- <div class="left-conlumn">
-        <table class="table1">
+    <div class="left-conlumn">
+        <table class="table1" *ngIf="refreshTable">
             <thead>
-                <th>Tổng sự cố trong ngày</th>
+                <th>Thông số thiết bị {{deviceId}}</th>
             </thead>
             <tbody>
-                <tr>1: Điểm chưa xử lý: 0</tr>
-                <tr>2: Điểm đã xử lý: 0</tr>
+                <tr>
+                    <td>Thông số</td>
+                    <td>Thời gian</td>
+                </tr>
+                <tr>
+                    <td>Áp suất trước van: {{lastDataAI_2_420?.value}} bar </td>
+                    <td>{{fmDateAI_2_420}}</td>
+                </tr>
+                <tr>
+                    <td>Áp suất sau van van: {{lastDataAI_3_420?.value}} bar </td>
+                    <td>{{fmDateAI_3_420}}</td>
+                </tr>
+                <tr>
+                    <td>Áp suất điểm bất lợi: {{lastDataAI_1_420?.value}} bar </td>
+                    <td>{{fmDateAI_1_420}}</td>
+                </tr>
+                <tr>
+                    <td>Lưu lượng: {{lastDataPI_1?.value}} m3/h </td>
+                    <td>{{fmDateDI_1_485}}</td>
+                </tr>
+                <tr>
+                    <td>Dung lượng pin: {{lastDataBat?.value}} % </td>
+                    <td>{{fmDateBat}}</td>
+                </tr>
+                <tr>
+                    <td>
+                        <button mat-stroked-button (click)="showReport(deviceId)">Xem báo cáo</button>
+                    </td>
+                    <td>
+                        <button mat-stroked-button (click)="showControlDetails(deviceId)">Xem chi tiết</button>
+                    </td>
+                </tr>
             </tbody>
         </table>
-        <table class="table2">
+        <table class="table1" *ngIf="!refreshTable">
             <thead>
-                <th>Tổng sự cố trong tháng</th>
+                <th>Thông số thiết bị</th>
             </thead>
             <tbody>
-                <tr>1: Điểm chưa xử lý: 0</tr>
-                <tr>2: Điểm đã xử lý: 0</tr>
-            </tbody>
-        </table>
-        <table class="table3">
-            <thead>
-                <th>Xuất sự cố theo thời gian</th>
-            </thead>
-            <tbody>
-                <tr>1: Điểm chưa xử lý: 0</tr>
-                <tr>2: Điểm đã xử lý: 0</tr>
-                <tr>3: Vật tư sử dụng: 0</tr>
-            </tbody>
-        </table>
-        <table class="table4">
-            <thead>
-                <th>Cảnh báo điểm sự cố</th>
-            </thead>
-            <tbody>
-                <tr>1: Điểm vượt thời gian xử lý: 0</tr>
-                <tr>2: Điểm trở ngại: 0</tr>
+                <!-- <tr>Áp suất trước van: {{lastDataAI_2_420?.value}}</tr>
+                <tr>Áp suất sau van van: {{lastDataAI_3_420?.value}}</tr>
+                <tr>Áp suất điểm bất lợi: {{lastDataAI_1_420?.value}}</tr>
+                <tr>Lưu lượng: {{lastDataPI_1?.value}}</tr>
+                <tr>Dung lượng pin: {{lastDataBat?.value}}</tr> -->
             </tbody>
         </table>
     </div>
     <div class="right-column">
-        <div class="button-control">
+        <!-- <div class="button-control">
             <button mat-stroked-button (click)="openDialogAddNewProblem()">Thêm điểm sự cố</button>
             <button mat-stroked-button (click)="openDialogSearchProblem()">Tìm kiếm</button>
             <button mat-stroked-button (click)="openDialogReportProblem()">Báo cáo sự cố</button>
             <button mat-stroked-button>Chi tiết vật tư</button>
         </div> -->
-    <div class="map-title">
-        <div class="lab">
-            <div class="circle black" style="margin-left: 5%;"></div>
-            <span class="circle-label">Đồng hồ lưu lượng</span>
+        <div class="map-title">
+            <div class="circle normal" style="margin-left: 5%;"></div>
+            <span class="circle-label">Bình thường</span>
+            <div class="circle warning"></div>
+            <span class="circle-label">Cảnh báo</span>
+            <div class="circle error"></div>
+            <span class="circle-label">Lỗi</span>
         </div>
-        <div class="lab">
-            <div class="circle yellow"></div>
-            <span class="circle-label">Đồng hồ lưu lượng tổng</span>
+        <div id="map" class="map-container" leaflet [leafletOptions]="options" (leafletMapReady)="onMapReady($event)"
+            (leafletClick)="mapClicked($event)">
         </div>
-        <div class="lab">
-            <div class="circle green"></div>
-            <span class="circle-label">Đồng hồ lưu lượng khu vực</span>
-        </div>
-        <div class="lab">
-            <div class="square blue"></div>
-            <span class="circle-label">Van cách ly</span>
-        </div>
-        <div class="lab">
-            <div class="square red"></div>
-            <span class="circle-label">Điểm bất lợi</span>
-        </div>
-        <div class="lab">
-            <div><img src="assets/img/Van.png" alt="Van giảm áp"></div>
-            <span class="circle-label">Van giảm áp</span>
-        </div>
-        <div class="lab">
-            <div><img src="assets/img/van bướm.jpg" alt="Van bướm"></div>
-            <span class="circle-label">Van bướm</span>
-        </div>
-    </div>
-    <div id="map" class="map-container" leaflet [leafletOptions]="options" (leafletMapReady)="onMapReady($event)"
-        (leafletClick)="mapClicked($event)">
-    </div>
 
-    <!-- </div> -->
+    </div>
 </div>

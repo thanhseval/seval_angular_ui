@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { DeviceService } from '../_service/device.service';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -13,6 +13,8 @@ import { ThresholdData } from '../_model/threshold_data.model';
   styleUrls: ['./threshold.component.css']
 })
 export class ThresholdComponent implements OnInit {
+  @Input() deviceId: string | undefined;
+
   selected = 'option2';
   selected1 = 'option2';
   scheduleData: any[] = [];
@@ -120,10 +122,10 @@ export class ThresholdComponent implements OnInit {
         this.array = [];
         response.forEach(d => this.array.push(d));
         this.array.forEach(element => {
-          if (this.DO_04_Status === 'OFF' && element.th1 >= this.lastDataAI_3_420.value && element.th1 !== '') {
+          if (this.DO_04_Status === 'OFF' && element.th1 >= this.lastDataAI_1_420.value && element.th1 !== '') {
             this.control('DO_4_ON');
           }
-          if (this.DO_03_Status === 'OFF' && element.th1 < this.lastDataAI_3_420.value && element.th1 !== '') {
+          if (this.DO_03_Status === 'OFF' && element.th1 < this.lastDataAI_1_420.value && element.th1 !== '') {
             this.control('DO_3_ON');
           }
           if (this.DO_5_Status === 'OFF' && element.th2 >= this.lastDataAI_3_420.value && element.th2 !== '') {
@@ -141,38 +143,22 @@ export class ThresholdComponent implements OnInit {
   }
 
   getData(attribute: string): Observable<any> {
-    const deviceId = '8C-F3-19-3B-2E-B9';
+    // const deviceId = '8C-F3-19-3B-2E-B9';
     // const attribute = 'PI_1,PI_2';
 
-    return this.deviceService.getAllDeviceData(deviceId, attribute);
+    return this.deviceService.getAllDeviceData(this.deviceId, attribute);
   }
 
   getLatestData() {
-    this.getData('AI_1_420').subscribe(
+    this.deviceService.getDeviceLastData(this.deviceId, 'PI_1,AI_1_420,AI_2_420,AI_3_420,Bat').subscribe(
       (data) => {
         // console.log(data);
-        var deviceDataAI_3_420: DeviceData[] = data.data.AI_1_420;
-        // console.log(deviceData);
+        this.lastDataPI_1 = data.data.PI_1;
+        this.lastDataAI_1_420 = data.data.AI_1_420;
+        this.lastDataAI_2_420 = data.data.AI_2_420;
+        this.lastDataAI_3_420 = data.data.AI_3_420;
+        this.lastDataBat = data.data.Bat;
 
-        //sort data
-        deviceDataAI_3_420.sort((a, b) => {
-          const dateA = new Date(a.updated_at);
-          const dateB = new Date(b.updated_at);
-
-          if (!isNaN(dateA.getTime()) && !isNaN(dateB.getTime())) {
-            return dateA.getTime() - dateB.getTime();
-          } else {
-            // Handle cases where the date strings are invalid
-            return 0; // You can choose to handle this differently
-          }
-
-        });
-        if (deviceDataAI_3_420 && deviceDataAI_3_420.length > 0) {
-          this.lastDataAI_3_420 = deviceDataAI_3_420[deviceDataAI_3_420.length - 1];
-          // console.log(this.lastDataPI_4);
-        } else {
-          // console.log('Data is empty.');
-        }
 
       },
       (error) => {
@@ -183,7 +169,7 @@ export class ThresholdComponent implements OnInit {
   }
 
   control(action: string) {
-    this.deviceService.sendDataDeviceSV3(action).subscribe(
+    this.deviceService.sendDataDeviceSV3(this.deviceId, action).subscribe(
       (res) => {
         console.log(res);
       },
@@ -233,9 +219,8 @@ export class ThresholdComponent implements OnInit {
         console.log(err);
       }
     )
-    const deviceId1 = 'Device001';
     const keys1 = 'DO_3,DO_4';
-    this.deviceService.getDeviceStatus(deviceId1, keys1).subscribe(
+    this.deviceService.getDeviceStatus(this.deviceId, keys1).subscribe(
       (res) => {
         // console.log(res);
         this.DO_03_Status = res.data.DO_3.status;
